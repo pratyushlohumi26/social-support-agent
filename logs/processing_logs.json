@@ -1,0 +1,510 @@
+{
+  "metadata": {
+    "generated_date": "2025-09-29T12:59:08.814407",
+    "total_entries": 50,
+    "time_period": "Last 30 days",
+    "log_type": "AI Processing Logs"
+  },
+  "logs": [
+    {
+      "log_id": "LOG_20250929_0001",
+      "timestamp": "2025-09-20T04:59:08.812895",
+      "application_id": "UAE-2024-000149",
+      "action": "approval_processed",
+      "details": "Processing log entry 1 - automated system action",
+      "processing_time_seconds": 17,
+      "user_type": "system",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0002",
+      "timestamp": "2025-09-20T17:59:08.813125",
+      "application_id": "UAE-2024-000105",
+      "action": "case_assigned",
+      "details": "Processing log entry 2 - automated system action",
+      "processing_time_seconds": 45,
+      "user_type": "system",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0003",
+      "timestamp": "2025-09-01T14:59:08.813259",
+      "application_id": "UAE-2024-000082",
+      "action": "ai_assessment_completed",
+      "details": "Processing log entry 3 - automated system action",
+      "processing_time_seconds": 32,
+      "user_type": "admin",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0004",
+      "timestamp": "2025-09-15T13:59:08.813289",
+      "application_id": "UAE-2024-000123",
+      "action": "ai_assessment_completed",
+      "details": "Processing log entry 4 - automated system action",
+      "processing_time_seconds": 15,
+      "user_type": "system",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0005",
+      "timestamp": "2025-09-20T20:59:08.813311",
+      "application_id": "UAE-2024-000135",
+      "action": "case_assigned",
+      "details": "Processing log entry 5 - automated system action",
+      "processing_time_seconds": 18,
+      "user_type": "case_worker",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0006",
+      "timestamp": "2025-09-25T07:59:08.813503",
+      "application_id": "UAE-2024-000108",
+      "action": "approval_processed",
+      "details": "Processing log entry 6 - automated system action",
+      "processing_time_seconds": 40,
+      "user_type": "case_worker",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0007",
+      "timestamp": "2025-09-26T08:59:08.813522",
+      "application_id": "UAE-2024-000031",
+      "action": "document_reviewed",
+      "details": "Processing log entry 7 - automated system action",
+      "processing_time_seconds": 31,
+      "user_type": "admin",
+      "result": "requires_attention"
+    },
+    {
+      "log_id": "LOG_20250929_0008",
+      "timestamp": "2025-09-07T22:59:08.813540",
+      "application_id": "UAE-2024-000101",
+      "action": "status_updated",
+      "details": "Processing log entry 8 - automated system action",
+      "processing_time_seconds": 6,
+      "user_type": "system",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0009",
+      "timestamp": "2025-09-28T11:59:08.813557",
+      "application_id": "UAE-2024-000108",
+      "action": "case_assigned",
+      "details": "Processing log entry 9 - automated system action",
+      "processing_time_seconds": 38,
+      "user_type": "case_worker",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0010",
+      "timestamp": "2025-09-13T03:59:08.813575",
+      "application_id": "UAE-2024-000111",
+      "action": "document_reviewed",
+      "details": "Processing log entry 10 - automated system action",
+      "processing_time_seconds": 35,
+      "user_type": "case_worker",
+      "result": "requires_attention"
+    },
+    {
+      "log_id": "LOG_20250929_0011",
+      "timestamp": "2025-09-22T17:59:08.813590",
+      "application_id": "UAE-2024-000084",
+      "action": "approval_processed",
+      "details": "Processing log entry 11 - automated system action",
+      "processing_time_seconds": 34,
+      "user_type": "case_worker",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0012",
+      "timestamp": "2025-09-04T11:59:08.813607",
+      "application_id": "UAE-2024-000036",
+      "action": "ai_assessment_completed",
+      "details": "Processing log entry 12 - automated system action",
+      "processing_time_seconds": 17,
+      "user_type": "case_worker",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0013",
+      "timestamp": "2025-09-18T16:59:08.813623",
+      "application_id": "UAE-2024-000139",
+      "action": "status_updated",
+      "details": "Processing log entry 13 - automated system action",
+      "processing_time_seconds": 18,
+      "user_type": "admin",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0014",
+      "timestamp": "2025-09-28T06:59:08.813638",
+      "application_id": "UAE-2024-000043",
+      "action": "ai_assessment_completed",
+      "details": "Processing log entry 14 - automated system action",
+      "processing_time_seconds": 28,
+      "user_type": "case_worker",
+      "result": "requires_attention"
+    },
+    {
+      "log_id": "LOG_20250929_0015",
+      "timestamp": "2025-09-25T20:59:08.813655",
+      "application_id": "UAE-2024-000071",
+      "action": "case_assigned",
+      "details": "Processing log entry 15 - automated system action",
+      "processing_time_seconds": 37,
+      "user_type": "admin",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0016",
+      "timestamp": "2025-08-30T19:59:08.813670",
+      "application_id": "UAE-2024-000103",
+      "action": "case_assigned",
+      "details": "Processing log entry 16 - automated system action",
+      "processing_time_seconds": 24,
+      "user_type": "system",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0017",
+      "timestamp": "2025-09-03T20:59:08.813686",
+      "application_id": "UAE-2024-000030",
+      "action": "approval_processed",
+      "details": "Processing log entry 17 - automated system action",
+      "processing_time_seconds": 35,
+      "user_type": "case_worker",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0018",
+      "timestamp": "2025-09-24T17:59:08.813702",
+      "application_id": "UAE-2024-000065",
+      "action": "document_reviewed",
+      "details": "Processing log entry 18 - automated system action",
+      "processing_time_seconds": 14,
+      "user_type": "case_worker",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0019",
+      "timestamp": "2025-09-16T22:59:08.813718",
+      "application_id": "UAE-2024-000006",
+      "action": "approval_processed",
+      "details": "Processing log entry 19 - automated system action",
+      "processing_time_seconds": 32,
+      "user_type": "system",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0020",
+      "timestamp": "2025-09-05T17:59:08.813847",
+      "application_id": "UAE-2024-000106",
+      "action": "approval_processed",
+      "details": "Processing log entry 20 - automated system action",
+      "processing_time_seconds": 37,
+      "user_type": "admin",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0021",
+      "timestamp": "2025-09-08T18:59:08.813883",
+      "application_id": "UAE-2024-000011",
+      "action": "document_reviewed",
+      "details": "Processing log entry 21 - automated system action",
+      "processing_time_seconds": 8,
+      "user_type": "admin",
+      "result": "requires_attention"
+    },
+    {
+      "log_id": "LOG_20250929_0022",
+      "timestamp": "2025-08-31T08:59:08.813898",
+      "application_id": "UAE-2024-000106",
+      "action": "status_updated",
+      "details": "Processing log entry 22 - automated system action",
+      "processing_time_seconds": 8,
+      "user_type": "case_worker",
+      "result": "requires_attention"
+    },
+    {
+      "log_id": "LOG_20250929_0023",
+      "timestamp": "2025-09-21T11:59:08.813912",
+      "application_id": "UAE-2024-000132",
+      "action": "approval_processed",
+      "details": "Processing log entry 23 - automated system action",
+      "processing_time_seconds": 35,
+      "user_type": "admin",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0024",
+      "timestamp": "2025-09-04T03:59:08.813926",
+      "application_id": "UAE-2024-000143",
+      "action": "ai_assessment_completed",
+      "details": "Processing log entry 24 - automated system action",
+      "processing_time_seconds": 21,
+      "user_type": "case_worker",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0025",
+      "timestamp": "2025-09-21T02:59:08.813939",
+      "application_id": "UAE-2024-000019",
+      "action": "document_reviewed",
+      "details": "Processing log entry 25 - automated system action",
+      "processing_time_seconds": 33,
+      "user_type": "system",
+      "result": "requires_attention"
+    },
+    {
+      "log_id": "LOG_20250929_0026",
+      "timestamp": "2025-09-01T18:59:08.813955",
+      "application_id": "UAE-2024-000062",
+      "action": "approval_processed",
+      "details": "Processing log entry 26 - automated system action",
+      "processing_time_seconds": 27,
+      "user_type": "system",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0027",
+      "timestamp": "2025-09-17T18:59:08.813970",
+      "application_id": "UAE-2024-000120",
+      "action": "ai_assessment_completed",
+      "details": "Processing log entry 27 - automated system action",
+      "processing_time_seconds": 5,
+      "user_type": "system",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0028",
+      "timestamp": "2025-09-03T03:59:08.813985",
+      "application_id": "UAE-2024-000133",
+      "action": "document_reviewed",
+      "details": "Processing log entry 28 - automated system action",
+      "processing_time_seconds": 28,
+      "user_type": "admin",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0029",
+      "timestamp": "2025-09-18T21:59:08.814007",
+      "application_id": "UAE-2024-000011",
+      "action": "case_assigned",
+      "details": "Processing log entry 29 - automated system action",
+      "processing_time_seconds": 20,
+      "user_type": "admin",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0030",
+      "timestamp": "2025-09-09T15:59:08.814022",
+      "application_id": "UAE-2024-000080",
+      "action": "ai_assessment_completed",
+      "details": "Processing log entry 30 - automated system action",
+      "processing_time_seconds": 5,
+      "user_type": "system",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0031",
+      "timestamp": "2025-09-01T14:59:08.814037",
+      "application_id": "UAE-2024-000018",
+      "action": "ai_assessment_completed",
+      "details": "Processing log entry 31 - automated system action",
+      "processing_time_seconds": 8,
+      "user_type": "system",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0032",
+      "timestamp": "2025-09-06T13:59:08.814052",
+      "application_id": "UAE-2024-000083",
+      "action": "case_assigned",
+      "details": "Processing log entry 32 - automated system action",
+      "processing_time_seconds": 38,
+      "user_type": "admin",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0033",
+      "timestamp": "2025-09-07T00:59:08.814066",
+      "application_id": "UAE-2024-000138",
+      "action": "document_reviewed",
+      "details": "Processing log entry 33 - automated system action",
+      "processing_time_seconds": 15,
+      "user_type": "admin",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0034",
+      "timestamp": "2025-09-01T22:59:08.814082",
+      "application_id": "UAE-2024-000052",
+      "action": "case_assigned",
+      "details": "Processing log entry 34 - automated system action",
+      "processing_time_seconds": 25,
+      "user_type": "admin",
+      "result": "requires_attention"
+    },
+    {
+      "log_id": "LOG_20250929_0035",
+      "timestamp": "2025-09-08T16:59:08.814097",
+      "application_id": "UAE-2024-000075",
+      "action": "approval_processed",
+      "details": "Processing log entry 35 - automated system action",
+      "processing_time_seconds": 35,
+      "user_type": "admin",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0036",
+      "timestamp": "2025-09-06T20:59:08.814111",
+      "application_id": "UAE-2024-000110",
+      "action": "status_updated",
+      "details": "Processing log entry 36 - automated system action",
+      "processing_time_seconds": 15,
+      "user_type": "system",
+      "result": "requires_attention"
+    },
+    {
+      "log_id": "LOG_20250929_0037",
+      "timestamp": "2025-09-28T12:59:08.814125",
+      "application_id": "UAE-2024-000041",
+      "action": "ai_assessment_completed",
+      "details": "Processing log entry 37 - automated system action",
+      "processing_time_seconds": 25,
+      "user_type": "case_worker",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0038",
+      "timestamp": "2025-09-15T19:59:08.814140",
+      "application_id": "UAE-2024-000138",
+      "action": "status_updated",
+      "details": "Processing log entry 38 - automated system action",
+      "processing_time_seconds": 22,
+      "user_type": "system",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0039",
+      "timestamp": "2025-09-08T21:59:08.814155",
+      "application_id": "UAE-2024-000139",
+      "action": "status_updated",
+      "details": "Processing log entry 39 - automated system action",
+      "processing_time_seconds": 43,
+      "user_type": "system",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0040",
+      "timestamp": "2025-09-27T19:59:08.814169",
+      "application_id": "UAE-2024-000125",
+      "action": "document_reviewed",
+      "details": "Processing log entry 40 - automated system action",
+      "processing_time_seconds": 13,
+      "user_type": "system",
+      "result": "requires_attention"
+    },
+    {
+      "log_id": "LOG_20250929_0041",
+      "timestamp": "2025-09-09T09:59:08.814184",
+      "application_id": "UAE-2024-000040",
+      "action": "approval_processed",
+      "details": "Processing log entry 41 - automated system action",
+      "processing_time_seconds": 19,
+      "user_type": "case_worker",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0042",
+      "timestamp": "2025-09-28T15:59:08.814199",
+      "application_id": "UAE-2024-000012",
+      "action": "approval_processed",
+      "details": "Processing log entry 42 - automated system action",
+      "processing_time_seconds": 27,
+      "user_type": "system",
+      "result": "requires_attention"
+    },
+    {
+      "log_id": "LOG_20250929_0043",
+      "timestamp": "2025-09-11T19:59:08.814215",
+      "application_id": "UAE-2024-000023",
+      "action": "case_assigned",
+      "details": "Processing log entry 43 - automated system action",
+      "processing_time_seconds": 24,
+      "user_type": "case_worker",
+      "result": "requires_attention"
+    },
+    {
+      "log_id": "LOG_20250929_0044",
+      "timestamp": "2025-09-12T09:59:08.814230",
+      "application_id": "UAE-2024-000027",
+      "action": "document_reviewed",
+      "details": "Processing log entry 44 - automated system action",
+      "processing_time_seconds": 8,
+      "user_type": "case_worker",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0045",
+      "timestamp": "2025-09-19T07:59:08.814244",
+      "application_id": "UAE-2024-000108",
+      "action": "status_updated",
+      "details": "Processing log entry 45 - automated system action",
+      "processing_time_seconds": 22,
+      "user_type": "system",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0046",
+      "timestamp": "2025-09-03T09:59:08.814258",
+      "application_id": "UAE-2024-000116",
+      "action": "ai_assessment_completed",
+      "details": "Processing log entry 46 - automated system action",
+      "processing_time_seconds": 9,
+      "user_type": "admin",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0047",
+      "timestamp": "2025-09-21T05:59:08.814272",
+      "application_id": "UAE-2024-000100",
+      "action": "case_assigned",
+      "details": "Processing log entry 47 - automated system action",
+      "processing_time_seconds": 45,
+      "user_type": "case_worker",
+      "result": "pending"
+    },
+    {
+      "log_id": "LOG_20250929_0048",
+      "timestamp": "2025-09-17T07:59:08.814286",
+      "application_id": "UAE-2024-000028",
+      "action": "approval_processed",
+      "details": "Processing log entry 48 - automated system action",
+      "processing_time_seconds": 18,
+      "user_type": "admin",
+      "result": "requires_attention"
+    },
+    {
+      "log_id": "LOG_20250929_0049",
+      "timestamp": "2025-09-06T19:59:08.814300",
+      "application_id": "UAE-2024-000146",
+      "action": "ai_assessment_completed",
+      "details": "Processing log entry 49 - automated system action",
+      "processing_time_seconds": 10,
+      "user_type": "case_worker",
+      "result": "success"
+    },
+    {
+      "log_id": "LOG_20250929_0050",
+      "timestamp": "2025-09-17T20:59:08.814393",
+      "application_id": "UAE-2024-000009",
+      "action": "approval_processed",
+      "details": "Processing log entry 50 - automated system action",
+      "processing_time_seconds": 41,
+      "user_type": "case_worker",
+      "result": "success"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "api_version": "1.0.0",
+  "base_url": "https://api.uae-social-support.gov.ae/v1",
+  "authentication": "Bearer Token",
+  "endpoints": [
+    {
+      "path": "/applications",
+      "method": "GET",
+      "description": "Get all applications with optional filtering",
+      "parameters": {
+        "status": "Filter by processing status",
+        "emirate": "Filter by emirate",
+        "support_type": "Filter by support type",
+        "page": "Page number for pagination",
+        "limit": "Number of items per page"
+      },
+      "response_format": "JSON array of application objects"
+    },
+    {
+      "path": "/applications/{id}",
+      "method": "GET",
+      "description": "Get specific application by ID",
+      "parameters": {
+        "id": "Application ID (required)"
+      },
+      "response_format": "JSON application object"
+    },
+    {
+      "path": "/applications",
+      "method": "POST",
+      "description": "Submit new application",
+      "body_format": "JSON application object",
+      "response_format": "JSON with application ID and status"
+    },
+    {
+      "path": "/applications/{id}/assess",
+      "method": "POST",
+      "description": "Run AI assessment on application",
+      "parameters": {
+        "id": "Application ID (required)"
+      },
+      "response_format": "JSON assessment result"
+    },
+    {
+      "path": "/training-programs",
+      "method": "GET",
+      "description": "Get available training programs",
+      "parameters": {
+        "category": "Filter by program category"
+      },
+      "response_format": "JSON array of program objects"
+    },
+    {
+      "path": "/case-workers",
+      "method": "GET",
+      "description": "Get case worker information",
+      "parameters": {
+        "department": "Filter by department"
+      },
+      "response_format": "JSON array of case worker objects"
+    },
+    {
+      "path": "/analytics/dashboard",
+      "method": "GET",
+      "description": "Get dashboard analytics data",
+      "response_format": "JSON analytics object"
+    }
+  ],
+  "error_codes": {
+    "400": "Bad Request - Invalid input",
+    "401": "Unauthorized - Invalid or missing token",
+    "403": "Forbidden - Insufficient permissions",
+    "404": "Not Found - Resource not found",
+    "429": "Too Many Requests - Rate limit exceeded",
+    "500": "Internal Server Error"
+  }
+}

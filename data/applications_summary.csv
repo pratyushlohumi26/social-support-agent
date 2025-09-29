@@ -1,0 +1,151 @@
+application_id,submission_date,full_name,emirate,nationality,family_size,dependents,employment_status,monthly_salary,support_type,urgency_level,amount_requested,processing_status,case_worker_id
+UAE-2024-000001,2024-11-18,Applicant 1,dubai,Lebanese,2,2,Employed,10584,emergency_support,high,8706,Documents Required,CW1001
+UAE-2024-000002,2025-08-11,Applicant 2,ajman,Indian,6,3,Unemployed,6468,both,critical,36299,Documents Required,CW1048
+UAE-2024-000003,2025-04-16,Applicant 3,umm_al_quwain,Pakistani,1,0,Self-Employed,327,financial_assistance,critical,22494,Assessment,CW1031
+UAE-2024-000004,2025-02-19,Applicant 4,dubai,Egyptian,5,2,Retired,11143,emergency_support,critical,21988,Assessment,CW1012
+UAE-2024-000005,2025-02-13,Applicant 5,ajman,Pakistani,6,1,Unemployed,25832,financial_assistance,high,6049,Under Review,CW1018
+UAE-2024-000006,2024-11-18,Applicant 6,umm_al_quwain,Indian,2,6,Retired,20261,career_development,medium,8761,Approved,CW1009
+UAE-2024-000007,2025-03-01,Applicant 7,fujairah,Syrian,5,5,Self-Employed,19488,emergency_support,high,12169,Assessment,CW1010
+UAE-2024-000008,2024-12-27,Applicant 8,fujairah,UAE,3,2,Unemployed,30380,financial_assistance,critical,19194,Submitted,CW1039
+UAE-2024-000009,2025-06-29,Applicant 9,umm_al_quwain,UAE,4,4,Retired,31155,emergency_support,high,20171,Conditional Approval,CW1002
+UAE-2024-000010,2025-02-25,Applicant 10,umm_al_quwain,Egyptian,5,6,Unemployed,4541,career_development,medium,46583,Declined,CW1023
+UAE-2024-000011,2025-07-10,Applicant 11,ras_al_khaimah,Filipino,2,4,Retired,25140,career_development,critical,38587,Conditional Approval,CW1038
+UAE-2024-000012,2024-12-22,Applicant 12,fujairah,Egyptian,8,1,Unemployed,27748,career_development,low,39595,Under Review,CW1006
+UAE-2024-000013,2025-04-04,Applicant 13,abu_dhabi,UAE,5,5,Self-Employed,7111,financial_assistance,critical,25649,Documents Required,CW1018
+UAE-2024-000014,2025-02-23,Applicant 14,abu_dhabi,UAE,3,1,Employed,12107,career_development,medium,43516,Conditional Approval,CW1027
+UAE-2024-000015,2024-10-13,Applicant 15,ajman,Indian,8,5,Unemployed,7741,career_development,medium,22446,Declined,CW1050
+UAE-2024-000016,2025-02-03,Applicant 16,sharjah,Syrian,1,0,Unemployed,31141,emergency_support,medium,33573,Declined,CW1040
+UAE-2024-000017,2025-07-02,Applicant 17,umm_al_quwain,Pakistani,8,2,Self-Employed,29636,career_development,critical,16580,Conditional Approval,CW1004
+UAE-2024-000018,2025-02-20,Applicant 18,abu_dhabi,Indian,7,5,Employed,1541,emergency_support,high,47375,Conditional Approval,CW1017
+UAE-2024-000019,2025-05-17,Applicant 19,fujairah,Lebanese,3,1,Employed,9923,both,critical,30012,Assessment,CW1026
+UAE-2024-000020,2025-05-27,Applicant 20,umm_al_quwain,Indian,3,5,Employed,9558,career_development,low,36003,Submitted,CW1019
+UAE-2024-000021,2024-11-05,Applicant 21,umm_al_quwain,UAE,4,3,Self-Employed,24019,economic_enablement,high,17917,Conditional Approval,CW1044
+UAE-2024-000022,2025-03-03,Applicant 22,dubai,Pakistani,8,4,Retired,27118,emergency_support,medium,38077,Submitted,CW1049
+UAE-2024-000023,2025-08-02,Applicant 23,ajman,UAE,4,3,Unemployed,17742,economic_enablement,high,33098,Conditional Approval,CW1035
+UAE-2024-000024,2025-04-09,Applicant 24,umm_al_quwain,Bangladeshi,5,5,Retired,9405,emergency_support,medium,47677,Submitted,CW1027
+UAE-2024-000025,2024-11-20,Applicant 25,sharjah,Pakistani,5,5,Employed,22327,career_development,critical,25692,Approved,CW1006
+UAE-2024-000026,2024-10-02,Applicant 26,ajman,Syrian,4,0,Unemployed,4630,both,low,35459,Approved,CW1020
+UAE-2024-000027,2024-12-31,Applicant 27,dubai,Pakistani,8,0,Unemployed,29081,economic_enablement,low,36274,Approved,CW1029
+UAE-2024-000028,2025-05-21,Applicant 28,sharjah,Pakistani,1,5,Unemployed,18740,economic_enablement,critical,14940,Approved,CW1046
+UAE-2024-000029,2025-05-18,Applicant 29,abu_dhabi,Egyptian,1,5,Retired,19048,career_development,high,32725,Approved,CW1012
+UAE-2024-000030,2025-02-14,Applicant 30,dubai,Syrian,5,6,Retired,251,economic_enablement,high,41696,Under Review,CW1040
+UAE-2024-000031,2025-07-11,Applicant 31,sharjah,Syrian,7,0,Self-Employed,21468,career_development,high,14176,Declined,CW1013
+UAE-2024-000032,2025-01-15,Applicant 32,ajman,Pakistani,8,6,Retired,11790,both,low,49337,Documents Required,CW1005
+UAE-2024-000033,2024-10-08,Applicant 33,fujairah,UAE,2,2,Retired,23973,emergency_support,critical,8696,Documents Required,CW1017
+UAE-2024-000034,2024-10-27,Applicant 34,abu_dhabi,Pakistani,8,3,Unemployed,6786,emergency_support,low,38639,Documents Required,CW1028
+UAE-2024-000035,2024-10-19,Applicant 35,fujairah,Lebanese,2,6,Unemployed,23466,economic_enablement,critical,20156,Documents Required,CW1045
+UAE-2024-000036,2025-09-14,Applicant 36,dubai,Syrian,5,1,Unemployed,14402,economic_enablement,high,18701,Documents Required,CW1031
+UAE-2024-000037,2025-07-10,Applicant 37,abu_dhabi,Syrian,7,3,Employed,19716,financial_assistance,medium,14693,Approved,CW1049
+UAE-2024-000038,2024-12-11,Applicant 38,umm_al_quwain,Pakistani,8,0,Unemployed,22756,economic_enablement,medium,14639,Under Review,CW1028
+UAE-2024-000039,2025-02-11,Applicant 39,abu_dhabi,UAE,2,5,Retired,34720,both,critical,42923,Assessment,CW1042
+UAE-2024-000040,2024-12-31,Applicant 40,ras_al_khaimah,Pakistani,8,2,Self-Employed,8032,emergency_support,medium,33595,Under Review,CW1034
+UAE-2024-000041,2024-11-18,Applicant 41,abu_dhabi,Egyptian,6,2,Employed,32680,financial_assistance,low,17940,Assessment,CW1040
+UAE-2024-000042,2024-11-09,Applicant 42,ras_al_khaimah,Syrian,5,6,Employed,16096,both,high,20210,Under Review,CW1040
+UAE-2024-000043,2025-05-29,Applicant 43,sharjah,Syrian,7,5,Self-Employed,19413,career_development,high,43966,Documents Required,CW1048
+UAE-2024-000044,2025-04-20,Applicant 44,sharjah,Filipino,2,4,Employed,13832,career_development,critical,26138,Approved,CW1016
+UAE-2024-000045,2025-07-26,Applicant 45,umm_al_quwain,Indian,2,5,Self-Employed,21269,financial_assistance,critical,36705,Approved,CW1033
+UAE-2024-000046,2025-05-02,Applicant 46,ras_al_khaimah,UAE,1,0,Employed,24385,career_development,high,35541,Under Review,CW1004
+UAE-2024-000047,2025-08-12,Applicant 47,abu_dhabi,UAE,4,0,Unemployed,13874,financial_assistance,medium,32173,Assessment,CW1033
+UAE-2024-000048,2025-08-18,Applicant 48,ras_al_khaimah,Filipino,4,0,Employed,2571,emergency_support,high,34567,Declined,CW1014
+UAE-2024-000049,2025-07-05,Applicant 49,sharjah,UAE,6,2,Retired,26059,both,low,36547,Approved,CW1026
+UAE-2024-000050,2024-12-13,Applicant 50,dubai,Syrian,6,0,Unemployed,13136,career_development,medium,8179,Approved,CW1004
+UAE-2024-000051,2025-02-01,Applicant 51,abu_dhabi,Indian,6,4,Unemployed,24784,financial_assistance,low,18330,Approved,CW1037
+UAE-2024-000052,2025-09-19,Applicant 52,umm_al_quwain,UAE,6,6,Unemployed,27066,career_development,critical,28856,Conditional Approval,CW1037
+UAE-2024-000053,2025-01-08,Applicant 53,ras_al_khaimah,Filipino,7,5,Unemployed,17779,economic_enablement,low,13049,Approved,CW1044
+UAE-2024-000054,2025-02-27,Applicant 54,fujairah,Bangladeshi,1,0,Retired,13295,both,low,13290,Under Review,CW1037
+UAE-2024-000055,2025-01-31,Applicant 55,dubai,Lebanese,3,2,Employed,30036,economic_enablement,high,18370,Declined,CW1022
+UAE-2024-000056,2025-01-15,Applicant 56,ajman,Lebanese,3,4,Unemployed,2888,economic_enablement,critical,7559,Documents Required,CW1035
+UAE-2024-000057,2025-07-04,Applicant 57,sharjah,Indian,8,2,Employed,21638,both,high,17035,Declined,CW1022
+UAE-2024-000058,2025-07-23,Applicant 58,dubai,Lebanese,5,2,Unemployed,16902,career_development,critical,33712,Declined,CW1050
+UAE-2024-000059,2025-02-18,Applicant 59,sharjah,Indian,6,4,Retired,24840,both,high,17417,Conditional Approval,CW1043
+UAE-2024-000060,2025-06-08,Applicant 60,abu_dhabi,UAE,2,6,Self-Employed,21884,financial_assistance,high,19293,Documents Required,CW1045
+UAE-2024-000061,2024-12-02,Applicant 61,ajman,Pakistani,6,1,Employed,7914,both,medium,36957,Approved,CW1011
+UAE-2024-000062,2025-01-05,Applicant 62,sharjah,UAE,6,0,Unemployed,15408,financial_assistance,critical,15019,Approved,CW1041
+UAE-2024-000063,2025-05-19,Applicant 63,ras_al_khaimah,Filipino,6,4,Unemployed,34505,economic_enablement,critical,11419,Declined,CW1002
+UAE-2024-000064,2024-11-01,Applicant 64,ajman,Syrian,2,4,Self-Employed,6847,financial_assistance,critical,46395,Assessment,CW1012
+UAE-2024-000065,2025-08-19,Applicant 65,ras_al_khaimah,Pakistani,4,6,Retired,17859,career_development,critical,16958,Documents Required,CW1028
+UAE-2024-000066,2025-03-19,Applicant 66,fujairah,Bangladeshi,7,1,Retired,1445,economic_enablement,high,25204,Declined,CW1033
+UAE-2024-000067,2025-09-17,Applicant 67,ras_al_khaimah,Indian,6,3,Self-Employed,33094,career_development,medium,6314,Under Review,CW1013
+UAE-2024-000068,2024-11-15,Applicant 68,ajman,Filipino,2,4,Employed,6116,financial_assistance,high,27133,Approved,CW1043
+UAE-2024-000069,2025-04-16,Applicant 69,ras_al_khaimah,Lebanese,4,2,Employed,12367,emergency_support,low,44170,Submitted,CW1024
+UAE-2024-000070,2025-03-07,Applicant 70,abu_dhabi,Filipino,1,4,Retired,3722,career_development,critical,12346,Conditional Approval,CW1002
+UAE-2024-000071,2024-11-03,Applicant 71,dubai,Filipino,4,3,Retired,2806,emergency_support,critical,39249,Conditional Approval,CW1042
+UAE-2024-000072,2025-01-30,Applicant 72,sharjah,Syrian,6,4,Self-Employed,3926,emergency_support,medium,18888,Declined,CW1048
+UAE-2024-000073,2025-04-10,Applicant 73,sharjah,Egyptian,5,2,Self-Employed,22545,career_development,high,25936,Assessment,CW1031
+UAE-2024-000074,2025-07-27,Applicant 74,umm_al_quwain,Syrian,2,5,Unemployed,8053,economic_enablement,critical,41134,Approved,CW1042
+UAE-2024-000075,2024-10-17,Applicant 75,sharjah,Egyptian,1,4,Employed,16093,economic_enablement,low,36357,Declined,CW1027
+UAE-2024-000076,2025-03-28,Applicant 76,umm_al_quwain,Indian,8,4,Unemployed,5058,emergency_support,low,40388,Assessment,CW1039
+UAE-2024-000077,2024-11-18,Applicant 77,umm_al_quwain,Egyptian,1,3,Employed,33483,emergency_support,medium,18564,Declined,CW1029
+UAE-2024-000078,2025-01-12,Applicant 78,abu_dhabi,Egyptian,7,5,Retired,27257,emergency_support,high,26463,Declined,CW1010
+UAE-2024-000079,2025-02-17,Applicant 79,ajman,UAE,3,4,Employed,9714,emergency_support,high,48857,Under Review,CW1008
+UAE-2024-000080,2025-06-17,Applicant 80,sharjah,Bangladeshi,8,4,Retired,1252,economic_enablement,medium,33488,Conditional Approval,CW1015
+UAE-2024-000081,2025-02-02,Applicant 81,abu_dhabi,Bangladeshi,6,2,Retired,5765,economic_enablement,low,13848,Approved,CW1037
+UAE-2024-000082,2025-04-11,Applicant 82,ajman,Indian,1,6,Employed,11136,financial_assistance,medium,16313,Under Review,CW1036
+UAE-2024-000083,2025-08-18,Applicant 83,abu_dhabi,Indian,2,1,Employed,2786,emergency_support,critical,11329,Approved,CW1014
+UAE-2024-000084,2025-01-23,Applicant 84,abu_dhabi,UAE,5,4,Unemployed,22808,financial_assistance,high,39440,Submitted,CW1027
+UAE-2024-000085,2025-05-05,Applicant 85,umm_al_quwain,UAE,8,2,Self-Employed,7927,financial_assistance,low,28955,Under Review,CW1032
+UAE-2024-000086,2025-09-11,Applicant 86,abu_dhabi,Bangladeshi,3,3,Self-Employed,33896,emergency_support,low,12537,Approved,CW1012
+UAE-2024-000087,2025-05-22,Applicant 87,dubai,Syrian,2,6,Unemployed,23390,financial_assistance,critical,8662,Submitted,CW1048
+UAE-2024-000088,2025-05-26,Applicant 88,ras_al_khaimah,Pakistani,7,5,Self-Employed,20872,emergency_support,high,6366,Under Review,CW1023
+UAE-2024-000089,2025-02-27,Applicant 89,abu_dhabi,Pakistani,4,4,Retired,27276,financial_assistance,low,19674,Submitted,CW1034
+UAE-2024-000090,2025-06-11,Applicant 90,fujairah,Egyptian,8,4,Retired,11175,career_development,low,37206,Under Review,CW1023
+UAE-2024-000091,2025-01-11,Applicant 91,sharjah,Indian,1,2,Self-Employed,2355,both,low,28374,Under Review,CW1004
+UAE-2024-000092,2025-07-23,Applicant 92,ras_al_khaimah,Egyptian,5,1,Employed,11511,financial_assistance,medium,49768,Assessment,CW1009
+UAE-2024-000093,2025-04-04,Applicant 93,ras_al_khaimah,Filipino,3,2,Employed,1899,career_development,critical,46052,Under Review,CW1032
+UAE-2024-000094,2025-02-10,Applicant 94,umm_al_quwain,Pakistani,6,0,Employed,11306,emergency_support,medium,21087,Documents Required,CW1016
+UAE-2024-000095,2025-01-11,Applicant 95,ajman,Lebanese,3,0,Unemployed,23743,emergency_support,low,24395,Submitted,CW1009
+UAE-2024-000096,2025-08-20,Applicant 96,ajman,UAE,8,4,Retired,20094,emergency_support,low,23431,Under Review,CW1010
+UAE-2024-000097,2025-05-03,Applicant 97,ras_al_khaimah,Pakistani,5,3,Retired,11535,career_development,medium,38588,Conditional Approval,CW1006
+UAE-2024-000098,2025-08-23,Applicant 98,ras_al_khaimah,Pakistani,4,2,Retired,24303,career_development,medium,33461,Under Review,CW1019
+UAE-2024-000099,2025-06-30,Applicant 99,fujairah,UAE,8,5,Retired,22856,both,critical,39926,Documents Required,CW1035
+UAE-2024-000100,2025-09-27,Applicant 100,dubai,Filipino,4,2,Employed,15709,emergency_support,high,29337,Assessment,CW1039
+UAE-2024-000101,2025-08-15,Applicant 101,abu_dhabi,Indian,1,5,Employed,15501,financial_assistance,medium,15773,Submitted,CW1030
+UAE-2024-000102,2025-01-05,Applicant 102,ras_al_khaimah,Syrian,3,1,Retired,9615,financial_assistance,medium,19087,Assessment,CW1022
+UAE-2024-000103,2024-10-27,Applicant 103,ras_al_khaimah,Egyptian,6,4,Retired,3362,both,critical,26375,Approved,CW1012
+UAE-2024-000104,2025-01-18,Applicant 104,umm_al_quwain,Filipino,8,2,Unemployed,19821,financial_assistance,high,33887,Submitted,CW1021
+UAE-2024-000105,2024-12-06,Applicant 105,ras_al_khaimah,Syrian,3,1,Self-Employed,22796,economic_enablement,high,32032,Assessment,CW1050
+UAE-2024-000106,2025-02-17,Applicant 106,ras_al_khaimah,Lebanese,1,2,Self-Employed,7704,economic_enablement,high,25286,Approved,CW1001
+UAE-2024-000107,2024-11-17,Applicant 107,umm_al_quwain,Indian,1,0,Self-Employed,1462,economic_enablement,low,38831,Assessment,CW1035
+UAE-2024-000108,2025-02-01,Applicant 108,ras_al_khaimah,Egyptian,8,0,Employed,6004,both,low,49709,Declined,CW1038
+UAE-2024-000109,2025-02-10,Applicant 109,fujairah,Egyptian,7,3,Unemployed,31316,economic_enablement,medium,33778,Approved,CW1007
+UAE-2024-000110,2024-12-18,Applicant 110,dubai,Pakistani,4,4,Self-Employed,19317,career_development,low,36918,Conditional Approval,CW1050
+UAE-2024-000111,2025-01-27,Applicant 111,abu_dhabi,Syrian,2,5,Self-Employed,19768,career_development,medium,23438,Documents Required,CW1017
+UAE-2024-000112,2025-09-06,Applicant 112,fujairah,Syrian,4,0,Employed,32929,financial_assistance,low,29171,Documents Required,CW1043
+UAE-2024-000113,2024-12-02,Applicant 113,ras_al_khaimah,Bangladeshi,6,6,Unemployed,23260,emergency_support,low,5194,Approved,CW1028
+UAE-2024-000114,2025-02-08,Applicant 114,ajman,Egyptian,1,6,Unemployed,21323,both,critical,30159,Under Review,CW1012
+UAE-2024-000115,2025-02-16,Applicant 115,ras_al_khaimah,Syrian,7,4,Employed,16799,emergency_support,low,14002,Documents Required,CW1049
+UAE-2024-000116,2025-04-07,Applicant 116,abu_dhabi,Lebanese,4,2,Employed,11610,emergency_support,medium,6230,Submitted,CW1037
+UAE-2024-000117,2025-04-07,Applicant 117,fujairah,Indian,4,1,Retired,15582,career_development,medium,27530,Assessment,CW1024
+UAE-2024-000118,2025-08-16,Applicant 118,ras_al_khaimah,Filipino,2,3,Retired,29945,emergency_support,medium,17277,Assessment,CW1018
+UAE-2024-000119,2025-09-04,Applicant 119,umm_al_quwain,Pakistani,7,1,Unemployed,3855,emergency_support,high,46660,Approved,CW1010
+UAE-2024-000120,2025-03-20,Applicant 120,sharjah,UAE,6,0,Self-Employed,28525,economic_enablement,high,17935,Assessment,CW1044
+UAE-2024-000121,2024-10-21,Applicant 121,ajman,Filipino,4,0,Self-Employed,28647,financial_assistance,medium,32595,Declined,CW1001
+UAE-2024-000122,2025-05-13,Applicant 122,fujairah,Indian,8,3,Employed,1225,both,critical,25746,Conditional Approval,CW1006
+UAE-2024-000123,2025-08-23,Applicant 123,umm_al_quwain,Lebanese,1,2,Retired,8157,emergency_support,medium,41900,Documents Required,CW1036
+UAE-2024-000124,2025-02-09,Applicant 124,sharjah,Bangladeshi,1,5,Employed,253,career_development,high,45524,Approved,CW1040
+UAE-2024-000125,2025-07-15,Applicant 125,umm_al_quwain,Indian,6,5,Retired,26285,both,low,13564,Submitted,CW1002
+UAE-2024-000126,2025-05-28,Applicant 126,abu_dhabi,Filipino,5,4,Self-Employed,3132,career_development,critical,6723,Under Review,CW1005
+UAE-2024-000127,2025-05-25,Applicant 127,ajman,Pakistani,6,3,Unemployed,30674,financial_assistance,high,48195,Conditional Approval,CW1038
+UAE-2024-000128,2025-09-27,Applicant 128,fujairah,Indian,8,1,Retired,8515,emergency_support,critical,49348,Assessment,CW1045
+UAE-2024-000129,2025-02-16,Applicant 129,ras_al_khaimah,UAE,1,4,Employed,5285,both,low,49310,Documents Required,CW1003
+UAE-2024-000130,2025-09-11,Applicant 130,fujairah,Pakistani,1,1,Employed,420,economic_enablement,critical,13350,Under Review,CW1019
+UAE-2024-000131,2025-04-21,Applicant 131,ajman,Filipino,3,2,Employed,26972,economic_enablement,low,41056,Submitted,CW1011
+UAE-2024-000132,2024-09-30,Applicant 132,abu_dhabi,Indian,4,2,Retired,10972,both,low,34389,Approved,CW1006
+UAE-2024-000133,2025-04-11,Applicant 133,fujairah,Indian,8,1,Self-Employed,14872,economic_enablement,critical,41962,Approved,CW1019
+UAE-2024-000134,2025-02-06,Applicant 134,fujairah,Bangladeshi,8,5,Self-Employed,25367,financial_assistance,low,27211,Submitted,CW1034
+UAE-2024-000135,2025-04-07,Applicant 135,umm_al_quwain,Lebanese,6,2,Retired,27470,emergency_support,low,5013,Documents Required,CW1009
+UAE-2024-000136,2025-08-28,Applicant 136,dubai,Lebanese,5,2,Retired,8137,both,medium,7234,Declined,CW1045
+UAE-2024-000137,2025-04-08,Applicant 137,abu_dhabi,Filipino,3,5,Self-Employed,26370,economic_enablement,low,46659,Approved,CW1028
+UAE-2024-000138,2024-11-10,Applicant 138,sharjah,Pakistani,1,6,Unemployed,11394,financial_assistance,critical,28555,Under Review,CW1012
+UAE-2024-000139,2025-02-14,Applicant 139,ras_al_khaimah,Pakistani,7,5,Self-Employed,24126,both,critical,11373,Under Review,CW1048
+UAE-2024-000140,2025-09-24,Applicant 140,sharjah,Filipino,3,3,Retired,28893,both,critical,38384,Assessment,CW1032
+UAE-2024-000141,2025-09-22,Applicant 141,fujairah,Bangladeshi,5,1,Unemployed,13318,career_development,high,22296,Under Review,CW1039
+UAE-2024-000142,2024-12-01,Applicant 142,ras_al_khaimah,Syrian,3,3,Employed,10655,career_development,high,30384,Under Review,CW1014
+UAE-2024-000143,2024-10-26,Applicant 143,abu_dhabi,Syrian,6,4,Retired,20380,emergency_support,medium,27388,Under Review,CW1029
+UAE-2024-000144,2024-12-07,Applicant 144,dubai,Filipino,8,0,Self-Employed,34259,economic_enablement,critical,30800,Conditional Approval,CW1046
+UAE-2024-000145,2024-12-18,Applicant 145,umm_al_quwain,Lebanese,4,1,Self-Employed,500,financial_assistance,medium,23520,Conditional Approval,CW1043
+UAE-2024-000146,2025-03-29,Applicant 146,ajman,Egyptian,5,6,Retired,23935,both,high,5871,Assessment,CW1006
+UAE-2024-000147,2024-12-28,Applicant 147,umm_al_quwain,Bangladeshi,6,5,Unemployed,21349,career_development,medium,6429,Approved,CW1035
+UAE-2024-000148,2025-01-03,Applicant 148,ras_al_khaimah,UAE,2,0,Employed,6864,career_development,medium,38958,Assessment,CW1015
+UAE-2024-000149,2024-10-06,Applicant 149,ras_al_khaimah,Lebanese,1,0,Self-Employed,1941,emergency_support,high,10743,Assessment,CW1035
+UAE-2024-000150,2025-02-01,Applicant 150,sharjah,Syrian,2,5,Employed,10980,financial_assistance,low,16407,Approved,CW1044

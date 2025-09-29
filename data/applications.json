@@ -1,0 +1,4960 @@
+{
+  "metadata": {
+    "generated_date": "2025-09-29T12:59:08.782056",
+    "total_records": 150,
+    "data_version": "1.0.0",
+    "description": "UAE Social Support Applications Database - Synthetic Data"
+  },
+  "applications": [
+    {
+      "application_id": "UAE-2024-000001",
+      "submission_date": "2024-11-18T12:57:30.686520",
+      "personal_info": {
+        "full_name": "Applicant 1",
+        "emirates_id": "784-1998-3485804-7",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "dubai",
+        "family_size": 2,
+        "dependents": 2,
+        "mobile_number": "+971558620880",
+        "marital_status": "Single",
+        "email": "applicant1@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 1",
+        "job_title": "Position 1",
+        "monthly_salary": 10584,
+        "years_of_experience": 2
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "high",
+        "amount_requested": 8706,
+        "reason_for_support": "Support request reason for application 1",
+        "career_goals": null
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1001",
+      "processing_notes": "Processing notes and AI assessment for application 1"
+    },
+    {
+      "application_id": "UAE-2024-000002",
+      "submission_date": "2025-08-11T12:57:30.686583",
+      "personal_info": {
+        "full_name": "Applicant 2",
+        "emirates_id": "784-1997-5855014-5",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 6,
+        "dependents": 3,
+        "mobile_number": "+971542929927",
+        "marital_status": "Single",
+        "email": "applicant2@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 2",
+        "job_title": "Position 2",
+        "monthly_salary": 6468,
+        "years_of_experience": 4
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "critical",
+        "amount_requested": 36299,
+        "reason_for_support": "Support request reason for application 2",
+        "career_goals": "Career development goals for applicant 2"
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1048",
+      "processing_notes": "Processing notes and AI assessment for application 2"
+    },
+    {
+      "application_id": "UAE-2024-000003",
+      "submission_date": "2025-04-16T12:57:30.686614",
+      "personal_info": {
+        "full_name": "Applicant 3",
+        "emirates_id": "784-1972-5982372-5",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 1,
+        "dependents": 0,
+        "mobile_number": "+971550029226",
+        "marital_status": "Married",
+        "email": "applicant3@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 3",
+        "job_title": "Position 3",
+        "monthly_salary": 327,
+        "years_of_experience": 25
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "critical",
+        "amount_requested": 22494,
+        "reason_for_support": "Support request reason for application 3",
+        "career_goals": "Career development goals for applicant 3"
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1031",
+      "processing_notes": "Processing notes and AI assessment for application 3"
+    },
+    {
+      "application_id": "UAE-2024-000004",
+      "submission_date": "2025-02-19T12:57:30.686638",
+      "personal_info": {
+        "full_name": "Applicant 4",
+        "emirates_id": "784-2002-5085566-9",
+        "nationality": "Egyptian",
+        "residency_status": "Resident",
+        "emirate": "dubai",
+        "family_size": 5,
+        "dependents": 2,
+        "mobile_number": "+971538789449",
+        "marital_status": "Widowed",
+        "email": "applicant4@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 4",
+        "job_title": null,
+        "monthly_salary": 11143,
+        "years_of_experience": 24
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "critical",
+        "amount_requested": 21988,
+        "reason_for_support": "Support request reason for application 4",
+        "career_goals": "Career development goals for applicant 4"
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1012",
+      "processing_notes": "Processing notes and AI assessment for application 4"
+    },
+    {
+      "application_id": "UAE-2024-000005",
+      "submission_date": "2025-02-13T12:57:30.686659",
+      "personal_info": {
+        "full_name": "Applicant 5",
+        "emirates_id": "784-1982-4080714-2",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 6,
+        "dependents": 1,
+        "mobile_number": "+971545421256",
+        "marital_status": "Single",
+        "email": "applicant5@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": null,
+        "job_title": "Position 5",
+        "monthly_salary": 25832,
+        "years_of_experience": 13
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "high",
+        "amount_requested": 6049,
+        "reason_for_support": "Support request reason for application 5",
+        "career_goals": "Career development goals for applicant 5"
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1018",
+      "processing_notes": "Processing notes and AI assessment for application 5"
+    },
+    {
+      "application_id": "UAE-2024-000006",
+      "submission_date": "2024-11-18T12:57:30.686681",
+      "personal_info": {
+        "full_name": "Applicant 6",
+        "emirates_id": "784-1987-6838056-3",
+        "nationality": "Indian",
+        "residency_status": "Citizen",
+        "emirate": "umm_al_quwain",
+        "family_size": 2,
+        "dependents": 6,
+        "mobile_number": "+971555142845",
+        "marital_status": "Single",
+        "email": "applicant6@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": null,
+        "job_title": "Position 6",
+        "monthly_salary": 20261,
+        "years_of_experience": 15
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "medium",
+        "amount_requested": 8761,
+        "reason_for_support": "Support request reason for application 6",
+        "career_goals": "Career development goals for applicant 6"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1009",
+      "processing_notes": "Processing notes and AI assessment for application 6"
+    },
+    {
+      "application_id": "UAE-2024-000007",
+      "submission_date": "2025-03-01T12:57:30.686703",
+      "personal_info": {
+        "full_name": "Applicant 7",
+        "emirates_id": "784-1998-4201339-2",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 5,
+        "dependents": 5,
+        "mobile_number": "+971540073705",
+        "marital_status": "Widowed",
+        "email": "applicant7@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 7",
+        "job_title": "Position 7",
+        "monthly_salary": 19488,
+        "years_of_experience": 14
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "high",
+        "amount_requested": 12169,
+        "reason_for_support": "Support request reason for application 7",
+        "career_goals": "Career development goals for applicant 7"
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1010",
+      "processing_notes": "Processing notes and AI assessment for application 7"
+    },
+    {
+      "application_id": "UAE-2024-000008",
+      "submission_date": "2024-12-27T12:57:30.686730",
+      "personal_info": {
+        "full_name": "Applicant 8",
+        "emirates_id": "784-1985-7269981-1",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 3,
+        "dependents": 2,
+        "mobile_number": "+971537333370",
+        "marital_status": "Widowed",
+        "email": "applicant8@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 8",
+        "job_title": null,
+        "monthly_salary": 30380,
+        "years_of_experience": 23
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "critical",
+        "amount_requested": 19194,
+        "reason_for_support": "Support request reason for application 8",
+        "career_goals": null
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1039",
+      "processing_notes": "Processing notes and AI assessment for application 8"
+    },
+    {
+      "application_id": "UAE-2024-000009",
+      "submission_date": "2025-06-29T12:57:30.686750",
+      "personal_info": {
+        "full_name": "Applicant 9",
+        "emirates_id": "784-1994-2030459-8",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 4,
+        "dependents": 4,
+        "mobile_number": "+971549329949",
+        "marital_status": "Single",
+        "email": "applicant9@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 9",
+        "job_title": "Position 9",
+        "monthly_salary": 31155,
+        "years_of_experience": 6
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "high",
+        "amount_requested": 20171,
+        "reason_for_support": "Support request reason for application 9",
+        "career_goals": null
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1002",
+      "processing_notes": "Processing notes and AI assessment for application 9"
+    },
+    {
+      "application_id": "UAE-2024-000010",
+      "submission_date": "2025-02-25T12:57:30.686769",
+      "personal_info": {
+        "full_name": "Applicant 10",
+        "emirates_id": "784-1988-2591234-4",
+        "nationality": "Egyptian",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 5,
+        "dependents": 6,
+        "mobile_number": "+971559355656",
+        "marital_status": "Single",
+        "email": "applicant10@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 10",
+        "job_title": "Position 10",
+        "monthly_salary": 4541,
+        "years_of_experience": 22
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "medium",
+        "amount_requested": 46583,
+        "reason_for_support": "Support request reason for application 10",
+        "career_goals": null
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1023",
+      "processing_notes": "Processing notes and AI assessment for application 10"
+    },
+    {
+      "application_id": "UAE-2024-000011",
+      "submission_date": "2025-07-10T12:57:30.686802",
+      "personal_info": {
+        "full_name": "Applicant 11",
+        "emirates_id": "784-2004-9318543-7",
+        "nationality": "Filipino",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 2,
+        "dependents": 4,
+        "mobile_number": "+971548133771",
+        "marital_status": "Widowed",
+        "email": "applicant11@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 11",
+        "job_title": null,
+        "monthly_salary": 25140,
+        "years_of_experience": 16
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "critical",
+        "amount_requested": 38587,
+        "reason_for_support": "Support request reason for application 11",
+        "career_goals": null
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1038",
+      "processing_notes": "Processing notes and AI assessment for application 11"
+    },
+    {
+      "application_id": "UAE-2024-000012",
+      "submission_date": "2024-12-22T12:57:30.686823",
+      "personal_info": {
+        "full_name": "Applicant 12",
+        "emirates_id": "784-1975-4185713-9",
+        "nationality": "Egyptian",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 8,
+        "dependents": 1,
+        "mobile_number": "+971588127487",
+        "marital_status": "Widowed",
+        "email": "applicant12@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 12",
+        "job_title": "Position 12",
+        "monthly_salary": 27748,
+        "years_of_experience": 4
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "low",
+        "amount_requested": 39595,
+        "reason_for_support": "Support request reason for application 12",
+        "career_goals": null
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1006",
+      "processing_notes": "Processing notes and AI assessment for application 12"
+    },
+    {
+      "application_id": "UAE-2024-000013",
+      "submission_date": "2025-04-04T12:57:30.686842",
+      "personal_info": {
+        "full_name": "Applicant 13",
+        "emirates_id": "784-1990-7181466-6",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 5,
+        "dependents": 5,
+        "mobile_number": "+971581204762",
+        "marital_status": "Widowed",
+        "email": "applicant13@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 13",
+        "job_title": "Position 13",
+        "monthly_salary": 7111,
+        "years_of_experience": 3
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "critical",
+        "amount_requested": 25649,
+        "reason_for_support": "Support request reason for application 13",
+        "career_goals": "Career development goals for applicant 13"
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1018",
+      "processing_notes": "Processing notes and AI assessment for application 13"
+    },
+    {
+      "application_id": "UAE-2024-000014",
+      "submission_date": "2025-02-23T12:57:30.686863",
+      "personal_info": {
+        "full_name": "Applicant 14",
+        "emirates_id": "784-1985-8600307-2",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 3,
+        "dependents": 1,
+        "mobile_number": "+971542876564",
+        "marital_status": "Single",
+        "email": "applicant14@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": null,
+        "monthly_salary": 12107,
+        "years_of_experience": 1
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "medium",
+        "amount_requested": 43516,
+        "reason_for_support": "Support request reason for application 14",
+        "career_goals": "Career development goals for applicant 14"
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1027",
+      "processing_notes": "Processing notes and AI assessment for application 14"
+    },
+    {
+      "application_id": "UAE-2024-000015",
+      "submission_date": "2024-10-13T12:57:30.686885",
+      "personal_info": {
+        "full_name": "Applicant 15",
+        "emirates_id": "784-1996-4094616-6",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 8,
+        "dependents": 5,
+        "mobile_number": "+971574330189",
+        "marital_status": "Married",
+        "email": "applicant15@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": null,
+        "job_title": "Position 15",
+        "monthly_salary": 7741,
+        "years_of_experience": 10
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "medium",
+        "amount_requested": 22446,
+        "reason_for_support": "Support request reason for application 15",
+        "career_goals": null
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1050",
+      "processing_notes": "Processing notes and AI assessment for application 15"
+    },
+    {
+      "application_id": "UAE-2024-000016",
+      "submission_date": "2025-02-03T12:57:30.686909",
+      "personal_info": {
+        "full_name": "Applicant 16",
+        "emirates_id": "784-2002-7947474-9",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 1,
+        "dependents": 0,
+        "mobile_number": "+971580886663",
+        "marital_status": "Single",
+        "email": "applicant16@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 16",
+        "job_title": "Position 16",
+        "monthly_salary": 31141,
+        "years_of_experience": 11
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "medium",
+        "amount_requested": 33573,
+        "reason_for_support": "Support request reason for application 16",
+        "career_goals": "Career development goals for applicant 16"
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1040",
+      "processing_notes": "Processing notes and AI assessment for application 16"
+    },
+    {
+      "application_id": "UAE-2024-000017",
+      "submission_date": "2025-07-02T12:57:30.686937",
+      "personal_info": {
+        "full_name": "Applicant 17",
+        "emirates_id": "784-1989-3702146-6",
+        "nationality": "Pakistani",
+        "residency_status": "Citizen",
+        "emirate": "umm_al_quwain",
+        "family_size": 8,
+        "dependents": 2,
+        "mobile_number": "+971595408086",
+        "marital_status": "Married",
+        "email": "applicant17@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 17",
+        "job_title": null,
+        "monthly_salary": 29636,
+        "years_of_experience": 14
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "critical",
+        "amount_requested": 16580,
+        "reason_for_support": "Support request reason for application 17",
+        "career_goals": "Career development goals for applicant 17"
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1004",
+      "processing_notes": "Processing notes and AI assessment for application 17"
+    },
+    {
+      "application_id": "UAE-2024-000018",
+      "submission_date": "2025-02-20T12:57:30.686965",
+      "personal_info": {
+        "full_name": "Applicant 18",
+        "emirates_id": "784-2005-1532580-2",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 7,
+        "dependents": 5,
+        "mobile_number": "+971502252352",
+        "marital_status": "Widowed",
+        "email": "applicant18@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": "Position 18",
+        "monthly_salary": 1541,
+        "years_of_experience": 22
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "high",
+        "amount_requested": 47375,
+        "reason_for_support": "Support request reason for application 18",
+        "career_goals": "Career development goals for applicant 18"
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1017",
+      "processing_notes": "Processing notes and AI assessment for application 18"
+    },
+    {
+      "application_id": "UAE-2024-000019",
+      "submission_date": "2025-05-17T12:57:30.686984",
+      "personal_info": {
+        "full_name": "Applicant 19",
+        "emirates_id": "784-1978-1002692-5",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 3,
+        "dependents": 1,
+        "mobile_number": "+971580001792",
+        "marital_status": "Widowed",
+        "email": "applicant19@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": null,
+        "monthly_salary": 9923,
+        "years_of_experience": 13
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "critical",
+        "amount_requested": 30012,
+        "reason_for_support": "Support request reason for application 19",
+        "career_goals": "Career development goals for applicant 19"
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1026",
+      "processing_notes": "Processing notes and AI assessment for application 19"
+    },
+    {
+      "application_id": "UAE-2024-000020",
+      "submission_date": "2025-05-27T12:57:30.687004",
+      "personal_info": {
+        "full_name": "Applicant 20",
+        "emirates_id": "784-2003-6886855-6",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 3,
+        "dependents": 5,
+        "mobile_number": "+971577744531",
+        "marital_status": "Divorced",
+        "email": "applicant20@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 20",
+        "job_title": null,
+        "monthly_salary": 9558,
+        "years_of_experience": 7
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "low",
+        "amount_requested": 36003,
+        "reason_for_support": "Support request reason for application 20",
+        "career_goals": "Career development goals for applicant 20"
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1019",
+      "processing_notes": "Processing notes and AI assessment for application 20"
+    },
+    {
+      "application_id": "UAE-2024-000021",
+      "submission_date": "2024-11-05T12:57:30.687026",
+      "personal_info": {
+        "full_name": "Applicant 21",
+        "emirates_id": "784-1980-6320811-5",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 4,
+        "dependents": 3,
+        "mobile_number": "+971534753413",
+        "marital_status": "Divorced",
+        "email": "applicant21@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 21",
+        "job_title": "Position 21",
+        "monthly_salary": 24019,
+        "years_of_experience": 2
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "high",
+        "amount_requested": 17917,
+        "reason_for_support": "Support request reason for application 21",
+        "career_goals": null
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1044",
+      "processing_notes": "Processing notes and AI assessment for application 21"
+    },
+    {
+      "application_id": "UAE-2024-000022",
+      "submission_date": "2025-03-03T12:57:30.687049",
+      "personal_info": {
+        "full_name": "Applicant 22",
+        "emirates_id": "784-1974-4972954-9",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "dubai",
+        "family_size": 8,
+        "dependents": 4,
+        "mobile_number": "+971583745438",
+        "marital_status": "Married",
+        "email": "applicant22@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 22",
+        "job_title": null,
+        "monthly_salary": 27118,
+        "years_of_experience": 0
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "medium",
+        "amount_requested": 38077,
+        "reason_for_support": "Support request reason for application 22",
+        "career_goals": "Career development goals for applicant 22"
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1049",
+      "processing_notes": "Processing notes and AI assessment for application 22"
+    },
+    {
+      "application_id": "UAE-2024-000023",
+      "submission_date": "2025-08-02T12:57:30.687072",
+      "personal_info": {
+        "full_name": "Applicant 23",
+        "emirates_id": "784-1998-9606601-6",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 4,
+        "dependents": 3,
+        "mobile_number": "+971516738070",
+        "marital_status": "Single",
+        "email": "applicant23@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 23",
+        "job_title": "Position 23",
+        "monthly_salary": 17742,
+        "years_of_experience": 16
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "high",
+        "amount_requested": 33098,
+        "reason_for_support": "Support request reason for application 23",
+        "career_goals": null
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1035",
+      "processing_notes": "Processing notes and AI assessment for application 23"
+    },
+    {
+      "application_id": "UAE-2024-000024",
+      "submission_date": "2025-04-09T12:57:30.687094",
+      "personal_info": {
+        "full_name": "Applicant 24",
+        "emirates_id": "784-1997-4797097-3",
+        "nationality": "Bangladeshi",
+        "residency_status": "Citizen",
+        "emirate": "umm_al_quwain",
+        "family_size": 5,
+        "dependents": 5,
+        "mobile_number": "+971557119310",
+        "marital_status": "Widowed",
+        "email": "applicant24@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 24",
+        "job_title": "Position 24",
+        "monthly_salary": 9405,
+        "years_of_experience": 10
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "medium",
+        "amount_requested": 47677,
+        "reason_for_support": "Support request reason for application 24",
+        "career_goals": null
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1027",
+      "processing_notes": "Processing notes and AI assessment for application 24"
+    },
+    {
+      "application_id": "UAE-2024-000025",
+      "submission_date": "2024-11-20T12:57:30.687116",
+      "personal_info": {
+        "full_name": "Applicant 25",
+        "emirates_id": "784-1996-8742877-5",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 5,
+        "dependents": 5,
+        "mobile_number": "+971534056308",
+        "marital_status": "Widowed",
+        "email": "applicant25@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": null,
+        "monthly_salary": 22327,
+        "years_of_experience": 16
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "critical",
+        "amount_requested": 25692,
+        "reason_for_support": "Support request reason for application 25",
+        "career_goals": "Career development goals for applicant 25"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1006",
+      "processing_notes": "Processing notes and AI assessment for application 25"
+    },
+    {
+      "application_id": "UAE-2024-000026",
+      "submission_date": "2024-10-02T12:57:30.687139",
+      "personal_info": {
+        "full_name": "Applicant 26",
+        "emirates_id": "784-1995-7525328-1",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 4,
+        "dependents": 0,
+        "mobile_number": "+971548513412",
+        "marital_status": "Widowed",
+        "email": "applicant26@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 26",
+        "job_title": "Position 26",
+        "monthly_salary": 4630,
+        "years_of_experience": 25
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "low",
+        "amount_requested": 35459,
+        "reason_for_support": "Support request reason for application 26",
+        "career_goals": "Career development goals for applicant 26"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1020",
+      "processing_notes": "Processing notes and AI assessment for application 26"
+    },
+    {
+      "application_id": "UAE-2024-000027",
+      "submission_date": "2024-12-31T12:57:30.687162",
+      "personal_info": {
+        "full_name": "Applicant 27",
+        "emirates_id": "784-1997-8838860-8",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "dubai",
+        "family_size": 8,
+        "dependents": 0,
+        "mobile_number": "+971523634612",
+        "marital_status": "Widowed",
+        "email": "applicant27@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 27",
+        "job_title": null,
+        "monthly_salary": 29081,
+        "years_of_experience": 19
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "low",
+        "amount_requested": 36274,
+        "reason_for_support": "Support request reason for application 27",
+        "career_goals": "Career development goals for applicant 27"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1029",
+      "processing_notes": "Processing notes and AI assessment for application 27"
+    },
+    {
+      "application_id": "UAE-2024-000028",
+      "submission_date": "2025-05-21T12:57:30.687186",
+      "personal_info": {
+        "full_name": "Applicant 28",
+        "emirates_id": "784-1999-4551376-2",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 1,
+        "dependents": 5,
+        "mobile_number": "+971518784683",
+        "marital_status": "Widowed",
+        "email": "applicant28@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 28",
+        "job_title": "Position 28",
+        "monthly_salary": 18740,
+        "years_of_experience": 8
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "critical",
+        "amount_requested": 14940,
+        "reason_for_support": "Support request reason for application 28",
+        "career_goals": null
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1046",
+      "processing_notes": "Processing notes and AI assessment for application 28"
+    },
+    {
+      "application_id": "UAE-2024-000029",
+      "submission_date": "2025-05-18T12:57:30.687209",
+      "personal_info": {
+        "full_name": "Applicant 29",
+        "emirates_id": "784-1974-7330560-4",
+        "nationality": "Egyptian",
+        "residency_status": "Citizen",
+        "emirate": "abu_dhabi",
+        "family_size": 1,
+        "dependents": 5,
+        "mobile_number": "+971502414885",
+        "marital_status": "Divorced",
+        "email": "applicant29@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 29",
+        "job_title": null,
+        "monthly_salary": 19048,
+        "years_of_experience": 6
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "high",
+        "amount_requested": 32725,
+        "reason_for_support": "Support request reason for application 29",
+        "career_goals": null
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1012",
+      "processing_notes": "Processing notes and AI assessment for application 29"
+    },
+    {
+      "application_id": "UAE-2024-000030",
+      "submission_date": "2025-02-14T12:57:30.687228",
+      "personal_info": {
+        "full_name": "Applicant 30",
+        "emirates_id": "784-1999-9266354-5",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "dubai",
+        "family_size": 5,
+        "dependents": 6,
+        "mobile_number": "+971558127590",
+        "marital_status": "Married",
+        "email": "applicant30@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 30",
+        "job_title": "Position 30",
+        "monthly_salary": 251,
+        "years_of_experience": 14
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "high",
+        "amount_requested": 41696,
+        "reason_for_support": "Support request reason for application 30",
+        "career_goals": null
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1040",
+      "processing_notes": "Processing notes and AI assessment for application 30"
+    },
+    {
+      "application_id": "UAE-2024-000031",
+      "submission_date": "2025-07-11T12:57:30.687247",
+      "personal_info": {
+        "full_name": "Applicant 31",
+        "emirates_id": "784-1988-7133619-2",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 7,
+        "dependents": 0,
+        "mobile_number": "+971590115838",
+        "marital_status": "Divorced",
+        "email": "applicant31@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 31",
+        "job_title": null,
+        "monthly_salary": 21468,
+        "years_of_experience": 15
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "high",
+        "amount_requested": 14176,
+        "reason_for_support": "Support request reason for application 31",
+        "career_goals": "Career development goals for applicant 31"
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1013",
+      "processing_notes": "Processing notes and AI assessment for application 31"
+    },
+    {
+      "application_id": "UAE-2024-000032",
+      "submission_date": "2025-01-15T12:57:30.687266",
+      "personal_info": {
+        "full_name": "Applicant 32",
+        "emirates_id": "784-1995-2080389-7",
+        "nationality": "Pakistani",
+        "residency_status": "Citizen",
+        "emirate": "ajman",
+        "family_size": 8,
+        "dependents": 6,
+        "mobile_number": "+971581349552",
+        "marital_status": "Single",
+        "email": "applicant32@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": null,
+        "job_title": "Position 32",
+        "monthly_salary": 11790,
+        "years_of_experience": 15
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "low",
+        "amount_requested": 49337,
+        "reason_for_support": "Support request reason for application 32",
+        "career_goals": "Career development goals for applicant 32"
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1005",
+      "processing_notes": "Processing notes and AI assessment for application 32"
+    },
+    {
+      "application_id": "UAE-2024-000033",
+      "submission_date": "2024-10-08T12:57:30.687286",
+      "personal_info": {
+        "full_name": "Applicant 33",
+        "emirates_id": "784-1977-6306291-5",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 2,
+        "dependents": 2,
+        "mobile_number": "+971591289709",
+        "marital_status": "Married",
+        "email": "applicant33@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 33",
+        "job_title": "Position 33",
+        "monthly_salary": 23973,
+        "years_of_experience": 13
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "critical",
+        "amount_requested": 8696,
+        "reason_for_support": "Support request reason for application 33",
+        "career_goals": null
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1017",
+      "processing_notes": "Processing notes and AI assessment for application 33"
+    },
+    {
+      "application_id": "UAE-2024-000034",
+      "submission_date": "2024-10-27T12:57:30.687305",
+      "personal_info": {
+        "full_name": "Applicant 34",
+        "emirates_id": "784-1980-7523179-6",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 8,
+        "dependents": 3,
+        "mobile_number": "+971508816927",
+        "marital_status": "Widowed",
+        "email": "applicant34@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 34",
+        "job_title": "Position 34",
+        "monthly_salary": 6786,
+        "years_of_experience": 20
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "low",
+        "amount_requested": 38639,
+        "reason_for_support": "Support request reason for application 34",
+        "career_goals": null
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1028",
+      "processing_notes": "Processing notes and AI assessment for application 34"
+    },
+    {
+      "application_id": "UAE-2024-000035",
+      "submission_date": "2024-10-19T12:57:30.687325",
+      "personal_info": {
+        "full_name": "Applicant 35",
+        "emirates_id": "784-1983-1947402-3",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 2,
+        "dependents": 6,
+        "mobile_number": "+971582999809",
+        "marital_status": "Divorced",
+        "email": "applicant35@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": null,
+        "job_title": "Position 35",
+        "monthly_salary": 23466,
+        "years_of_experience": 8
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "critical",
+        "amount_requested": 20156,
+        "reason_for_support": "Support request reason for application 35",
+        "career_goals": "Career development goals for applicant 35"
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1045",
+      "processing_notes": "Processing notes and AI assessment for application 35"
+    },
+    {
+      "application_id": "UAE-2024-000036",
+      "submission_date": "2025-09-14T12:57:30.687382",
+      "personal_info": {
+        "full_name": "Applicant 36",
+        "emirates_id": "784-1994-2845293-9",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "dubai",
+        "family_size": 5,
+        "dependents": 1,
+        "mobile_number": "+971571211135",
+        "marital_status": "Divorced",
+        "email": "applicant36@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": null,
+        "job_title": "Position 36",
+        "monthly_salary": 14402,
+        "years_of_experience": 23
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "high",
+        "amount_requested": 18701,
+        "reason_for_support": "Support request reason for application 36",
+        "career_goals": "Career development goals for applicant 36"
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1031",
+      "processing_notes": "Processing notes and AI assessment for application 36"
+    },
+    {
+      "application_id": "UAE-2024-000037",
+      "submission_date": "2025-07-10T12:57:30.687407",
+      "personal_info": {
+        "full_name": "Applicant 37",
+        "emirates_id": "784-2000-7358673-3",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 7,
+        "dependents": 3,
+        "mobile_number": "+971527324518",
+        "marital_status": "Married",
+        "email": "applicant37@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 37",
+        "job_title": "Position 37",
+        "monthly_salary": 19716,
+        "years_of_experience": 18
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "medium",
+        "amount_requested": 14693,
+        "reason_for_support": "Support request reason for application 37",
+        "career_goals": null
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1049",
+      "processing_notes": "Processing notes and AI assessment for application 37"
+    },
+    {
+      "application_id": "UAE-2024-000038",
+      "submission_date": "2024-12-11T12:57:30.687425",
+      "personal_info": {
+        "full_name": "Applicant 38",
+        "emirates_id": "784-1989-7828372-8",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 8,
+        "dependents": 0,
+        "mobile_number": "+971531840918",
+        "marital_status": "Widowed",
+        "email": "applicant38@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": null,
+        "job_title": "Position 38",
+        "monthly_salary": 22756,
+        "years_of_experience": 25
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "medium",
+        "amount_requested": 14639,
+        "reason_for_support": "Support request reason for application 38",
+        "career_goals": "Career development goals for applicant 38"
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1028",
+      "processing_notes": "Processing notes and AI assessment for application 38"
+    },
+    {
+      "application_id": "UAE-2024-000039",
+      "submission_date": "2025-02-11T12:57:30.687444",
+      "personal_info": {
+        "full_name": "Applicant 39",
+        "emirates_id": "784-1990-5805641-2",
+        "nationality": "UAE",
+        "residency_status": "Citizen",
+        "emirate": "abu_dhabi",
+        "family_size": 2,
+        "dependents": 5,
+        "mobile_number": "+971526932356",
+        "marital_status": "Single",
+        "email": "applicant39@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 39",
+        "job_title": null,
+        "monthly_salary": 34720,
+        "years_of_experience": 15
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "critical",
+        "amount_requested": 42923,
+        "reason_for_support": "Support request reason for application 39",
+        "career_goals": null
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1042",
+      "processing_notes": "Processing notes and AI assessment for application 39"
+    },
+    {
+      "application_id": "UAE-2024-000040",
+      "submission_date": "2024-12-31T12:57:30.687491",
+      "personal_info": {
+        "full_name": "Applicant 40",
+        "emirates_id": "784-1982-5081993-4",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 8,
+        "dependents": 2,
+        "mobile_number": "+971599744245",
+        "marital_status": "Married",
+        "email": "applicant40@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 40",
+        "job_title": "Position 40",
+        "monthly_salary": 8032,
+        "years_of_experience": 15
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "medium",
+        "amount_requested": 33595,
+        "reason_for_support": "Support request reason for application 40",
+        "career_goals": "Career development goals for applicant 40"
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1034",
+      "processing_notes": "Processing notes and AI assessment for application 40"
+    },
+    {
+      "application_id": "UAE-2024-000041",
+      "submission_date": "2024-11-18T12:57:30.687518",
+      "personal_info": {
+        "full_name": "Applicant 41",
+        "emirates_id": "784-1987-2254001-7",
+        "nationality": "Egyptian",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 6,
+        "dependents": 2,
+        "mobile_number": "+971594282004",
+        "marital_status": "Widowed",
+        "email": "applicant41@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 41",
+        "job_title": "Position 41",
+        "monthly_salary": 32680,
+        "years_of_experience": 9
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "low",
+        "amount_requested": 17940,
+        "reason_for_support": "Support request reason for application 41",
+        "career_goals": null
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1040",
+      "processing_notes": "Processing notes and AI assessment for application 41"
+    },
+    {
+      "application_id": "UAE-2024-000042",
+      "submission_date": "2024-11-09T12:57:30.687537",
+      "personal_info": {
+        "full_name": "Applicant 42",
+        "emirates_id": "784-1988-4637034-8",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 5,
+        "dependents": 6,
+        "mobile_number": "+971502108837",
+        "marital_status": "Widowed",
+        "email": "applicant42@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 42",
+        "job_title": "Position 42",
+        "monthly_salary": 16096,
+        "years_of_experience": 24
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "high",
+        "amount_requested": 20210,
+        "reason_for_support": "Support request reason for application 42",
+        "career_goals": "Career development goals for applicant 42"
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1040",
+      "processing_notes": "Processing notes and AI assessment for application 42"
+    },
+    {
+      "application_id": "UAE-2024-000043",
+      "submission_date": "2025-05-29T12:57:30.687557",
+      "personal_info": {
+        "full_name": "Applicant 43",
+        "emirates_id": "784-1995-5926357-7",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 7,
+        "dependents": 5,
+        "mobile_number": "+971599982075",
+        "marital_status": "Married",
+        "email": "applicant43@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 43",
+        "job_title": "Position 43",
+        "monthly_salary": 19413,
+        "years_of_experience": 12
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "high",
+        "amount_requested": 43966,
+        "reason_for_support": "Support request reason for application 43",
+        "career_goals": "Career development goals for applicant 43"
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1048",
+      "processing_notes": "Processing notes and AI assessment for application 43"
+    },
+    {
+      "application_id": "UAE-2024-000044",
+      "submission_date": "2025-04-20T12:57:30.687580",
+      "personal_info": {
+        "full_name": "Applicant 44",
+        "emirates_id": "784-1981-7763172-7",
+        "nationality": "Filipino",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 2,
+        "dependents": 4,
+        "mobile_number": "+971517262204",
+        "marital_status": "Divorced",
+        "email": "applicant44@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 44",
+        "job_title": "Position 44",
+        "monthly_salary": 13832,
+        "years_of_experience": 19
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "critical",
+        "amount_requested": 26138,
+        "reason_for_support": "Support request reason for application 44",
+        "career_goals": "Career development goals for applicant 44"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1016",
+      "processing_notes": "Processing notes and AI assessment for application 44"
+    },
+    {
+      "application_id": "UAE-2024-000045",
+      "submission_date": "2025-07-26T12:57:30.687600",
+      "personal_info": {
+        "full_name": "Applicant 45",
+        "emirates_id": "784-2003-4281741-6",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 2,
+        "dependents": 5,
+        "mobile_number": "+971588965764",
+        "marital_status": "Divorced",
+        "email": "applicant45@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 45",
+        "job_title": null,
+        "monthly_salary": 21269,
+        "years_of_experience": 2
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "critical",
+        "amount_requested": 36705,
+        "reason_for_support": "Support request reason for application 45",
+        "career_goals": "Career development goals for applicant 45"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1033",
+      "processing_notes": "Processing notes and AI assessment for application 45"
+    },
+    {
+      "application_id": "UAE-2024-000046",
+      "submission_date": "2025-05-02T12:57:30.687624",
+      "personal_info": {
+        "full_name": "Applicant 46",
+        "emirates_id": "784-2001-5726901-8",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 1,
+        "dependents": 0,
+        "mobile_number": "+971529470389",
+        "marital_status": "Single",
+        "email": "applicant46@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": "Position 46",
+        "monthly_salary": 24385,
+        "years_of_experience": 11
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "high",
+        "amount_requested": 35541,
+        "reason_for_support": "Support request reason for application 46",
+        "career_goals": null
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1004",
+      "processing_notes": "Processing notes and AI assessment for application 46"
+    },
+    {
+      "application_id": "UAE-2024-000047",
+      "submission_date": "2025-08-12T12:57:30.687648",
+      "personal_info": {
+        "full_name": "Applicant 47",
+        "emirates_id": "784-2004-9915813-9",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 4,
+        "dependents": 0,
+        "mobile_number": "+971519938899",
+        "marital_status": "Widowed",
+        "email": "applicant47@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": null,
+        "job_title": "Position 47",
+        "monthly_salary": 13874,
+        "years_of_experience": 24
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "medium",
+        "amount_requested": 32173,
+        "reason_for_support": "Support request reason for application 47",
+        "career_goals": null
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1033",
+      "processing_notes": "Processing notes and AI assessment for application 47"
+    },
+    {
+      "application_id": "UAE-2024-000048",
+      "submission_date": "2025-08-18T12:57:30.687667",
+      "personal_info": {
+        "full_name": "Applicant 48",
+        "emirates_id": "784-1991-1940354-1",
+        "nationality": "Filipino",
+        "residency_status": "Citizen",
+        "emirate": "ras_al_khaimah",
+        "family_size": 4,
+        "dependents": 0,
+        "mobile_number": "+971580766727",
+        "marital_status": "Widowed",
+        "email": "applicant48@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": "Position 48",
+        "monthly_salary": 2571,
+        "years_of_experience": 13
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "high",
+        "amount_requested": 34567,
+        "reason_for_support": "Support request reason for application 48",
+        "career_goals": null
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1014",
+      "processing_notes": "Processing notes and AI assessment for application 48"
+    },
+    {
+      "application_id": "UAE-2024-000049",
+      "submission_date": "2025-07-05T12:57:30.687686",
+      "personal_info": {
+        "full_name": "Applicant 49",
+        "emirates_id": "784-1983-3527144-4",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 6,
+        "dependents": 2,
+        "mobile_number": "+971570137471",
+        "marital_status": "Single",
+        "email": "applicant49@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 49",
+        "job_title": "Position 49",
+        "monthly_salary": 26059,
+        "years_of_experience": 3
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "low",
+        "amount_requested": 36547,
+        "reason_for_support": "Support request reason for application 49",
+        "career_goals": null
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1026",
+      "processing_notes": "Processing notes and AI assessment for application 49"
+    },
+    {
+      "application_id": "UAE-2024-000050",
+      "submission_date": "2024-12-13T12:57:30.687705",
+      "personal_info": {
+        "full_name": "Applicant 50",
+        "emirates_id": "784-2004-8046454-9",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "dubai",
+        "family_size": 6,
+        "dependents": 0,
+        "mobile_number": "+971582870587",
+        "marital_status": "Married",
+        "email": "applicant50@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": null,
+        "job_title": "Position 50",
+        "monthly_salary": 13136,
+        "years_of_experience": 17
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "medium",
+        "amount_requested": 8179,
+        "reason_for_support": "Support request reason for application 50",
+        "career_goals": "Career development goals for applicant 50"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1004",
+      "processing_notes": "Processing notes and AI assessment for application 50"
+    },
+    {
+      "application_id": "UAE-2024-000051",
+      "submission_date": "2025-02-01T12:57:30.687724",
+      "personal_info": {
+        "full_name": "Applicant 51",
+        "emirates_id": "784-1973-9239687-4",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 6,
+        "dependents": 4,
+        "mobile_number": "+971500183283",
+        "marital_status": "Divorced",
+        "email": "applicant51@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": null,
+        "job_title": "Position 51",
+        "monthly_salary": 24784,
+        "years_of_experience": 23
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "low",
+        "amount_requested": 18330,
+        "reason_for_support": "Support request reason for application 51",
+        "career_goals": "Career development goals for applicant 51"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1037",
+      "processing_notes": "Processing notes and AI assessment for application 51"
+    },
+    {
+      "application_id": "UAE-2024-000052",
+      "submission_date": "2025-09-19T12:57:30.687753",
+      "personal_info": {
+        "full_name": "Applicant 52",
+        "emirates_id": "784-2005-6561546-8",
+        "nationality": "UAE",
+        "residency_status": "Citizen",
+        "emirate": "umm_al_quwain",
+        "family_size": 6,
+        "dependents": 6,
+        "mobile_number": "+971515863395",
+        "marital_status": "Married",
+        "email": "applicant52@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 52",
+        "job_title": "Position 52",
+        "monthly_salary": 27066,
+        "years_of_experience": 18
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "critical",
+        "amount_requested": 28856,
+        "reason_for_support": "Support request reason for application 52",
+        "career_goals": "Career development goals for applicant 52"
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1037",
+      "processing_notes": "Processing notes and AI assessment for application 52"
+    },
+    {
+      "application_id": "UAE-2024-000053",
+      "submission_date": "2025-01-08T12:57:30.687778",
+      "personal_info": {
+        "full_name": "Applicant 53",
+        "emirates_id": "784-1997-9887448-3",
+        "nationality": "Filipino",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 7,
+        "dependents": 5,
+        "mobile_number": "+971503228404",
+        "marital_status": "Divorced",
+        "email": "applicant53@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 53",
+        "job_title": "Position 53",
+        "monthly_salary": 17779,
+        "years_of_experience": 17
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "low",
+        "amount_requested": 13049,
+        "reason_for_support": "Support request reason for application 53",
+        "career_goals": "Career development goals for applicant 53"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1044",
+      "processing_notes": "Processing notes and AI assessment for application 53"
+    },
+    {
+      "application_id": "UAE-2024-000054",
+      "submission_date": "2025-02-27T12:57:30.687798",
+      "personal_info": {
+        "full_name": "Applicant 54",
+        "emirates_id": "784-1989-2517745-4",
+        "nationality": "Bangladeshi",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 1,
+        "dependents": 0,
+        "mobile_number": "+971528600585",
+        "marital_status": "Married",
+        "email": "applicant54@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 54",
+        "job_title": "Position 54",
+        "monthly_salary": 13295,
+        "years_of_experience": 5
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "low",
+        "amount_requested": 13290,
+        "reason_for_support": "Support request reason for application 54",
+        "career_goals": null
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1037",
+      "processing_notes": "Processing notes and AI assessment for application 54"
+    },
+    {
+      "application_id": "UAE-2024-000055",
+      "submission_date": "2025-01-31T12:57:30.687816",
+      "personal_info": {
+        "full_name": "Applicant 55",
+        "emirates_id": "784-2002-6257056-4",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "dubai",
+        "family_size": 3,
+        "dependents": 2,
+        "mobile_number": "+971522280180",
+        "marital_status": "Divorced",
+        "email": "applicant55@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 55",
+        "job_title": "Position 55",
+        "monthly_salary": 30036,
+        "years_of_experience": 3
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "high",
+        "amount_requested": 18370,
+        "reason_for_support": "Support request reason for application 55",
+        "career_goals": "Career development goals for applicant 55"
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1022",
+      "processing_notes": "Processing notes and AI assessment for application 55"
+    },
+    {
+      "application_id": "UAE-2024-000056",
+      "submission_date": "2025-01-15T12:57:30.687848",
+      "personal_info": {
+        "full_name": "Applicant 56",
+        "emirates_id": "784-1991-9769623-5",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 3,
+        "dependents": 4,
+        "mobile_number": "+971568452140",
+        "marital_status": "Divorced",
+        "email": "applicant56@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 56",
+        "job_title": "Position 56",
+        "monthly_salary": 2888,
+        "years_of_experience": 23
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "critical",
+        "amount_requested": 7559,
+        "reason_for_support": "Support request reason for application 56",
+        "career_goals": "Career development goals for applicant 56"
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1035",
+      "processing_notes": "Processing notes and AI assessment for application 56"
+    },
+    {
+      "application_id": "UAE-2024-000057",
+      "submission_date": "2025-07-04T12:57:30.687868",
+      "personal_info": {
+        "full_name": "Applicant 57",
+        "emirates_id": "784-1972-6738975-6",
+        "nationality": "Indian",
+        "residency_status": "Citizen",
+        "emirate": "sharjah",
+        "family_size": 8,
+        "dependents": 2,
+        "mobile_number": "+971593313659",
+        "marital_status": "Married",
+        "email": "applicant57@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": "Position 57",
+        "monthly_salary": 21638,
+        "years_of_experience": 4
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "high",
+        "amount_requested": 17035,
+        "reason_for_support": "Support request reason for application 57",
+        "career_goals": "Career development goals for applicant 57"
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1022",
+      "processing_notes": "Processing notes and AI assessment for application 57"
+    },
+    {
+      "application_id": "UAE-2024-000058",
+      "submission_date": "2025-07-23T12:57:30.687887",
+      "personal_info": {
+        "full_name": "Applicant 58",
+        "emirates_id": "784-1985-4051832-5",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "dubai",
+        "family_size": 5,
+        "dependents": 2,
+        "mobile_number": "+971592533110",
+        "marital_status": "Widowed",
+        "email": "applicant58@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": null,
+        "job_title": "Position 58",
+        "monthly_salary": 16902,
+        "years_of_experience": 8
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "critical",
+        "amount_requested": 33712,
+        "reason_for_support": "Support request reason for application 58",
+        "career_goals": null
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1050",
+      "processing_notes": "Processing notes and AI assessment for application 58"
+    },
+    {
+      "application_id": "UAE-2024-000059",
+      "submission_date": "2025-02-18T12:57:30.687905",
+      "personal_info": {
+        "full_name": "Applicant 59",
+        "emirates_id": "784-1978-1148274-1",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 6,
+        "dependents": 4,
+        "mobile_number": "+971598254907",
+        "marital_status": "Married",
+        "email": "applicant59@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": null,
+        "job_title": "Position 59",
+        "monthly_salary": 24840,
+        "years_of_experience": 12
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "high",
+        "amount_requested": 17417,
+        "reason_for_support": "Support request reason for application 59",
+        "career_goals": null
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1043",
+      "processing_notes": "Processing notes and AI assessment for application 59"
+    },
+    {
+      "application_id": "UAE-2024-000060",
+      "submission_date": "2025-06-08T12:57:30.687924",
+      "personal_info": {
+        "full_name": "Applicant 60",
+        "emirates_id": "784-2000-3633649-1",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 2,
+        "dependents": 6,
+        "mobile_number": "+971515073066",
+        "marital_status": "Divorced",
+        "email": "applicant60@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 60",
+        "job_title": "Position 60",
+        "monthly_salary": 21884,
+        "years_of_experience": 0
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "high",
+        "amount_requested": 19293,
+        "reason_for_support": "Support request reason for application 60",
+        "career_goals": "Career development goals for applicant 60"
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1045",
+      "processing_notes": "Processing notes and AI assessment for application 60"
+    },
+    {
+      "application_id": "UAE-2024-000061",
+      "submission_date": "2024-12-02T12:57:30.687948",
+      "personal_info": {
+        "full_name": "Applicant 61",
+        "emirates_id": "784-1979-1011736-3",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 6,
+        "dependents": 1,
+        "mobile_number": "+971526547121",
+        "marital_status": "Divorced",
+        "email": "applicant61@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 61",
+        "job_title": null,
+        "monthly_salary": 7914,
+        "years_of_experience": 7
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "medium",
+        "amount_requested": 36957,
+        "reason_for_support": "Support request reason for application 61",
+        "career_goals": null
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1011",
+      "processing_notes": "Processing notes and AI assessment for application 61"
+    },
+    {
+      "application_id": "UAE-2024-000062",
+      "submission_date": "2025-01-05T12:57:30.687967",
+      "personal_info": {
+        "full_name": "Applicant 62",
+        "emirates_id": "784-1982-2728296-8",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 6,
+        "dependents": 0,
+        "mobile_number": "+971549965023",
+        "marital_status": "Single",
+        "email": "applicant62@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 62",
+        "job_title": "Position 62",
+        "monthly_salary": 15408,
+        "years_of_experience": 18
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "critical",
+        "amount_requested": 15019,
+        "reason_for_support": "Support request reason for application 62",
+        "career_goals": "Career development goals for applicant 62"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1041",
+      "processing_notes": "Processing notes and AI assessment for application 62"
+    },
+    {
+      "application_id": "UAE-2024-000063",
+      "submission_date": "2025-05-19T12:57:30.687986",
+      "personal_info": {
+        "full_name": "Applicant 63",
+        "emirates_id": "784-2003-2887153-4",
+        "nationality": "Filipino",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 6,
+        "dependents": 4,
+        "mobile_number": "+971518380554",
+        "marital_status": "Divorced",
+        "email": "applicant63@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 63",
+        "job_title": "Position 63",
+        "monthly_salary": 34505,
+        "years_of_experience": 18
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "critical",
+        "amount_requested": 11419,
+        "reason_for_support": "Support request reason for application 63",
+        "career_goals": "Career development goals for applicant 63"
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1002",
+      "processing_notes": "Processing notes and AI assessment for application 63"
+    },
+    {
+      "application_id": "UAE-2024-000064",
+      "submission_date": "2024-11-01T12:57:30.688017",
+      "personal_info": {
+        "full_name": "Applicant 64",
+        "emirates_id": "784-1982-9864681-2",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 2,
+        "dependents": 4,
+        "mobile_number": "+971507887687",
+        "marital_status": "Divorced",
+        "email": "applicant64@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": null,
+        "job_title": "Position 64",
+        "monthly_salary": 6847,
+        "years_of_experience": 18
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "critical",
+        "amount_requested": 46395,
+        "reason_for_support": "Support request reason for application 64",
+        "career_goals": "Career development goals for applicant 64"
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1012",
+      "processing_notes": "Processing notes and AI assessment for application 64"
+    },
+    {
+      "application_id": "UAE-2024-000065",
+      "submission_date": "2025-08-19T12:57:30.688035",
+      "personal_info": {
+        "full_name": "Applicant 65",
+        "emirates_id": "784-1989-3841456-9",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 4,
+        "dependents": 6,
+        "mobile_number": "+971557363475",
+        "marital_status": "Widowed",
+        "email": "applicant65@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": null,
+        "job_title": null,
+        "monthly_salary": 17859,
+        "years_of_experience": 25
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "critical",
+        "amount_requested": 16958,
+        "reason_for_support": "Support request reason for application 65",
+        "career_goals": null
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1028",
+      "processing_notes": "Processing notes and AI assessment for application 65"
+    },
+    {
+      "application_id": "UAE-2024-000066",
+      "submission_date": "2025-03-19T12:57:30.688084",
+      "personal_info": {
+        "full_name": "Applicant 66",
+        "emirates_id": "784-1992-8233971-9",
+        "nationality": "Bangladeshi",
+        "residency_status": "Citizen",
+        "emirate": "fujairah",
+        "family_size": 7,
+        "dependents": 1,
+        "mobile_number": "+971523630271",
+        "marital_status": "Single",
+        "email": "applicant66@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": null,
+        "job_title": "Position 66",
+        "monthly_salary": 1445,
+        "years_of_experience": 22
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "high",
+        "amount_requested": 25204,
+        "reason_for_support": "Support request reason for application 66",
+        "career_goals": null
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1033",
+      "processing_notes": "Processing notes and AI assessment for application 66"
+    },
+    {
+      "application_id": "UAE-2024-000067",
+      "submission_date": "2025-09-17T12:57:30.688103",
+      "personal_info": {
+        "full_name": "Applicant 67",
+        "emirates_id": "784-1990-6272024-1",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 6,
+        "dependents": 3,
+        "mobile_number": "+971532644995",
+        "marital_status": "Married",
+        "email": "applicant67@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 67",
+        "job_title": null,
+        "monthly_salary": 33094,
+        "years_of_experience": 7
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "medium",
+        "amount_requested": 6314,
+        "reason_for_support": "Support request reason for application 67",
+        "career_goals": "Career development goals for applicant 67"
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1013",
+      "processing_notes": "Processing notes and AI assessment for application 67"
+    },
+    {
+      "application_id": "UAE-2024-000068",
+      "submission_date": "2024-11-15T12:57:30.688125",
+      "personal_info": {
+        "full_name": "Applicant 68",
+        "emirates_id": "784-1970-5921959-9",
+        "nationality": "Filipino",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 2,
+        "dependents": 4,
+        "mobile_number": "+971504566621",
+        "marital_status": "Married",
+        "email": "applicant68@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": "Position 68",
+        "monthly_salary": 6116,
+        "years_of_experience": 24
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "high",
+        "amount_requested": 27133,
+        "reason_for_support": "Support request reason for application 68",
+        "career_goals": null
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1043",
+      "processing_notes": "Processing notes and AI assessment for application 68"
+    },
+    {
+      "application_id": "UAE-2024-000069",
+      "submission_date": "2025-04-16T12:57:30.688146",
+      "personal_info": {
+        "full_name": "Applicant 69",
+        "emirates_id": "784-1975-6498323-7",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 4,
+        "dependents": 2,
+        "mobile_number": "+971599148734",
+        "marital_status": "Divorced",
+        "email": "applicant69@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 69",
+        "job_title": "Position 69",
+        "monthly_salary": 12367,
+        "years_of_experience": 13
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "low",
+        "amount_requested": 44170,
+        "reason_for_support": "Support request reason for application 69",
+        "career_goals": null
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1024",
+      "processing_notes": "Processing notes and AI assessment for application 69"
+    },
+    {
+      "application_id": "UAE-2024-000070",
+      "submission_date": "2025-03-07T12:57:30.688165",
+      "personal_info": {
+        "full_name": "Applicant 70",
+        "emirates_id": "784-1989-1864825-9",
+        "nationality": "Filipino",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 1,
+        "dependents": 4,
+        "mobile_number": "+971585712879",
+        "marital_status": "Married",
+        "email": "applicant70@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 70",
+        "job_title": "Position 70",
+        "monthly_salary": 3722,
+        "years_of_experience": 17
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "critical",
+        "amount_requested": 12346,
+        "reason_for_support": "Support request reason for application 70",
+        "career_goals": "Career development goals for applicant 70"
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1002",
+      "processing_notes": "Processing notes and AI assessment for application 70"
+    },
+    {
+      "application_id": "UAE-2024-000071",
+      "submission_date": "2024-11-03T12:57:30.688183",
+      "personal_info": {
+        "full_name": "Applicant 71",
+        "emirates_id": "784-1999-2231648-5",
+        "nationality": "Filipino",
+        "residency_status": "Resident",
+        "emirate": "dubai",
+        "family_size": 4,
+        "dependents": 3,
+        "mobile_number": "+971591406829",
+        "marital_status": "Single",
+        "email": "applicant71@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 71",
+        "job_title": null,
+        "monthly_salary": 2806,
+        "years_of_experience": 7
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "critical",
+        "amount_requested": 39249,
+        "reason_for_support": "Support request reason for application 71",
+        "career_goals": null
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1042",
+      "processing_notes": "Processing notes and AI assessment for application 71"
+    },
+    {
+      "application_id": "UAE-2024-000072",
+      "submission_date": "2025-01-30T12:57:30.688203",
+      "personal_info": {
+        "full_name": "Applicant 72",
+        "emirates_id": "784-1999-5021044-7",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 6,
+        "dependents": 4,
+        "mobile_number": "+971551777544",
+        "marital_status": "Married",
+        "email": "applicant72@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 72",
+        "job_title": null,
+        "monthly_salary": 3926,
+        "years_of_experience": 11
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "medium",
+        "amount_requested": 18888,
+        "reason_for_support": "Support request reason for application 72",
+        "career_goals": null
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1048",
+      "processing_notes": "Processing notes and AI assessment for application 72"
+    },
+    {
+      "application_id": "UAE-2024-000073",
+      "submission_date": "2025-04-10T12:57:30.688221",
+      "personal_info": {
+        "full_name": "Applicant 73",
+        "emirates_id": "784-1976-9502373-5",
+        "nationality": "Egyptian",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 5,
+        "dependents": 2,
+        "mobile_number": "+971560083142",
+        "marital_status": "Married",
+        "email": "applicant73@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 73",
+        "job_title": "Position 73",
+        "monthly_salary": 22545,
+        "years_of_experience": 19
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "high",
+        "amount_requested": 25936,
+        "reason_for_support": "Support request reason for application 73",
+        "career_goals": null
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1031",
+      "processing_notes": "Processing notes and AI assessment for application 73"
+    },
+    {
+      "application_id": "UAE-2024-000074",
+      "submission_date": "2025-07-27T12:57:30.688239",
+      "personal_info": {
+        "full_name": "Applicant 74",
+        "emirates_id": "784-1977-7521571-9",
+        "nationality": "Syrian",
+        "residency_status": "Citizen",
+        "emirate": "umm_al_quwain",
+        "family_size": 2,
+        "dependents": 5,
+        "mobile_number": "+971589574262",
+        "marital_status": "Divorced",
+        "email": "applicant74@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 74",
+        "job_title": "Position 74",
+        "monthly_salary": 8053,
+        "years_of_experience": 9
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "critical",
+        "amount_requested": 41134,
+        "reason_for_support": "Support request reason for application 74",
+        "career_goals": "Career development goals for applicant 74"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1042",
+      "processing_notes": "Processing notes and AI assessment for application 74"
+    },
+    {
+      "application_id": "UAE-2024-000075",
+      "submission_date": "2024-10-17T12:57:30.688257",
+      "personal_info": {
+        "full_name": "Applicant 75",
+        "emirates_id": "784-1977-7318157-7",
+        "nationality": "Egyptian",
+        "residency_status": "Citizen",
+        "emirate": "sharjah",
+        "family_size": 1,
+        "dependents": 4,
+        "mobile_number": "+971594211585",
+        "marital_status": "Married",
+        "email": "applicant75@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 75",
+        "job_title": "Position 75",
+        "monthly_salary": 16093,
+        "years_of_experience": 21
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "low",
+        "amount_requested": 36357,
+        "reason_for_support": "Support request reason for application 75",
+        "career_goals": "Career development goals for applicant 75"
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1027",
+      "processing_notes": "Processing notes and AI assessment for application 75"
+    },
+    {
+      "application_id": "UAE-2024-000076",
+      "submission_date": "2025-03-28T12:57:30.688278",
+      "personal_info": {
+        "full_name": "Applicant 76",
+        "emirates_id": "784-1971-9191426-6",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 8,
+        "dependents": 4,
+        "mobile_number": "+971518747376",
+        "marital_status": "Divorced",
+        "email": "applicant76@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 76",
+        "job_title": "Position 76",
+        "monthly_salary": 5058,
+        "years_of_experience": 11
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "low",
+        "amount_requested": 40388,
+        "reason_for_support": "Support request reason for application 76",
+        "career_goals": null
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1039",
+      "processing_notes": "Processing notes and AI assessment for application 76"
+    },
+    {
+      "application_id": "UAE-2024-000077",
+      "submission_date": "2024-11-18T12:57:30.688295",
+      "personal_info": {
+        "full_name": "Applicant 77",
+        "emirates_id": "784-1973-9463677-6",
+        "nationality": "Egyptian",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 1,
+        "dependents": 3,
+        "mobile_number": "+971598705944",
+        "marital_status": "Single",
+        "email": "applicant77@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 77",
+        "job_title": "Position 77",
+        "monthly_salary": 33483,
+        "years_of_experience": 1
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "medium",
+        "amount_requested": 18564,
+        "reason_for_support": "Support request reason for application 77",
+        "career_goals": null
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1029",
+      "processing_notes": "Processing notes and AI assessment for application 77"
+    },
+    {
+      "application_id": "UAE-2024-000078",
+      "submission_date": "2025-01-12T12:57:30.688314",
+      "personal_info": {
+        "full_name": "Applicant 78",
+        "emirates_id": "784-1989-2006097-1",
+        "nationality": "Egyptian",
+        "residency_status": "Citizen",
+        "emirate": "abu_dhabi",
+        "family_size": 7,
+        "dependents": 5,
+        "mobile_number": "+971577652836",
+        "marital_status": "Married",
+        "email": "applicant78@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 78",
+        "job_title": "Position 78",
+        "monthly_salary": 27257,
+        "years_of_experience": 23
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "high",
+        "amount_requested": 26463,
+        "reason_for_support": "Support request reason for application 78",
+        "career_goals": null
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1010",
+      "processing_notes": "Processing notes and AI assessment for application 78"
+    },
+    {
+      "application_id": "UAE-2024-000079",
+      "submission_date": "2025-02-17T12:57:30.688332",
+      "personal_info": {
+        "full_name": "Applicant 79",
+        "emirates_id": "784-1977-9317482-1",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 3,
+        "dependents": 4,
+        "mobile_number": "+971545287617",
+        "marital_status": "Married",
+        "email": "applicant79@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": "Position 79",
+        "monthly_salary": 9714,
+        "years_of_experience": 15
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "high",
+        "amount_requested": 48857,
+        "reason_for_support": "Support request reason for application 79",
+        "career_goals": null
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1008",
+      "processing_notes": "Processing notes and AI assessment for application 79"
+    },
+    {
+      "application_id": "UAE-2024-000080",
+      "submission_date": "2025-06-17T12:57:30.688349",
+      "personal_info": {
+        "full_name": "Applicant 80",
+        "emirates_id": "784-1992-9246398-7",
+        "nationality": "Bangladeshi",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 8,
+        "dependents": 4,
+        "mobile_number": "+971565876423",
+        "marital_status": "Married",
+        "email": "applicant80@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 80",
+        "job_title": "Position 80",
+        "monthly_salary": 1252,
+        "years_of_experience": 11
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "medium",
+        "amount_requested": 33488,
+        "reason_for_support": "Support request reason for application 80",
+        "career_goals": null
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1015",
+      "processing_notes": "Processing notes and AI assessment for application 80"
+    },
+    {
+      "application_id": "UAE-2024-000081",
+      "submission_date": "2025-02-02T12:57:30.688367",
+      "personal_info": {
+        "full_name": "Applicant 81",
+        "emirates_id": "784-1990-4162193-2",
+        "nationality": "Bangladeshi",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 6,
+        "dependents": 2,
+        "mobile_number": "+971520456298",
+        "marital_status": "Single",
+        "email": "applicant81@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": null,
+        "job_title": null,
+        "monthly_salary": 5765,
+        "years_of_experience": 2
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "low",
+        "amount_requested": 13848,
+        "reason_for_support": "Support request reason for application 81",
+        "career_goals": null
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1037",
+      "processing_notes": "Processing notes and AI assessment for application 81"
+    },
+    {
+      "application_id": "UAE-2024-000082",
+      "submission_date": "2025-04-11T12:57:30.688385",
+      "personal_info": {
+        "full_name": "Applicant 82",
+        "emirates_id": "784-1981-9496640-5",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 1,
+        "dependents": 6,
+        "mobile_number": "+971569762838",
+        "marital_status": "Widowed",
+        "email": "applicant82@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 82",
+        "job_title": "Position 82",
+        "monthly_salary": 11136,
+        "years_of_experience": 9
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "medium",
+        "amount_requested": 16313,
+        "reason_for_support": "Support request reason for application 82",
+        "career_goals": null
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1036",
+      "processing_notes": "Processing notes and AI assessment for application 82"
+    },
+    {
+      "application_id": "UAE-2024-000083",
+      "submission_date": "2025-08-18T12:57:30.688402",
+      "personal_info": {
+        "full_name": "Applicant 83",
+        "emirates_id": "784-1983-7670026-9",
+        "nationality": "Indian",
+        "residency_status": "Citizen",
+        "emirate": "abu_dhabi",
+        "family_size": 2,
+        "dependents": 1,
+        "mobile_number": "+971515875307",
+        "marital_status": "Widowed",
+        "email": "applicant83@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": "Position 83",
+        "monthly_salary": 2786,
+        "years_of_experience": 0
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "critical",
+        "amount_requested": 11329,
+        "reason_for_support": "Support request reason for application 83",
+        "career_goals": "Career development goals for applicant 83"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1014",
+      "processing_notes": "Processing notes and AI assessment for application 83"
+    },
+    {
+      "application_id": "UAE-2024-000084",
+      "submission_date": "2025-01-23T12:57:30.688423",
+      "personal_info": {
+        "full_name": "Applicant 84",
+        "emirates_id": "784-1977-7287779-8",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 5,
+        "dependents": 4,
+        "mobile_number": "+971513795733",
+        "marital_status": "Married",
+        "email": "applicant84@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 84",
+        "job_title": "Position 84",
+        "monthly_salary": 22808,
+        "years_of_experience": 9
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "high",
+        "amount_requested": 39440,
+        "reason_for_support": "Support request reason for application 84",
+        "career_goals": null
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1027",
+      "processing_notes": "Processing notes and AI assessment for application 84"
+    },
+    {
+      "application_id": "UAE-2024-000085",
+      "submission_date": "2025-05-05T12:57:30.688440",
+      "personal_info": {
+        "full_name": "Applicant 85",
+        "emirates_id": "784-2005-7255044-7",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 8,
+        "dependents": 2,
+        "mobile_number": "+971546001074",
+        "marital_status": "Widowed",
+        "email": "applicant85@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": null,
+        "job_title": null,
+        "monthly_salary": 7927,
+        "years_of_experience": 22
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "low",
+        "amount_requested": 28955,
+        "reason_for_support": "Support request reason for application 85",
+        "career_goals": "Career development goals for applicant 85"
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1032",
+      "processing_notes": "Processing notes and AI assessment for application 85"
+    },
+    {
+      "application_id": "UAE-2024-000086",
+      "submission_date": "2025-09-11T12:57:30.688492",
+      "personal_info": {
+        "full_name": "Applicant 86",
+        "emirates_id": "784-2001-8707446-6",
+        "nationality": "Bangladeshi",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 3,
+        "dependents": 3,
+        "mobile_number": "+971517810967",
+        "marital_status": "Divorced",
+        "email": "applicant86@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 86",
+        "job_title": "Position 86",
+        "monthly_salary": 33896,
+        "years_of_experience": 11
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "low",
+        "amount_requested": 12537,
+        "reason_for_support": "Support request reason for application 86",
+        "career_goals": "Career development goals for applicant 86"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1012",
+      "processing_notes": "Processing notes and AI assessment for application 86"
+    },
+    {
+      "application_id": "UAE-2024-000087",
+      "submission_date": "2025-05-22T12:57:30.688518",
+      "personal_info": {
+        "full_name": "Applicant 87",
+        "emirates_id": "784-2004-3848156-6",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "dubai",
+        "family_size": 2,
+        "dependents": 6,
+        "mobile_number": "+971588225941",
+        "marital_status": "Single",
+        "email": "applicant87@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 87",
+        "job_title": "Position 87",
+        "monthly_salary": 23390,
+        "years_of_experience": 14
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "critical",
+        "amount_requested": 8662,
+        "reason_for_support": "Support request reason for application 87",
+        "career_goals": "Career development goals for applicant 87"
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1048",
+      "processing_notes": "Processing notes and AI assessment for application 87"
+    },
+    {
+      "application_id": "UAE-2024-000088",
+      "submission_date": "2025-05-26T12:57:30.688540",
+      "personal_info": {
+        "full_name": "Applicant 88",
+        "emirates_id": "784-1970-7432263-1",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 7,
+        "dependents": 5,
+        "mobile_number": "+971565090767",
+        "marital_status": "Single",
+        "email": "applicant88@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": null,
+        "job_title": null,
+        "monthly_salary": 20872,
+        "years_of_experience": 8
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "high",
+        "amount_requested": 6366,
+        "reason_for_support": "Support request reason for application 88",
+        "career_goals": null
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1023",
+      "processing_notes": "Processing notes and AI assessment for application 88"
+    },
+    {
+      "application_id": "UAE-2024-000089",
+      "submission_date": "2025-02-27T12:57:30.688558",
+      "personal_info": {
+        "full_name": "Applicant 89",
+        "emirates_id": "784-2001-2107336-6",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 4,
+        "dependents": 4,
+        "mobile_number": "+971597404029",
+        "marital_status": "Divorced",
+        "email": "applicant89@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": null,
+        "job_title": "Position 89",
+        "monthly_salary": 27276,
+        "years_of_experience": 5
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "low",
+        "amount_requested": 19674,
+        "reason_for_support": "Support request reason for application 89",
+        "career_goals": null
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1034",
+      "processing_notes": "Processing notes and AI assessment for application 89"
+    },
+    {
+      "application_id": "UAE-2024-000090",
+      "submission_date": "2025-06-11T12:57:30.688576",
+      "personal_info": {
+        "full_name": "Applicant 90",
+        "emirates_id": "784-1992-2207843-6",
+        "nationality": "Egyptian",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 8,
+        "dependents": 4,
+        "mobile_number": "+971525463864",
+        "marital_status": "Divorced",
+        "email": "applicant90@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 90",
+        "job_title": "Position 90",
+        "monthly_salary": 11175,
+        "years_of_experience": 25
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "low",
+        "amount_requested": 37206,
+        "reason_for_support": "Support request reason for application 90",
+        "career_goals": "Career development goals for applicant 90"
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1023",
+      "processing_notes": "Processing notes and AI assessment for application 90"
+    },
+    {
+      "application_id": "UAE-2024-000091",
+      "submission_date": "2025-01-11T12:57:30.688598",
+      "personal_info": {
+        "full_name": "Applicant 91",
+        "emirates_id": "784-1986-3391959-6",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 1,
+        "dependents": 2,
+        "mobile_number": "+971595669559",
+        "marital_status": "Married",
+        "email": "applicant91@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 91",
+        "job_title": "Position 91",
+        "monthly_salary": 2355,
+        "years_of_experience": 21
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "low",
+        "amount_requested": 28374,
+        "reason_for_support": "Support request reason for application 91",
+        "career_goals": "Career development goals for applicant 91"
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1004",
+      "processing_notes": "Processing notes and AI assessment for application 91"
+    },
+    {
+      "application_id": "UAE-2024-000092",
+      "submission_date": "2025-07-23T12:57:30.688616",
+      "personal_info": {
+        "full_name": "Applicant 92",
+        "emirates_id": "784-1987-9054743-9",
+        "nationality": "Egyptian",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 5,
+        "dependents": 1,
+        "mobile_number": "+971510591669",
+        "marital_status": "Widowed",
+        "email": "applicant92@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 92",
+        "job_title": "Position 92",
+        "monthly_salary": 11511,
+        "years_of_experience": 16
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "medium",
+        "amount_requested": 49768,
+        "reason_for_support": "Support request reason for application 92",
+        "career_goals": null
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1009",
+      "processing_notes": "Processing notes and AI assessment for application 92"
+    },
+    {
+      "application_id": "UAE-2024-000093",
+      "submission_date": "2025-04-04T12:57:30.688634",
+      "personal_info": {
+        "full_name": "Applicant 93",
+        "emirates_id": "784-2002-5926628-8",
+        "nationality": "Filipino",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 3,
+        "dependents": 2,
+        "mobile_number": "+971541702832",
+        "marital_status": "Single",
+        "email": "applicant93@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 93",
+        "job_title": "Position 93",
+        "monthly_salary": 1899,
+        "years_of_experience": 3
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "critical",
+        "amount_requested": 46052,
+        "reason_for_support": "Support request reason for application 93",
+        "career_goals": null
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1032",
+      "processing_notes": "Processing notes and AI assessment for application 93"
+    },
+    {
+      "application_id": "UAE-2024-000094",
+      "submission_date": "2025-02-10T12:57:30.688652",
+      "personal_info": {
+        "full_name": "Applicant 94",
+        "emirates_id": "784-1994-9007496-2",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 6,
+        "dependents": 0,
+        "mobile_number": "+971559743779",
+        "marital_status": "Single",
+        "email": "applicant94@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 94",
+        "job_title": null,
+        "monthly_salary": 11306,
+        "years_of_experience": 23
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "medium",
+        "amount_requested": 21087,
+        "reason_for_support": "Support request reason for application 94",
+        "career_goals": null
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1016",
+      "processing_notes": "Processing notes and AI assessment for application 94"
+    },
+    {
+      "application_id": "UAE-2024-000095",
+      "submission_date": "2025-01-11T12:57:30.688705",
+      "personal_info": {
+        "full_name": "Applicant 95",
+        "emirates_id": "784-1988-8661197-3",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 3,
+        "dependents": 0,
+        "mobile_number": "+971505084158",
+        "marital_status": "Divorced",
+        "email": "applicant95@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": null,
+        "job_title": null,
+        "monthly_salary": 23743,
+        "years_of_experience": 25
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "low",
+        "amount_requested": 24395,
+        "reason_for_support": "Support request reason for application 95",
+        "career_goals": null
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1009",
+      "processing_notes": "Processing notes and AI assessment for application 95"
+    },
+    {
+      "application_id": "UAE-2024-000096",
+      "submission_date": "2025-08-20T12:57:30.688723",
+      "personal_info": {
+        "full_name": "Applicant 96",
+        "emirates_id": "784-2001-3270204-6",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 8,
+        "dependents": 4,
+        "mobile_number": "+971597818404",
+        "marital_status": "Widowed",
+        "email": "applicant96@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 96",
+        "job_title": "Position 96",
+        "monthly_salary": 20094,
+        "years_of_experience": 15
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "low",
+        "amount_requested": 23431,
+        "reason_for_support": "Support request reason for application 96",
+        "career_goals": null
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1010",
+      "processing_notes": "Processing notes and AI assessment for application 96"
+    },
+    {
+      "application_id": "UAE-2024-000097",
+      "submission_date": "2025-05-03T12:57:30.688744",
+      "personal_info": {
+        "full_name": "Applicant 97",
+        "emirates_id": "784-1985-1965694-2",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 5,
+        "dependents": 3,
+        "mobile_number": "+971591472072",
+        "marital_status": "Widowed",
+        "email": "applicant97@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": null,
+        "job_title": "Position 97",
+        "monthly_salary": 11535,
+        "years_of_experience": 16
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "medium",
+        "amount_requested": 38588,
+        "reason_for_support": "Support request reason for application 97",
+        "career_goals": "Career development goals for applicant 97"
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1006",
+      "processing_notes": "Processing notes and AI assessment for application 97"
+    },
+    {
+      "application_id": "UAE-2024-000098",
+      "submission_date": "2025-08-23T12:57:30.688762",
+      "personal_info": {
+        "full_name": "Applicant 98",
+        "emirates_id": "784-1996-8937688-9",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 4,
+        "dependents": 2,
+        "mobile_number": "+971590323268",
+        "marital_status": "Widowed",
+        "email": "applicant98@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 98",
+        "job_title": "Position 98",
+        "monthly_salary": 24303,
+        "years_of_experience": 2
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "medium",
+        "amount_requested": 33461,
+        "reason_for_support": "Support request reason for application 98",
+        "career_goals": null
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1019",
+      "processing_notes": "Processing notes and AI assessment for application 98"
+    },
+    {
+      "application_id": "UAE-2024-000099",
+      "submission_date": "2025-06-30T12:57:30.688783",
+      "personal_info": {
+        "full_name": "Applicant 99",
+        "emirates_id": "784-1990-8739111-2",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 8,
+        "dependents": 5,
+        "mobile_number": "+971557693547",
+        "marital_status": "Divorced",
+        "email": "applicant99@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 99",
+        "job_title": "Position 99",
+        "monthly_salary": 22856,
+        "years_of_experience": 8
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "critical",
+        "amount_requested": 39926,
+        "reason_for_support": "Support request reason for application 99",
+        "career_goals": null
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1035",
+      "processing_notes": "Processing notes and AI assessment for application 99"
+    },
+    {
+      "application_id": "UAE-2024-000100",
+      "submission_date": "2025-09-27T12:57:30.688801",
+      "personal_info": {
+        "full_name": "Applicant 100",
+        "emirates_id": "784-1970-2026478-5",
+        "nationality": "Filipino",
+        "residency_status": "Resident",
+        "emirate": "dubai",
+        "family_size": 4,
+        "dependents": 2,
+        "mobile_number": "+971500242630",
+        "marital_status": "Widowed",
+        "email": "applicant100@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 100",
+        "job_title": "Position 100",
+        "monthly_salary": 15709,
+        "years_of_experience": 11
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "high",
+        "amount_requested": 29337,
+        "reason_for_support": "Support request reason for application 100",
+        "career_goals": null
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1039",
+      "processing_notes": "Processing notes and AI assessment for application 100"
+    },
+    {
+      "application_id": "UAE-2024-000101",
+      "submission_date": "2025-08-15T12:57:30.688819",
+      "personal_info": {
+        "full_name": "Applicant 101",
+        "emirates_id": "784-2001-9090069-8",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 1,
+        "dependents": 5,
+        "mobile_number": "+971505872382",
+        "marital_status": "Divorced",
+        "email": "applicant101@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": "Position 101",
+        "monthly_salary": 15501,
+        "years_of_experience": 2
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "medium",
+        "amount_requested": 15773,
+        "reason_for_support": "Support request reason for application 101",
+        "career_goals": "Career development goals for applicant 101"
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1030",
+      "processing_notes": "Processing notes and AI assessment for application 101"
+    },
+    {
+      "application_id": "UAE-2024-000102",
+      "submission_date": "2025-01-05T12:57:30.688844",
+      "personal_info": {
+        "full_name": "Applicant 102",
+        "emirates_id": "784-1988-5842382-1",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 3,
+        "dependents": 1,
+        "mobile_number": "+971580286750",
+        "marital_status": "Single",
+        "email": "applicant102@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 102",
+        "job_title": null,
+        "monthly_salary": 9615,
+        "years_of_experience": 20
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "medium",
+        "amount_requested": 19087,
+        "reason_for_support": "Support request reason for application 102",
+        "career_goals": null
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1022",
+      "processing_notes": "Processing notes and AI assessment for application 102"
+    },
+    {
+      "application_id": "UAE-2024-000103",
+      "submission_date": "2024-10-27T12:57:30.688865",
+      "personal_info": {
+        "full_name": "Applicant 103",
+        "emirates_id": "784-1993-9151109-4",
+        "nationality": "Egyptian",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 6,
+        "dependents": 4,
+        "mobile_number": "+971517394025",
+        "marital_status": "Married",
+        "email": "applicant103@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": null,
+        "job_title": "Position 103",
+        "monthly_salary": 3362,
+        "years_of_experience": 5
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "critical",
+        "amount_requested": 26375,
+        "reason_for_support": "Support request reason for application 103",
+        "career_goals": null
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1012",
+      "processing_notes": "Processing notes and AI assessment for application 103"
+    },
+    {
+      "application_id": "UAE-2024-000104",
+      "submission_date": "2025-01-18T12:57:30.688884",
+      "personal_info": {
+        "full_name": "Applicant 104",
+        "emirates_id": "784-1985-3706655-7",
+        "nationality": "Filipino",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 8,
+        "dependents": 2,
+        "mobile_number": "+971579171798",
+        "marital_status": "Divorced",
+        "email": "applicant104@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 104",
+        "job_title": "Position 104",
+        "monthly_salary": 19821,
+        "years_of_experience": 17
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "high",
+        "amount_requested": 33887,
+        "reason_for_support": "Support request reason for application 104",
+        "career_goals": "Career development goals for applicant 104"
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1021",
+      "processing_notes": "Processing notes and AI assessment for application 104"
+    },
+    {
+      "application_id": "UAE-2024-000105",
+      "submission_date": "2024-12-06T12:57:30.688922",
+      "personal_info": {
+        "full_name": "Applicant 105",
+        "emirates_id": "784-1979-6203478-4",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 3,
+        "dependents": 1,
+        "mobile_number": "+971565444675",
+        "marital_status": "Single",
+        "email": "applicant105@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 105",
+        "job_title": "Position 105",
+        "monthly_salary": 22796,
+        "years_of_experience": 15
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "high",
+        "amount_requested": 32032,
+        "reason_for_support": "Support request reason for application 105",
+        "career_goals": null
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1050",
+      "processing_notes": "Processing notes and AI assessment for application 105"
+    },
+    {
+      "application_id": "UAE-2024-000106",
+      "submission_date": "2025-02-17T12:57:30.688954",
+      "personal_info": {
+        "full_name": "Applicant 106",
+        "emirates_id": "784-1981-6766145-8",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 1,
+        "dependents": 2,
+        "mobile_number": "+971550506705",
+        "marital_status": "Divorced",
+        "email": "applicant106@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 106",
+        "job_title": "Position 106",
+        "monthly_salary": 7704,
+        "years_of_experience": 11
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "high",
+        "amount_requested": 25286,
+        "reason_for_support": "Support request reason for application 106",
+        "career_goals": "Career development goals for applicant 106"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1001",
+      "processing_notes": "Processing notes and AI assessment for application 106"
+    },
+    {
+      "application_id": "UAE-2024-000107",
+      "submission_date": "2024-11-17T12:57:30.688973",
+      "personal_info": {
+        "full_name": "Applicant 107",
+        "emirates_id": "784-1973-3687921-9",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 1,
+        "dependents": 0,
+        "mobile_number": "+971599812462",
+        "marital_status": "Married",
+        "email": "applicant107@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 107",
+        "job_title": "Position 107",
+        "monthly_salary": 1462,
+        "years_of_experience": 20
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "low",
+        "amount_requested": 38831,
+        "reason_for_support": "Support request reason for application 107",
+        "career_goals": "Career development goals for applicant 107"
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1035",
+      "processing_notes": "Processing notes and AI assessment for application 107"
+    },
+    {
+      "application_id": "UAE-2024-000108",
+      "submission_date": "2025-02-01T12:57:30.688991",
+      "personal_info": {
+        "full_name": "Applicant 108",
+        "emirates_id": "784-1999-8448272-7",
+        "nationality": "Egyptian",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 8,
+        "dependents": 0,
+        "mobile_number": "+971561581655",
+        "marital_status": "Married",
+        "email": "applicant108@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": "Position 108",
+        "monthly_salary": 6004,
+        "years_of_experience": 22
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "low",
+        "amount_requested": 49709,
+        "reason_for_support": "Support request reason for application 108",
+        "career_goals": null
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1038",
+      "processing_notes": "Processing notes and AI assessment for application 108"
+    },
+    {
+      "application_id": "UAE-2024-000109",
+      "submission_date": "2025-02-10T12:57:30.689013",
+      "personal_info": {
+        "full_name": "Applicant 109",
+        "emirates_id": "784-1982-5585389-4",
+        "nationality": "Egyptian",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 7,
+        "dependents": 3,
+        "mobile_number": "+971548413142",
+        "marital_status": "Widowed",
+        "email": "applicant109@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 109",
+        "job_title": null,
+        "monthly_salary": 31316,
+        "years_of_experience": 18
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "medium",
+        "amount_requested": 33778,
+        "reason_for_support": "Support request reason for application 109",
+        "career_goals": "Career development goals for applicant 109"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1007",
+      "processing_notes": "Processing notes and AI assessment for application 109"
+    },
+    {
+      "application_id": "UAE-2024-000110",
+      "submission_date": "2024-12-18T12:57:30.689031",
+      "personal_info": {
+        "full_name": "Applicant 110",
+        "emirates_id": "784-1990-7052212-6",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "dubai",
+        "family_size": 4,
+        "dependents": 4,
+        "mobile_number": "+971550818047",
+        "marital_status": "Widowed",
+        "email": "applicant110@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 110",
+        "job_title": "Position 110",
+        "monthly_salary": 19317,
+        "years_of_experience": 17
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "low",
+        "amount_requested": 36918,
+        "reason_for_support": "Support request reason for application 110",
+        "career_goals": "Career development goals for applicant 110"
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1050",
+      "processing_notes": "Processing notes and AI assessment for application 110"
+    },
+    {
+      "application_id": "UAE-2024-000111",
+      "submission_date": "2025-01-27T12:57:30.689050",
+      "personal_info": {
+        "full_name": "Applicant 111",
+        "emirates_id": "784-1988-4265918-2",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 2,
+        "dependents": 5,
+        "mobile_number": "+971502304258",
+        "marital_status": "Single",
+        "email": "applicant111@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 111",
+        "job_title": "Position 111",
+        "monthly_salary": 19768,
+        "years_of_experience": 1
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "medium",
+        "amount_requested": 23438,
+        "reason_for_support": "Support request reason for application 111",
+        "career_goals": null
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1017",
+      "processing_notes": "Processing notes and AI assessment for application 111"
+    },
+    {
+      "application_id": "UAE-2024-000112",
+      "submission_date": "2025-09-06T12:57:30.689067",
+      "personal_info": {
+        "full_name": "Applicant 112",
+        "emirates_id": "784-1971-2803210-4",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 4,
+        "dependents": 0,
+        "mobile_number": "+971567434652",
+        "marital_status": "Widowed",
+        "email": "applicant112@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 112",
+        "job_title": "Position 112",
+        "monthly_salary": 32929,
+        "years_of_experience": 17
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "low",
+        "amount_requested": 29171,
+        "reason_for_support": "Support request reason for application 112",
+        "career_goals": "Career development goals for applicant 112"
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1043",
+      "processing_notes": "Processing notes and AI assessment for application 112"
+    },
+    {
+      "application_id": "UAE-2024-000113",
+      "submission_date": "2024-12-02T12:57:30.689085",
+      "personal_info": {
+        "full_name": "Applicant 113",
+        "emirates_id": "784-1999-6753753-5",
+        "nationality": "Bangladeshi",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 6,
+        "dependents": 6,
+        "mobile_number": "+971595531422",
+        "marital_status": "Divorced",
+        "email": "applicant113@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 113",
+        "job_title": "Position 113",
+        "monthly_salary": 23260,
+        "years_of_experience": 1
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "low",
+        "amount_requested": 5194,
+        "reason_for_support": "Support request reason for application 113",
+        "career_goals": null
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1028",
+      "processing_notes": "Processing notes and AI assessment for application 113"
+    },
+    {
+      "application_id": "UAE-2024-000114",
+      "submission_date": "2025-02-08T12:57:30.689103",
+      "personal_info": {
+        "full_name": "Applicant 114",
+        "emirates_id": "784-2005-4247003-6",
+        "nationality": "Egyptian",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 1,
+        "dependents": 6,
+        "mobile_number": "+971574440716",
+        "marital_status": "Widowed",
+        "email": "applicant114@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": null,
+        "job_title": "Position 114",
+        "monthly_salary": 21323,
+        "years_of_experience": 18
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "critical",
+        "amount_requested": 30159,
+        "reason_for_support": "Support request reason for application 114",
+        "career_goals": "Career development goals for applicant 114"
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1012",
+      "processing_notes": "Processing notes and AI assessment for application 114"
+    },
+    {
+      "application_id": "UAE-2024-000115",
+      "submission_date": "2025-02-16T12:57:30.689164",
+      "personal_info": {
+        "full_name": "Applicant 115",
+        "emirates_id": "784-1973-2815082-9",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 7,
+        "dependents": 4,
+        "mobile_number": "+971563024419",
+        "marital_status": "Married",
+        "email": "applicant115@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 115",
+        "job_title": null,
+        "monthly_salary": 16799,
+        "years_of_experience": 12
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "low",
+        "amount_requested": 14002,
+        "reason_for_support": "Support request reason for application 115",
+        "career_goals": "Career development goals for applicant 115"
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1049",
+      "processing_notes": "Processing notes and AI assessment for application 115"
+    },
+    {
+      "application_id": "UAE-2024-000116",
+      "submission_date": "2025-04-07T12:57:30.689182",
+      "personal_info": {
+        "full_name": "Applicant 116",
+        "emirates_id": "784-1991-4212331-3",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 4,
+        "dependents": 2,
+        "mobile_number": "+971556042581",
+        "marital_status": "Divorced",
+        "email": "applicant116@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": null,
+        "monthly_salary": 11610,
+        "years_of_experience": 7
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "medium",
+        "amount_requested": 6230,
+        "reason_for_support": "Support request reason for application 116",
+        "career_goals": null
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1037",
+      "processing_notes": "Processing notes and AI assessment for application 116"
+    },
+    {
+      "application_id": "UAE-2024-000117",
+      "submission_date": "2025-04-07T12:57:30.689202",
+      "personal_info": {
+        "full_name": "Applicant 117",
+        "emirates_id": "784-1987-9274385-3",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 4,
+        "dependents": 1,
+        "mobile_number": "+971593738922",
+        "marital_status": "Married",
+        "email": "applicant117@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 117",
+        "job_title": "Position 117",
+        "monthly_salary": 15582,
+        "years_of_experience": 19
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "medium",
+        "amount_requested": 27530,
+        "reason_for_support": "Support request reason for application 117",
+        "career_goals": "Career development goals for applicant 117"
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1024",
+      "processing_notes": "Processing notes and AI assessment for application 117"
+    },
+    {
+      "application_id": "UAE-2024-000118",
+      "submission_date": "2025-08-16T12:57:30.689221",
+      "personal_info": {
+        "full_name": "Applicant 118",
+        "emirates_id": "784-2004-3146396-1",
+        "nationality": "Filipino",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 2,
+        "dependents": 3,
+        "mobile_number": "+971582795303",
+        "marital_status": "Married",
+        "email": "applicant118@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 118",
+        "job_title": "Position 118",
+        "monthly_salary": 29945,
+        "years_of_experience": 8
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "medium",
+        "amount_requested": 17277,
+        "reason_for_support": "Support request reason for application 118",
+        "career_goals": "Career development goals for applicant 118"
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1018",
+      "processing_notes": "Processing notes and AI assessment for application 118"
+    },
+    {
+      "application_id": "UAE-2024-000119",
+      "submission_date": "2025-09-04T12:57:30.689239",
+      "personal_info": {
+        "full_name": "Applicant 119",
+        "emirates_id": "784-2002-1682747-6",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 7,
+        "dependents": 1,
+        "mobile_number": "+971573636644",
+        "marital_status": "Widowed",
+        "email": "applicant119@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 119",
+        "job_title": "Position 119",
+        "monthly_salary": 3855,
+        "years_of_experience": 23
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "high",
+        "amount_requested": 46660,
+        "reason_for_support": "Support request reason for application 119",
+        "career_goals": "Career development goals for applicant 119"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1010",
+      "processing_notes": "Processing notes and AI assessment for application 119"
+    },
+    {
+      "application_id": "UAE-2024-000120",
+      "submission_date": "2025-03-20T12:57:30.689257",
+      "personal_info": {
+        "full_name": "Applicant 120",
+        "emirates_id": "784-1989-9916205-9",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 6,
+        "dependents": 0,
+        "mobile_number": "+971576969601",
+        "marital_status": "Single",
+        "email": "applicant120@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 120",
+        "job_title": null,
+        "monthly_salary": 28525,
+        "years_of_experience": 0
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "high",
+        "amount_requested": 17935,
+        "reason_for_support": "Support request reason for application 120",
+        "career_goals": "Career development goals for applicant 120"
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1044",
+      "processing_notes": "Processing notes and AI assessment for application 120"
+    },
+    {
+      "application_id": "UAE-2024-000121",
+      "submission_date": "2024-10-21T12:57:30.689279",
+      "personal_info": {
+        "full_name": "Applicant 121",
+        "emirates_id": "784-1982-3272692-6",
+        "nationality": "Filipino",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 4,
+        "dependents": 0,
+        "mobile_number": "+971503156519",
+        "marital_status": "Divorced",
+        "email": "applicant121@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 121",
+        "job_title": null,
+        "monthly_salary": 28647,
+        "years_of_experience": 13
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "medium",
+        "amount_requested": 32595,
+        "reason_for_support": "Support request reason for application 121",
+        "career_goals": "Career development goals for applicant 121"
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1001",
+      "processing_notes": "Processing notes and AI assessment for application 121"
+    },
+    {
+      "application_id": "UAE-2024-000122",
+      "submission_date": "2025-05-13T12:57:30.689301",
+      "personal_info": {
+        "full_name": "Applicant 122",
+        "emirates_id": "784-1983-4712186-6",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 8,
+        "dependents": 3,
+        "mobile_number": "+971536001696",
+        "marital_status": "Divorced",
+        "email": "applicant122@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": null,
+        "monthly_salary": 1225,
+        "years_of_experience": 1
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "critical",
+        "amount_requested": 25746,
+        "reason_for_support": "Support request reason for application 122",
+        "career_goals": null
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1006",
+      "processing_notes": "Processing notes and AI assessment for application 122"
+    },
+    {
+      "application_id": "UAE-2024-000123",
+      "submission_date": "2025-08-23T12:57:30.689318",
+      "personal_info": {
+        "full_name": "Applicant 123",
+        "emirates_id": "784-1974-8472183-5",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 1,
+        "dependents": 2,
+        "mobile_number": "+971506307928",
+        "marital_status": "Widowed",
+        "email": "applicant123@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 123",
+        "job_title": null,
+        "monthly_salary": 8157,
+        "years_of_experience": 2
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "medium",
+        "amount_requested": 41900,
+        "reason_for_support": "Support request reason for application 123",
+        "career_goals": "Career development goals for applicant 123"
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1036",
+      "processing_notes": "Processing notes and AI assessment for application 123"
+    },
+    {
+      "application_id": "UAE-2024-000124",
+      "submission_date": "2025-02-09T12:57:30.689336",
+      "personal_info": {
+        "full_name": "Applicant 124",
+        "emirates_id": "784-2001-3657459-4",
+        "nationality": "Bangladeshi",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 1,
+        "dependents": 5,
+        "mobile_number": "+971589665861",
+        "marital_status": "Single",
+        "email": "applicant124@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 124",
+        "job_title": "Position 124",
+        "monthly_salary": 253,
+        "years_of_experience": 4
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "high",
+        "amount_requested": 45524,
+        "reason_for_support": "Support request reason for application 124",
+        "career_goals": "Career development goals for applicant 124"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1040",
+      "processing_notes": "Processing notes and AI assessment for application 124"
+    },
+    {
+      "application_id": "UAE-2024-000125",
+      "submission_date": "2025-07-15T12:57:30.689357",
+      "personal_info": {
+        "full_name": "Applicant 125",
+        "emirates_id": "784-1994-9514919-7",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 6,
+        "dependents": 5,
+        "mobile_number": "+971535790208",
+        "marital_status": "Widowed",
+        "email": "applicant125@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 125",
+        "job_title": "Position 125",
+        "monthly_salary": 26285,
+        "years_of_experience": 5
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "low",
+        "amount_requested": 13564,
+        "reason_for_support": "Support request reason for application 125",
+        "career_goals": null
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1002",
+      "processing_notes": "Processing notes and AI assessment for application 125"
+    },
+    {
+      "application_id": "UAE-2024-000126",
+      "submission_date": "2025-05-28T12:57:30.689375",
+      "personal_info": {
+        "full_name": "Applicant 126",
+        "emirates_id": "784-1974-7707905-3",
+        "nationality": "Filipino",
+        "residency_status": "Citizen",
+        "emirate": "abu_dhabi",
+        "family_size": 5,
+        "dependents": 4,
+        "mobile_number": "+971575276918",
+        "marital_status": "Married",
+        "email": "applicant126@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 126",
+        "job_title": "Position 126",
+        "monthly_salary": 3132,
+        "years_of_experience": 8
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "critical",
+        "amount_requested": 6723,
+        "reason_for_support": "Support request reason for application 126",
+        "career_goals": null
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1005",
+      "processing_notes": "Processing notes and AI assessment for application 126"
+    },
+    {
+      "application_id": "UAE-2024-000127",
+      "submission_date": "2025-05-25T12:57:30.689393",
+      "personal_info": {
+        "full_name": "Applicant 127",
+        "emirates_id": "784-1982-1464979-5",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 6,
+        "dependents": 3,
+        "mobile_number": "+971535186904",
+        "marital_status": "Widowed",
+        "email": "applicant127@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": null,
+        "job_title": "Position 127",
+        "monthly_salary": 30674,
+        "years_of_experience": 9
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "high",
+        "amount_requested": 48195,
+        "reason_for_support": "Support request reason for application 127",
+        "career_goals": "Career development goals for applicant 127"
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1038",
+      "processing_notes": "Processing notes and AI assessment for application 127"
+    },
+    {
+      "application_id": "UAE-2024-000128",
+      "submission_date": "2025-09-27T12:57:30.689414",
+      "personal_info": {
+        "full_name": "Applicant 128",
+        "emirates_id": "784-1996-4233899-2",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 8,
+        "dependents": 1,
+        "mobile_number": "+971571938017",
+        "marital_status": "Divorced",
+        "email": "applicant128@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 128",
+        "job_title": "Position 128",
+        "monthly_salary": 8515,
+        "years_of_experience": 1
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "critical",
+        "amount_requested": 49348,
+        "reason_for_support": "Support request reason for application 128",
+        "career_goals": null
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1045",
+      "processing_notes": "Processing notes and AI assessment for application 128"
+    },
+    {
+      "application_id": "UAE-2024-000129",
+      "submission_date": "2025-02-16T12:57:30.689431",
+      "personal_info": {
+        "full_name": "Applicant 129",
+        "emirates_id": "784-1975-1100763-9",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 1,
+        "dependents": 4,
+        "mobile_number": "+971589517678",
+        "marital_status": "Married",
+        "email": "applicant129@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 129",
+        "job_title": null,
+        "monthly_salary": 5285,
+        "years_of_experience": 14
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "low",
+        "amount_requested": 49310,
+        "reason_for_support": "Support request reason for application 129",
+        "career_goals": "Career development goals for applicant 129"
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1003",
+      "processing_notes": "Processing notes and AI assessment for application 129"
+    },
+    {
+      "application_id": "UAE-2024-000130",
+      "submission_date": "2025-09-11T12:57:30.689450",
+      "personal_info": {
+        "full_name": "Applicant 130",
+        "emirates_id": "784-2000-1080537-6",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 1,
+        "dependents": 1,
+        "mobile_number": "+971563113369",
+        "marital_status": "Married",
+        "email": "applicant130@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": "Position 130",
+        "monthly_salary": 420,
+        "years_of_experience": 3
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "critical",
+        "amount_requested": 13350,
+        "reason_for_support": "Support request reason for application 130",
+        "career_goals": "Career development goals for applicant 130"
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1019",
+      "processing_notes": "Processing notes and AI assessment for application 130"
+    },
+    {
+      "application_id": "UAE-2024-000131",
+      "submission_date": "2025-04-21T12:57:30.689503",
+      "personal_info": {
+        "full_name": "Applicant 131",
+        "emirates_id": "784-1999-3868683-1",
+        "nationality": "Filipino",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 3,
+        "dependents": 2,
+        "mobile_number": "+971569507880",
+        "marital_status": "Single",
+        "email": "applicant131@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": "Position 131",
+        "monthly_salary": 26972,
+        "years_of_experience": 16
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "low",
+        "amount_requested": 41056,
+        "reason_for_support": "Support request reason for application 131",
+        "career_goals": null
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1011",
+      "processing_notes": "Processing notes and AI assessment for application 131"
+    },
+    {
+      "application_id": "UAE-2024-000132",
+      "submission_date": "2024-09-30T12:57:30.689525",
+      "personal_info": {
+        "full_name": "Applicant 132",
+        "emirates_id": "784-1978-5996121-5",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 4,
+        "dependents": 2,
+        "mobile_number": "+971509396831",
+        "marital_status": "Divorced",
+        "email": "applicant132@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": null,
+        "job_title": "Position 132",
+        "monthly_salary": 10972,
+        "years_of_experience": 24
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "low",
+        "amount_requested": 34389,
+        "reason_for_support": "Support request reason for application 132",
+        "career_goals": null
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1006",
+      "processing_notes": "Processing notes and AI assessment for application 132"
+    },
+    {
+      "application_id": "UAE-2024-000133",
+      "submission_date": "2025-04-11T12:57:30.689543",
+      "personal_info": {
+        "full_name": "Applicant 133",
+        "emirates_id": "784-2002-8473691-5",
+        "nationality": "Indian",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 8,
+        "dependents": 1,
+        "mobile_number": "+971595689591",
+        "marital_status": "Widowed",
+        "email": "applicant133@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 133",
+        "job_title": "Position 133",
+        "monthly_salary": 14872,
+        "years_of_experience": 13
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "critical",
+        "amount_requested": 41962,
+        "reason_for_support": "Support request reason for application 133",
+        "career_goals": null
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1019",
+      "processing_notes": "Processing notes and AI assessment for application 133"
+    },
+    {
+      "application_id": "UAE-2024-000134",
+      "submission_date": "2025-02-06T12:57:30.689592",
+      "personal_info": {
+        "full_name": "Applicant 134",
+        "emirates_id": "784-2002-3674323-8",
+        "nationality": "Bangladeshi",
+        "residency_status": "Citizen",
+        "emirate": "fujairah",
+        "family_size": 8,
+        "dependents": 5,
+        "mobile_number": "+971510056384",
+        "marital_status": "Single",
+        "email": "applicant134@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 134",
+        "job_title": null,
+        "monthly_salary": 25367,
+        "years_of_experience": 25
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "low",
+        "amount_requested": 27211,
+        "reason_for_support": "Support request reason for application 134",
+        "career_goals": "Career development goals for applicant 134"
+      },
+      "processing_status": "Submitted",
+      "case_worker_id": "CW1034",
+      "processing_notes": "Processing notes and AI assessment for application 134"
+    },
+    {
+      "application_id": "UAE-2024-000135",
+      "submission_date": "2025-04-07T12:57:30.689612",
+      "personal_info": {
+        "full_name": "Applicant 135",
+        "emirates_id": "784-2000-3342524-3",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 6,
+        "dependents": 2,
+        "mobile_number": "+971520629767",
+        "marital_status": "Divorced",
+        "email": "applicant135@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": null,
+        "job_title": null,
+        "monthly_salary": 27470,
+        "years_of_experience": 8
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "low",
+        "amount_requested": 5013,
+        "reason_for_support": "Support request reason for application 135",
+        "career_goals": null
+      },
+      "processing_status": "Documents Required",
+      "case_worker_id": "CW1009",
+      "processing_notes": "Processing notes and AI assessment for application 135"
+    },
+    {
+      "application_id": "UAE-2024-000136",
+      "submission_date": "2025-08-28T12:57:30.689630",
+      "personal_info": {
+        "full_name": "Applicant 136",
+        "emirates_id": "784-2001-9509547-5",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "dubai",
+        "family_size": 5,
+        "dependents": 2,
+        "mobile_number": "+971557398100",
+        "marital_status": "Divorced",
+        "email": "applicant136@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 136",
+        "job_title": null,
+        "monthly_salary": 8137,
+        "years_of_experience": 8
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "medium",
+        "amount_requested": 7234,
+        "reason_for_support": "Support request reason for application 136",
+        "career_goals": "Career development goals for applicant 136"
+      },
+      "processing_status": "Declined",
+      "case_worker_id": "CW1045",
+      "processing_notes": "Processing notes and AI assessment for application 136"
+    },
+    {
+      "application_id": "UAE-2024-000137",
+      "submission_date": "2025-04-08T12:57:30.689648",
+      "personal_info": {
+        "full_name": "Applicant 137",
+        "emirates_id": "784-1983-6688663-7",
+        "nationality": "Filipino",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 3,
+        "dependents": 5,
+        "mobile_number": "+971531459660",
+        "marital_status": "Divorced",
+        "email": "applicant137@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": null,
+        "job_title": "Position 137",
+        "monthly_salary": 26370,
+        "years_of_experience": 21
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "low",
+        "amount_requested": 46659,
+        "reason_for_support": "Support request reason for application 137",
+        "career_goals": "Career development goals for applicant 137"
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1028",
+      "processing_notes": "Processing notes and AI assessment for application 137"
+    },
+    {
+      "application_id": "UAE-2024-000138",
+      "submission_date": "2024-11-10T12:57:30.689670",
+      "personal_info": {
+        "full_name": "Applicant 138",
+        "emirates_id": "784-1994-7466670-4",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 1,
+        "dependents": 6,
+        "mobile_number": "+971567807875",
+        "marital_status": "Single",
+        "email": "applicant138@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": null,
+        "job_title": "Position 138",
+        "monthly_salary": 11394,
+        "years_of_experience": 21
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "critical",
+        "amount_requested": 28555,
+        "reason_for_support": "Support request reason for application 138",
+        "career_goals": "Career development goals for applicant 138"
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1012",
+      "processing_notes": "Processing notes and AI assessment for application 138"
+    },
+    {
+      "application_id": "UAE-2024-000139",
+      "submission_date": "2025-02-14T12:57:30.689688",
+      "personal_info": {
+        "full_name": "Applicant 139",
+        "emirates_id": "784-2002-7498273-9",
+        "nationality": "Pakistani",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 7,
+        "dependents": 5,
+        "mobile_number": "+971571822927",
+        "marital_status": "Married",
+        "email": "applicant139@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": null,
+        "job_title": "Position 139",
+        "monthly_salary": 24126,
+        "years_of_experience": 15
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "critical",
+        "amount_requested": 11373,
+        "reason_for_support": "Support request reason for application 139",
+        "career_goals": "Career development goals for applicant 139"
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1048",
+      "processing_notes": "Processing notes and AI assessment for application 139"
+    },
+    {
+      "application_id": "UAE-2024-000140",
+      "submission_date": "2025-09-24T12:57:30.689710",
+      "personal_info": {
+        "full_name": "Applicant 140",
+        "emirates_id": "784-1971-9484627-7",
+        "nationality": "Filipino",
+        "residency_status": "Citizen",
+        "emirate": "sharjah",
+        "family_size": 3,
+        "dependents": 3,
+        "mobile_number": "+971557548543",
+        "marital_status": "Widowed",
+        "email": "applicant140@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": null,
+        "job_title": null,
+        "monthly_salary": 28893,
+        "years_of_experience": 6
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "critical",
+        "amount_requested": 38384,
+        "reason_for_support": "Support request reason for application 140",
+        "career_goals": null
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1032",
+      "processing_notes": "Processing notes and AI assessment for application 140"
+    },
+    {
+      "application_id": "UAE-2024-000141",
+      "submission_date": "2025-09-22T12:57:30.689727",
+      "personal_info": {
+        "full_name": "Applicant 141",
+        "emirates_id": "784-1995-6863850-4",
+        "nationality": "Bangladeshi",
+        "residency_status": "Resident",
+        "emirate": "fujairah",
+        "family_size": 5,
+        "dependents": 1,
+        "mobile_number": "+971583692585",
+        "marital_status": "Divorced",
+        "email": "applicant141@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 141",
+        "job_title": "Position 141",
+        "monthly_salary": 13318,
+        "years_of_experience": 17
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "high",
+        "amount_requested": 22296,
+        "reason_for_support": "Support request reason for application 141",
+        "career_goals": null
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1039",
+      "processing_notes": "Processing notes and AI assessment for application 141"
+    },
+    {
+      "application_id": "UAE-2024-000142",
+      "submission_date": "2024-12-01T12:57:30.689745",
+      "personal_info": {
+        "full_name": "Applicant 142",
+        "emirates_id": "784-1977-7390914-3",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 3,
+        "dependents": 3,
+        "mobile_number": "+971599190697",
+        "marital_status": "Single",
+        "email": "applicant142@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": null,
+        "job_title": "Position 142",
+        "monthly_salary": 10655,
+        "years_of_experience": 4
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "high",
+        "amount_requested": 30384,
+        "reason_for_support": "Support request reason for application 142",
+        "career_goals": "Career development goals for applicant 142"
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1014",
+      "processing_notes": "Processing notes and AI assessment for application 142"
+    },
+    {
+      "application_id": "UAE-2024-000143",
+      "submission_date": "2024-10-26T12:57:30.689764",
+      "personal_info": {
+        "full_name": "Applicant 143",
+        "emirates_id": "784-1970-7445736-2",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "abu_dhabi",
+        "family_size": 6,
+        "dependents": 4,
+        "mobile_number": "+971581512776",
+        "marital_status": "Divorced",
+        "email": "applicant143@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 143",
+        "job_title": null,
+        "monthly_salary": 20380,
+        "years_of_experience": 7
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "medium",
+        "amount_requested": 27388,
+        "reason_for_support": "Support request reason for application 143",
+        "career_goals": null
+      },
+      "processing_status": "Under Review",
+      "case_worker_id": "CW1029",
+      "processing_notes": "Processing notes and AI assessment for application 143"
+    },
+    {
+      "application_id": "UAE-2024-000144",
+      "submission_date": "2024-12-07T12:57:30.689786",
+      "personal_info": {
+        "full_name": "Applicant 144",
+        "emirates_id": "784-2005-4803223-9",
+        "nationality": "Filipino",
+        "residency_status": "Citizen",
+        "emirate": "dubai",
+        "family_size": 8,
+        "dependents": 0,
+        "mobile_number": "+971507130131",
+        "marital_status": "Widowed",
+        "email": "applicant144@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": null,
+        "job_title": null,
+        "monthly_salary": 34259,
+        "years_of_experience": 17
+      },
+      "support_request": {
+        "support_type": "economic_enablement",
+        "urgency_level": "critical",
+        "amount_requested": 30800,
+        "reason_for_support": "Support request reason for application 144",
+        "career_goals": "Career development goals for applicant 144"
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1046",
+      "processing_notes": "Processing notes and AI assessment for application 144"
+    },
+    {
+      "application_id": "UAE-2024-000145",
+      "submission_date": "2024-12-18T12:57:30.689804",
+      "personal_info": {
+        "full_name": "Applicant 145",
+        "emirates_id": "784-1972-9403947-6",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 4,
+        "dependents": 1,
+        "mobile_number": "+971553609068",
+        "marital_status": "Single",
+        "email": "applicant145@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 145",
+        "job_title": "Position 145",
+        "monthly_salary": 500,
+        "years_of_experience": 5
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "medium",
+        "amount_requested": 23520,
+        "reason_for_support": "Support request reason for application 145",
+        "career_goals": "Career development goals for applicant 145"
+      },
+      "processing_status": "Conditional Approval",
+      "case_worker_id": "CW1043",
+      "processing_notes": "Processing notes and AI assessment for application 145"
+    },
+    {
+      "application_id": "UAE-2024-000146",
+      "submission_date": "2025-03-29T12:57:30.689822",
+      "personal_info": {
+        "full_name": "Applicant 146",
+        "emirates_id": "784-1982-4989598-2",
+        "nationality": "Egyptian",
+        "residency_status": "Resident",
+        "emirate": "ajman",
+        "family_size": 5,
+        "dependents": 6,
+        "mobile_number": "+971594835896",
+        "marital_status": "Married",
+        "email": "applicant146@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Retired",
+        "employer_name": "Company 146",
+        "job_title": "Position 146",
+        "monthly_salary": 23935,
+        "years_of_experience": 1
+      },
+      "support_request": {
+        "support_type": "both",
+        "urgency_level": "high",
+        "amount_requested": 5871,
+        "reason_for_support": "Support request reason for application 146",
+        "career_goals": null
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1006",
+      "processing_notes": "Processing notes and AI assessment for application 146"
+    },
+    {
+      "application_id": "UAE-2024-000147",
+      "submission_date": "2024-12-28T12:57:30.689846",
+      "personal_info": {
+        "full_name": "Applicant 147",
+        "emirates_id": "784-2001-7065763-6",
+        "nationality": "Bangladeshi",
+        "residency_status": "Resident",
+        "emirate": "umm_al_quwain",
+        "family_size": 6,
+        "dependents": 5,
+        "mobile_number": "+971579584986",
+        "marital_status": "Widowed",
+        "email": "applicant147@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Unemployed",
+        "employer_name": "Company 147",
+        "job_title": null,
+        "monthly_salary": 21349,
+        "years_of_experience": 23
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "medium",
+        "amount_requested": 6429,
+        "reason_for_support": "Support request reason for application 147",
+        "career_goals": null
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1035",
+      "processing_notes": "Processing notes and AI assessment for application 147"
+    },
+    {
+      "application_id": "UAE-2024-000148",
+      "submission_date": "2025-01-03T12:57:30.689863",
+      "personal_info": {
+        "full_name": "Applicant 148",
+        "emirates_id": "784-1998-1551044-2",
+        "nationality": "UAE",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 2,
+        "dependents": 0,
+        "mobile_number": "+971538728129",
+        "marital_status": "Divorced",
+        "email": "applicant148@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 148",
+        "job_title": "Position 148",
+        "monthly_salary": 6864,
+        "years_of_experience": 20
+      },
+      "support_request": {
+        "support_type": "career_development",
+        "urgency_level": "medium",
+        "amount_requested": 38958,
+        "reason_for_support": "Support request reason for application 148",
+        "career_goals": null
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1015",
+      "processing_notes": "Processing notes and AI assessment for application 148"
+    },
+    {
+      "application_id": "UAE-2024-000149",
+      "submission_date": "2024-10-06T12:57:30.689881",
+      "personal_info": {
+        "full_name": "Applicant 149",
+        "emirates_id": "784-1999-2563522-4",
+        "nationality": "Lebanese",
+        "residency_status": "Resident",
+        "emirate": "ras_al_khaimah",
+        "family_size": 1,
+        "dependents": 0,
+        "mobile_number": "+971559433011",
+        "marital_status": "Married",
+        "email": "applicant149@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Self-Employed",
+        "employer_name": "Company 149",
+        "job_title": "Position 149",
+        "monthly_salary": 1941,
+        "years_of_experience": 22
+      },
+      "support_request": {
+        "support_type": "emergency_support",
+        "urgency_level": "high",
+        "amount_requested": 10743,
+        "reason_for_support": "Support request reason for application 149",
+        "career_goals": null
+      },
+      "processing_status": "Assessment",
+      "case_worker_id": "CW1035",
+      "processing_notes": "Processing notes and AI assessment for application 149"
+    },
+    {
+      "application_id": "UAE-2024-000150",
+      "submission_date": "2025-02-01T12:57:30.689900",
+      "personal_info": {
+        "full_name": "Applicant 150",
+        "emirates_id": "784-1996-2661727-7",
+        "nationality": "Syrian",
+        "residency_status": "Resident",
+        "emirate": "sharjah",
+        "family_size": 2,
+        "dependents": 5,
+        "mobile_number": "+971524105664",
+        "marital_status": "Widowed",
+        "email": "applicant150@email.com"
+      },
+      "employment_info": {
+        "employment_status": "Employed",
+        "employer_name": "Company 150",
+        "job_title": "Position 150",
+        "monthly_salary": 10980,
+        "years_of_experience": 6
+      },
+      "support_request": {
+        "support_type": "financial_assistance",
+        "urgency_level": "low",
+        "amount_requested": 16407,
+        "reason_for_support": "Support request reason for application 150",
+        "career_goals": null
+      },
+      "processing_status": "Approved",
+      "case_worker_id": "CW1044",
+      "processing_notes": "Processing notes and AI assessment for application 150"
+    }
+  ]
+}

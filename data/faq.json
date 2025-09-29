@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "generated_date": "2025-09-29T12:59:08.791805",
+    "total_questions": 5,
+    "categories": [
+      "Documents",
+      "Process",
+      "Eligibility",
+      "Training",
+      "Status"
+    ],
+    "languages": [
+      "English",
+      "Arabic"
+    ],
+    "data_version": "1.0.0"
+  },
+  "faq": [
+    {
+      "id": "FAQ001",
+      "question_en": "What documents are required for application?",
+      "question_ar": "ما هي المستندات المطلوبة للتقديم؟",
+      "answer_en": "Required documents include Emirates ID, salary certificate, bank statement, and family book.",
+      "answer_ar": "المستندات المطلوبة تشمل الهوية الإماراتية وشهادة الراتب وكشف الحساب البنكي وخلاصة القيد.",
+      "category": "Documents",
+      "category_ar": "المستندات"
+    },
+    {
+      "id": "FAQ002",
+      "question_en": "How long does application processing take?",
+      "question_ar": "كم من الوقت يستغرق معالجة الطلب؟",
+      "answer_en": "Standard processing time is 14 working days from submission of complete documents.",
+      "answer_ar": "وقت المعالجة القياسي هو 14 يوم عمل من تاريخ تقديم المستندات كاملة.",
+      "category": "Process",
+      "category_ar": "العملية"
+    },
+    {
+      "id": "FAQ003",
+      "question_en": "What are the eligibility criteria for emergency support?",
+      "question_ar": "ما هي معايير الأهلية للدعم الطارئ؟",
+      "answer_en": "Emergency support is available for UAE residents facing urgent financial hardship with family income below AED 15,000 per month.",
+      "answer_ar": "الدعم الطارئ متاح للمقيمين في دولة الإمارات الذين يواجهون صعوبات مالية عاجلة مع دخل أسري أقل من 15,000 درهم شهرياً.",
+      "category": "Eligibility",
+      "category_ar": "الأهلية"
+    },
+    {
+      "id": "FAQ004",
+      "question_en": "Can I apply for training programs along with financial support?",
+      "question_ar": "هل يمكنني التقدم لبرامج التدريب مع الدعم المالي؟",
+      "answer_en": "Yes, you can apply for career development training programs as part of economic enablement support.",
+      "answer_ar": "نعم، يمكنك التقدم لبرامج التدريب المهني كجزء من دعم التمكين الاقتصادي.",
+      "category": "Training",
+      "category_ar": "التدريب"
+    },
+    {
+      "id": "FAQ005",
+      "question_en": "How can I check the status of my application?",
+      "question_ar": "كيف يمكنني التحقق من حالة طلبي؟",
+      "answer_en": "You can check your application status online using your application ID or by contacting your assigned case worker.",
+      "answer_ar": "يمكنك التحقق من حالة طلبك عبر الإنترنت باستخدام رقم الطلب أو بالاتصال بالأخصائي الاجتماعي المعين.",
+      "category": "Status",
+      "category_ar": "الحالة"
+    }
+  ]
+}

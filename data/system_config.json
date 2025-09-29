@@ -1,0 +1,80 @@
+{
+  "eligibility_criteria": {
+    "emergency_support": {
+      "max_amount": 50000,
+      "income_threshold": 15000,
+      "required_documents": [
+        "emirates_id",
+        "salary_certificate",
+        "bank_statement"
+      ],
+      "processing_priority": "high",
+      "approval_authority": "senior_case_worker"
+    },
+    "financial_assistance": {
+      "max_amount": 40000,
+      "income_threshold": 20000,
+      "required_documents": [
+        "emirates_id",
+        "salary_certificate",
+        "utility_bills"
+      ],
+      "processing_priority": "medium",
+      "approval_authority": "case_worker"
+    },
+    "economic_enablement": {
+      "max_amount": 45000,
+      "income_threshold": 25000,
+      "required_documents": [
+        "emirates_id",
+        "business_plan",
+        "training_certificate"
+      ],
+      "processing_priority": "medium",
+      "approval_authority": "department_head"
+    },
+    "career_development": {
+      "max_amount": 35000,
+      "income_threshold": 30000,
+      "required_documents": [
+        "emirates_id",
+        "employment_history",
+        "training_application"
+      ],
+      "processing_priority": "low",
+      "approval_authority": "training_coordinator"
+    }
+  },
+  "system_settings": {
+    "processing_timeout_days": 21,
+    "emergency_processing_days": 7,
+    "max_file_size_mb": 5,
+    "supported_languages": [
+      "en",
+      "ar"
+    ],
+    "currency": "AED",
+    "default_emirate": "dubai",
+    "notification_methods": [
+      "email",
+      "sms",
+      "portal"
+    ],
+    "working_hours": "8:00-16:00",
+    "support_contact": "+97143551000"
+  },
+  "ai_processing_rules": {
+    "enable_ai_assessment": true,
+    "confidence_threshold": 0.75,
+    "human_review_required": [
+      "critical_urgency",
+      "high_amount",
+      "complex_case"
+    ],
+    "auto_approval_conditions": [
+      "low_risk",
+      "standard_amount",
+      "complete_documentation"
+    ]
+  }
+}

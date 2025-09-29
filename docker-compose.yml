@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  postgresql:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: uae_social_support
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://postgres:password@postgresql:5432/uae_social_support
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - postgresql
+      - redis
+
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:
