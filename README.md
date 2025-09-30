@@ -80,8 +80,10 @@ An agentic, multimodal reference implementation for evaluating social-support ap
 python -m venv .venv
 source .venv/bin/activate  # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
+# Copy the environment template
+cp .env.example .env
 
-# Create a .env file (see Configuration section)
+# Populate .env with secrets (e.g., OLLAMA_API_KEY) and any overrides
 
 # Start the FastAPI backend
 python run.py api
@@ -115,22 +117,9 @@ The demo loads **10** synthetic applications (see `data/synthetic_applicants.jso
 
 Environment variables are loaded via `python-dotenv`. Define them in a `.env` file at the project root. Common settings:
 
-```env
-API_HOST=0.0.0.0
-API_PORT=8005
-
-# Ollama Cloud / LLM integration
-OLLAMA_API_KEY=your-key
-OLLAMA_BASE_URL=https://ollama.com
-OLLAMA_MODEL=gpt-oss:120b-cloud
-
-# Database
-# Defaults to sqlite+aiosqlite:///./social_support.db if unset
-DATABASE_URL=postgresql+asyncpg://postgres:password@localhost:5432/uae_social_support
-REDIS_URL=redis://localhost:6379
-```
-
-Defaults live in `src/config/settings.py`. The configuration object is imported across the stack to keep behavior consistent.
+1. Copy the provided template: `cp .env.example .env`.
+2. Edit `.env` to add any secrets (e.g., `OLLAMA_API_KEY`) and override defaults (database URLs, Redis, etc.). Do **not** commit the populated `.env` file.
+3. Defaults also live in `src/config/settings.py`; environment values take precedence.
 
 ## API and UI Highlights
 - **FastAPI (src/api/main.py)**
