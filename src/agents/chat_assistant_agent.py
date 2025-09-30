@@ -50,7 +50,7 @@ class ChatAssistantAgent(BaseAgent):
             """
             
             # Get LLM response
-            if self.llm_client:
+            if self.llm_client and getattr(self.llm_client, "available", False):
                 response = await self.llm_analyze(
                     enhanced_prompt, 
                     self.uae_context

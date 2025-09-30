@@ -32,49 +32,68 @@ class FinancialAnalyzerAgent(BaseAgent):
             monthly_salary = employment_info.get("monthly_salary", 0)
             family_size = personal_info.get("family_size", 1)
 
-            # Calculate eligibility score
-            eligibility_score = self._calculate_eligibility_score(
-                emirate, monthly_salary, family_size, employment_info
+            baseline = self._rule_based_assessment(
+                emirate, monthly_salary, family_size, employment_info, support_request
             )
 
-            # Determine recommendation
-            if eligibility_score >= 80:
-                recommendation = "approve"
-                risk_level = "low"
-            elif eligibility_score >= 60:
-                recommendation = "conditional_approve"
-                risk_level = "medium"
-            elif eligibility_score >= 40:
-                recommendation = "review_required"
-                risk_level = "medium"
-            else:
-                recommendation = "soft_decline"
-                risk_level = "high"
+            if self.llm_client and getattr(self.llm_client, "available", False):
+                llm_result = await self._analyze_with_llm(personal_info, employment_info, support_request)
+                if llm_result:
+                    baseline = self._merge_llm_assessment(baseline, llm_result)
 
-            # Calculate support amount
-            requested_amount = support_request.get("amount_requested", 0)
-            recommended_amount = min(requested_amount, monthly_salary * 6) if recommendation != "soft_decline" else 0
-
-            result = {
-                "success": True,
-                "eligibility_score": eligibility_score,
-                "decision_recommendation": recommendation,
-                "recommended_support_amount": recommended_amount,
-                "risk_level": risk_level,
-                "risk_factors": self._identify_risk_factors(monthly_salary, family_size),
-                "uae_assessment": {
-                    "emirate": emirate,
-                    "income_category": self._categorize_income(emirate, monthly_salary)
-                }
-            }
-
-            await self.log_processing(input_data, result, success=True)
-            return result
+            await self.log_processing(input_data, baseline, success=True)
+            return baseline
 
         except Exception as e:
             error_msg = f"Financial analysis failed: {str(e)}"
             await self.log_processing(input_data, {}, success=False, error_message=error_msg)
             raise AgentError(error_msg)
+
+    def _rule_based_assessment(
+        self,
+        emirate: str,
+        monthly_salary: float,
+        family_size: int,
+        employment_info: Dict[str, Any],
+        support_request: Dict[str, Any],
+    ) -> Dict[str, Any]:
+        eligibility_score = self._calculate_eligibility_score(
+            emirate, monthly_salary, family_size, employment_info
+        )
+
+        if eligibility_score >= 80:
+            recommendation = "approve"
+            risk_level = "low"
+        elif eligibility_score >= 60:
+            recommendation = "conditional_approve"
+            risk_level = "medium"
+        elif eligibility_score >= 40:
+            recommendation = "review_required"
+            risk_level = "medium"
+        else:
+            recommendation = "soft_decline"
+            risk_level = "high"
+
+        requested_amount = support_request.get("amount_requested", 0)
+        recommended_amount = (
+            min(requested_amount, monthly_salary * 6)
+            if recommendation != "soft_decline"
+            else 0
+        )
+
+        return {
+            "success": True,
+            "eligibility_score": eligibility_score,
+            "decision_recommendation": recommendation,
+            "recommended_support_amount": recommended_amount,
+            "risk_level": risk_level,
+            "risk_factors": self._identify_risk_factors(monthly_salary, family_size),
+            "uae_assessment": {
+                "emirate": emirate,
+                "income_category": self._categorize_income(emirate, monthly_salary),
+            },
+            "analysis_source": "rule_based",
+        }
 
     def _calculate_eligibility_score(self, emirate: str, monthly_salary: float, 
                                    family_size: int, employment_info: Dict) -> int:
@@ -133,3 +152,91 @@ class FinancialAnalyzerAgent(BaseAgent):
             risk_factors.append("Large family size")
 
         return risk_factors
+
+    async def _analyze_with_llm(
+        self,
+        personal_info: Dict[str, Any],
+        employment_info: Dict[str, Any],
+        support_request: Dict[str, Any],
+    ) -> Dict[str, Any] | None:
+        context = """
+You are a financial analyst for UAE social support programmes. Consider emirate-specific
+income thresholds, family size pressure, employment stability, and urgency when assessing
+applications. Always provide numeric scores between 0 and 100.
+"""
+
+        prompt = f"""
+Evaluate this application:
+
+Emirate: {personal_info.get('emirate', 'dubai')}
+Family Size: {personal_info.get('family_size', 1)}
+Dependents: {personal_info.get('dependents', 0)}
+Nationality: {personal_info.get('nationality', 'unknown')}
+Residency Status: {personal_info.get('residency_status', 'unknown')}
+
+Employment Status: {employment_info.get('employment_status', 'unknown')}
+Monthly Salary: {employment_info.get('monthly_salary', 0)}
+Job Title: {employment_info.get('job_title', 'unknown')}
+
+Support Type: {support_request.get('support_type', 'financial_assistance')}
+Amount Requested: {support_request.get('amount_requested', 0)}
+Reason: {support_request.get('reason_for_support', 'not specified')}
+Urgency: {support_request.get('urgency_level', 'medium')}
+
+Return JSON with:
+{{
+    "success": bool,
+    "eligibility_score": int,
+    "decision_recommendation": "approve" | "conditional_approve" | "review_required" | "soft_decline",
+    "recommended_support_amount": float,
+    "support_duration_months": int,
+    "risk_level": "low" | "medium" | "high",
+    "risk_factors": list[str],
+    "analysis_reasoning": str
+}}
+"""
+
+        expected_format = {
+            "success": True,
+            "eligibility_score": 0,
+            "decision_recommendation": "approve",
+            "recommended_support_amount": 0.0,
+            "support_duration_months": 0,
+            "risk_level": "medium",
+            "risk_factors": ["string"],
+            "analysis_reasoning": "text",
+        }
+
+        try:
+            llm_payload = await self.llm_analyze(prompt, context, output_format=expected_format)
+            if isinstance(llm_payload, dict) and llm_payload.get("success"):
+                return llm_payload
+        except Exception as exc:  # noqa: BLE001
+            logger.error("LLM financial analysis failed: %s", exc)
+
+        return None
+
+    def _merge_llm_assessment(
+        self, baseline: Dict[str, Any], llm_result: Dict[str, Any]
+    ) -> Dict[str, Any]:
+        merged = baseline.copy()
+
+        merged.update({
+            "eligibility_score": llm_result.get("eligibility_score", baseline["eligibility_score"]),
+            "decision_recommendation": llm_result.get(
+                "decision_recommendation", baseline["decision_recommendation"]
+            ),
+            "recommended_support_amount": llm_result.get(
+                "recommended_support_amount", baseline["recommended_support_amount"]
+            ),
+            "risk_level": llm_result.get("risk_level", baseline["risk_level"]),
+            "risk_factors": llm_result.get("risk_factors", baseline["risk_factors"]),
+        })
+
+        if "support_duration_months" in llm_result:
+            merged["support_duration_months"] = llm_result["support_duration_months"]
+        if "analysis_reasoning" in llm_result:
+            merged["analysis_reasoning"] = llm_result["analysis_reasoning"]
+
+        merged["analysis_source"] = "llm"
+        return merged

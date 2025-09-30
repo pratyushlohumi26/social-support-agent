@@ -37,7 +37,25 @@ def api_request(endpoint: str, method: str = "GET", data: Optional[Dict] = None)
         if response.status_code == 200:
             return response.json()
         else:
-            st.error(f"API Error: {response.status_code}")
+            try:
+                error_payload = response.json()
+            except ValueError:
+                error_payload = {"detail": response.text}
+
+            message = (
+                error_payload.get("message")
+                or error_payload.get("detail")
+                or response.reason
+                or "Unexpected error"
+            )
+            st.error(f"API Error {response.status_code}: {message}")
+
+            errors = error_payload.get("errors") if isinstance(error_payload, dict) else None
+            if errors:
+                for error in errors:
+                    field = error.get("field", "field")
+                    msg = error.get("message", "Invalid value")
+                    st.warning(f"{field}: {msg}")
             return None
     except Exception as e:
         st.error(f"Connection Error: {str(e)}")

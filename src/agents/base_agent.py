@@ -40,7 +40,8 @@ class BaseAgent(ABC):
                          output_format: Optional[Dict[str, Any]] = None) -> Any:
         """Use LLM for analysis with structured output"""
         
-        if not self.llm_client:
+        client_available = self.llm_client and getattr(self.llm_client, "available", False)
+        if not client_available:
             logger.warning(f"{self.agent_name}: LLM client not available, using fallback")
             return self._fallback_analysis(prompt)
         

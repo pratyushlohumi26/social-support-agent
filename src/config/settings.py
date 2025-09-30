@@ -24,7 +24,9 @@ if PYDANTIC_AVAILABLE:
         ENVIRONMENT: str = "development"
         
         # Database
-        DATABASE_URL: str = "postgresql+asyncpg://postgres:password@localhost:5432/uae_social_support"
+        DATABASE_URL: str = os.getenv(
+            "DATABASE_URL", "sqlite+aiosqlite:///./social_support.db"
+        )
         DATABASE_ECHO: bool = False
         
         # API
@@ -33,6 +35,7 @@ if PYDANTIC_AVAILABLE:
         API_CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:8501"]
         
         # Ollama Configuration
+        OLLAMA_MODE: str = os.getenv("OLLAMA_MODE", "cloud")
         OLLAMA_API_KEY: str = os.getenv("OLLAMA_API_KEY", "")
         OLLAMA_BASE_URL: str = "https://ollama.com"
         OLLAMA_MODEL: str = "gpt-oss:120b-cloud"
@@ -72,6 +75,14 @@ if PYDANTIC_AVAILABLE:
         # Redis
         REDIS_URL: str = "redis://localhost:6379"
         
+        @property
+        def database_url(self) -> str:
+            return self.DATABASE_URL
+
+        @property
+        def database_echo(self) -> bool:
+            return self.DATABASE_ECHO
+
         @classmethod
         def get_uae_threshold(cls, emirate: str) -> Dict[str, int]:
             """Get income thresholds for emirate"""
@@ -89,10 +100,21 @@ else:
     class Settings:
         """Fallback settings class"""
         APP_NAME = "UAE Social Support AI System"
+        OLLAMA_MODE = os.getenv("OLLAMA_MODE", "cloud")
         OLLAMA_API_KEY = os.getenv("OLLAMA_API_KEY", "")
         OLLAMA_MODEL = "gpt-oss:120b-cloud"
         LANGGRAPH_CHECKPOINTING = True
         WORKFLOW_TIMEOUT = 300
+        DATABASE_URL = os.getenv("DATABASE_URL", "sqlite+aiosqlite:///./social_support.db")
+        DATABASE_ECHO = False
+
+        @property
+        def database_url(self) -> str:
+            return self.DATABASE_URL
+
+        @property
+        def database_echo(self) -> bool:
+            return self.DATABASE_ECHO
 
 def get_settings() -> Settings:
     """Get settings instance"""

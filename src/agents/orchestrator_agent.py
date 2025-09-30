@@ -178,7 +178,7 @@ class OrchestratorAgent(BaseAgent):
     # Add this method to replace the existing _analyze_finances method
     async def _analyze_finances(self, application_data: Dict[str, Any]) -> Dict[str, Any]:
         """Choose between LLM and rule-based financial analysis"""
-        if self.llm_client:
+        if self.llm_client and getattr(self.llm_client, "available", False):
             return await self._analyze_finances_with_llm(application_data)
         else:
             return await self._analyze_finances_rule_based(application_data)

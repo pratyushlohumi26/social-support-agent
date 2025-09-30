@@ -1,0 +1,352 @@
+[
+  {
+    "application_id": "UAE-DEMO-001",
+    "personal_info": {
+      "full_name": "Ahmed Al Mansouri",
+      "emirates_id": "784-1986-1234567-1",
+      "nationality": "uae",
+      "residency_status": "citizen",
+      "emirate": "dubai",
+      "family_size": 5,
+      "dependents": 3,
+      "mobile_number": "+971501112233",
+      "marital_status": "married",
+      "email": "ahmed.mansouri@example.ae"
+    },
+    "employment_info": {
+      "employment_status": "employed",
+      "employer_name": "Dubai Municipality",
+      "job_title": "Civil Engineer",
+      "monthly_salary": 14500.0,
+      "employment_start_date": "2016-04-12",
+      "years_of_experience": 9
+    },
+    "support_request": {
+      "support_type": "financial_assistance",
+      "urgency_level": "medium",
+      "amount_requested": 32000.0,
+      "reason_for_support": "Medical rehabilitation expenses for a dependent family member over the next six months.",
+      "career_goals": "Complete PMP certification to progress into project management roles."
+    },
+    "documents": [
+      {"document_type": "emirates_id", "filename": "ahmed_id.pdf", "status": "validated"},
+      {"document_type": "bank_statement", "filename": "ahmed_bank_q1.pdf", "status": "uploaded"},
+      {"document_type": "salary_certificate", "filename": "ahmed_salary_2024.pdf", "status": "validated"}
+    ]
+  },
+  {
+    "application_id": "UAE-DEMO-002",
+    "personal_info": {
+      "full_name": "Fatima Al Zahra",
+      "emirates_id": "784-1990-2345678-2",
+      "nationality": "uae",
+      "residency_status": "citizen",
+      "emirate": "abu_dhabi",
+      "family_size": 4,
+      "dependents": 2,
+      "mobile_number": "+971502224445",
+      "marital_status": "married",
+      "email": "fatima.zahra@example.ae"
+    },
+    "employment_info": {
+      "employment_status": "self_employed",
+      "employer_name": "Self",
+      "job_title": "Home-Based Baker",
+      "monthly_salary": 7800.0,
+      "employment_start_date": "2020-01-15",
+      "years_of_experience": 6
+    },
+    "support_request": {
+      "support_type": "both",
+      "urgency_level": "high",
+      "amount_requested": 26000.0,
+      "reason_for_support": "Expand licensed home bakery operations and cover equipment upgrades to meet demand.",
+      "career_goals": "Open a storefront and enroll in advanced pastry training."
+    },
+    "documents": [
+      {"document_type": "emirates_id", "filename": "fatima_id.pdf", "status": "validated"},
+      {"document_type": "trade_license", "filename": "fatima_trade_license.pdf", "status": "uploaded"},
+      {"document_type": "bank_statement", "filename": "fatima_bank_q1.pdf", "status": "review"}
+    ]
+  },
+  {
+    "application_id": "UAE-DEMO-003",
+    "personal_info": {
+      "full_name": "Mohammed Al Rashid",
+      "emirates_id": "784-1984-3456789-3",
+      "nationality": "uae",
+      "residency_status": "citizen",
+      "emirate": "sharjah",
+      "family_size": 6,
+      "dependents": 4,
+      "mobile_number": "+971503335556",
+      "marital_status": "married",
+      "email": "mohammed.rashid@example.ae"
+    },
+    "employment_info": {
+      "employment_status": "employed",
+      "employer_name": "Sharjah Electricity Authority",
+      "job_title": "Maintenance Supervisor",
+      "monthly_salary": 11800.0,
+      "employment_start_date": "2013-08-21",
+      "years_of_experience": 12
+    },
+    "support_request": {
+      "support_type": "financial_assistance",
+      "urgency_level": "medium",
+      "amount_requested": 21000.0,
+      "reason_for_support": "Home renovation to improve accessibility for elderly parents living with the family.",
+      "career_goals": "Complete electrical safety instructor certification to lead internal trainings."
+    },
+    "documents": [
+      {"document_type": "emirates_id", "filename": "mohammed_id.pdf", "status": "validated"},
+      {"document_type": "bank_statement", "filename": "mohammed_bank_q1.pdf", "status": "review"},
+      {"document_type": "utility_bill", "filename": "mohammed_dewa_march.pdf", "status": "validated"}
+    ]
+  },
+  {
+    "application_id": "UAE-DEMO-004",
+    "personal_info": {
+      "full_name": "Aisha Al Falasi",
+      "emirates_id": "784-1995-4567890-4",
+      "nationality": "uae",
+      "residency_status": "citizen",
+      "emirate": "dubai",
+      "family_size": 3,
+      "dependents": 1,
+      "mobile_number": "+971504446667",
+      "marital_status": "single",
+      "email": "aisha.falasi@example.ae"
+    },
+    "employment_info": {
+      "employment_status": "unemployed",
+      "employer_name": "",
+      "job_title": "",
+      "monthly_salary": 0.0,
+      "employment_start_date": null,
+      "years_of_experience": 3
+    },
+    "support_request": {
+      "support_type": "economic_enablement",
+      "urgency_level": "critical",
+      "amount_requested": 18000.0,
+      "reason_for_support": "Support tuition and certification fees to transition into the cybersecurity workforce.",
+      "career_goals": "Complete cybersecurity bootcamp and obtain CompTIA Security+ certification."
+    },
+    "documents": [
+      {"document_type": "emirates_id", "filename": "aisha_id.pdf", "status": "validated"},
+      {"document_type": "cv", "filename": "aisha_cv.pdf", "status": "uploaded"},
+      {"document_type": "education_certificate", "filename": "aisha_bsc_it.pdf", "status": "validated"}
+    ]
+  },
+  {
+    "application_id": "UAE-DEMO-005",
+    "personal_info": {
+      "full_name": "Omar Al Nuaimi",
+      "emirates_id": "784-1978-5678901-5",
+      "nationality": "uae",
+      "residency_status": "citizen",
+      "emirate": "abu_dhabi",
+      "family_size": 7,
+      "dependents": 5,
+      "mobile_number": "+971505558889",
+      "marital_status": "married",
+      "email": "omar.nuaimi@example.ae"
+    },
+    "employment_info": {
+      "employment_status": "employed",
+      "employer_name": "Abu Dhabi Ports",
+      "job_title": "Logistics Coordinator",
+      "monthly_salary": 13500.0,
+      "employment_start_date": "2011-05-09",
+      "years_of_experience": 14
+    },
+    "support_request": {
+      "support_type": "both",
+      "urgency_level": "medium",
+      "amount_requested": 29000.0,
+      "reason_for_support": "Bridge schooling expenses for children and invest in advanced logistics training.",
+      "career_goals": "Earn supply chain professional certification to qualify for managerial roles."
+    },
+    "documents": [
+      {"document_type": "emirates_id", "filename": "omar_id.pdf", "status": "validated"},
+      {"document_type": "bank_statement", "filename": "omar_bank_q1.pdf", "status": "review"},
+      {"document_type": "school_fees", "filename": "omar_school_fees.pdf", "status": "uploaded"}
+    ]
+  },
+  {
+    "application_id": "UAE-DEMO-006",
+    "personal_info": {
+      "full_name": "Sara Al Kaabi",
+      "emirates_id": "784-1989-6789012-6",
+      "nationality": "uae",
+      "residency_status": "citizen",
+      "emirate": "ras_al_khaimah",
+      "family_size": 4,
+      "dependents": 2,
+      "mobile_number": "+971506667778",
+      "marital_status": "married",
+      "email": "sara.kaabi@example.ae"
+    },
+    "employment_info": {
+      "employment_status": "self_employed",
+      "employer_name": "Self",
+      "job_title": "Freelance Graphic Designer",
+      "monthly_salary": 6200.0,
+      "employment_start_date": "2018-02-01",
+      "years_of_experience": 7
+    },
+    "support_request": {
+      "support_type": "financial_assistance",
+      "urgency_level": "low",
+      "amount_requested": 16000.0,
+      "reason_for_support": "Upgrade design equipment and secure co-working space for client meetings.",
+      "career_goals": "Launch an online design academy targeting youth in northern emirates."
+    },
+    "documents": [
+      {"document_type": "emirates_id", "filename": "sara_id.pdf", "status": "validated"},
+      {"document_type": "portfolio", "filename": "sara_portfolio.pdf", "status": "uploaded"},
+      {"document_type": "bank_statement", "filename": "sara_bank_q1.pdf", "status": "review"}
+    ]
+  },
+  {
+    "application_id": "UAE-DEMO-007",
+    "personal_info": {
+      "full_name": "Hassan Al Qasimi",
+      "emirates_id": "784-1982-7890123-7",
+      "nationality": "uae",
+      "residency_status": "citizen",
+      "emirate": "fujairah",
+      "family_size": 5,
+      "dependents": 3,
+      "mobile_number": "+971507778990",
+      "marital_status": "married",
+      "email": "hassan.qasimi@example.ae"
+    },
+    "employment_info": {
+      "employment_status": "employed",
+      "employer_name": "Fujairah Water Authority",
+      "job_title": "Water Quality Technician",
+      "monthly_salary": 9400.0,
+      "employment_start_date": "2014-10-03",
+      "years_of_experience": 11
+    },
+    "support_request": {
+      "support_type": "financial_assistance",
+      "urgency_level": "medium",
+      "amount_requested": 17500.0,
+      "reason_for_support": "Cover medical expenses related to chronic treatment for a dependent child.",
+      "career_goals": "Complete water sustainability certification to lead environmental initiatives."
+    },
+    "documents": [
+      {"document_type": "emirates_id", "filename": "hassan_id.pdf", "status": "validated"},
+      {"document_type": "medical_report", "filename": "hassan_medical_report.pdf", "status": "uploaded"},
+      {"document_type": "insurance_statement", "filename": "hassan_insurance.pdf", "status": "review"}
+    ]
+  },
+  {
+    "application_id": "UAE-DEMO-008",
+    "personal_info": {
+      "full_name": "Layla Al Suwaidi",
+      "emirates_id": "784-1993-8901234-8",
+      "nationality": "uae",
+      "residency_status": "citizen",
+      "emirate": "ajman",
+      "family_size": 2,
+      "dependents": 1,
+      "mobile_number": "+971508889001",
+      "marital_status": "single",
+      "email": "layla.suwaidi@example.ae"
+    },
+    "employment_info": {
+      "employment_status": "employed",
+      "employer_name": "Ajman Chamber of Commerce",
+      "job_title": "Policy Analyst",
+      "monthly_salary": 11200.0,
+      "employment_start_date": "2017-03-19",
+      "years_of_experience": 8
+    },
+    "support_request": {
+      "support_type": "economic_enablement",
+      "urgency_level": "medium",
+      "amount_requested": 19500.0,
+      "reason_for_support": "Launch a mentorship program for young entrepreneurs in Ajman.",
+      "career_goals": "Complete executive leadership training and develop policy innovation workshops."
+    },
+    "documents": [
+      {"document_type": "emirates_id", "filename": "layla_id.pdf", "status": "validated"},
+      {"document_type": "project_proposal", "filename": "layla_mentorship_proposal.pdf", "status": "uploaded"},
+      {"document_type": "bank_statement", "filename": "layla_bank_q1.pdf", "status": "review"}
+    ]
+  },
+  {
+    "application_id": "UAE-DEMO-009",
+    "personal_info": {
+      "full_name": "Yousef Al Harmoodi",
+      "emirates_id": "784-1988-9012345-9",
+      "nationality": "uae",
+      "residency_status": "citizen",
+      "emirate": "umm_al_quwain",
+      "family_size": 4,
+      "dependents": 2,
+      "mobile_number": "+971509990112",
+      "marital_status": "married",
+      "email": "yousef.harmoodi@example.ae"
+    },
+    "employment_info": {
+      "employment_status": "employed",
+      "employer_name": "UAQ Fisheries Cooperative",
+      "job_title": "Operations Manager",
+      "monthly_salary": 8800.0,
+      "employment_start_date": "2015-06-27",
+      "years_of_experience": 10
+    },
+    "support_request": {
+      "support_type": "financial_assistance",
+      "urgency_level": "medium",
+      "amount_requested": 15500.0,
+      "reason_for_support": "Upgrade fishing equipment and storage to meet new regulatory standards.",
+      "career_goals": "Obtain maritime logistics certification to expand cooperative exports."
+    },
+    "documents": [
+      {"document_type": "emirates_id", "filename": "yousef_id.pdf", "status": "validated"},
+      {"document_type": "business_plan", "filename": "yousef_upgrade_plan.pdf", "status": "uploaded"},
+      {"document_type": "bank_statement", "filename": "yousef_bank_q1.pdf", "status": "review"}
+    ]
+  },
+  {
+    "application_id": "UAE-DEMO-010",
+    "personal_info": {
+      "full_name": "Noora Al Amiri",
+      "emirates_id": "784-1992-0123456-0",
+      "nationality": "uae",
+      "residency_status": "citizen",
+      "emirate": "dubai",
+      "family_size": 3,
+      "dependents": 1,
+      "mobile_number": "+971511010202",
+      "marital_status": "married",
+      "email": "noora.amiri@example.ae"
+    },
+    "employment_info": {
+      "employment_status": "employed",
+      "employer_name": "Dubai Health Authority",
+      "job_title": "Nursing Supervisor",
+      "monthly_salary": 12800.0,
+      "employment_start_date": "2012-11-05",
+      "years_of_experience": 11
+    },
+    "support_request": {
+      "support_type": "both",
+      "urgency_level": "high",
+      "amount_requested": 34000.0,
+      "reason_for_support": "Fund postgraduate nursing leadership program and childcare support during study leave.",
+      "career_goals": "Complete MSc in Nursing Leadership and lead innovation projects in public health."
+    },
+    "documents": [
+      {"document_type": "emirates_id", "filename": "noora_id.pdf", "status": "validated"},
+      {"document_type": "education_offer", "filename": "noora_university_offer.pdf", "status": "uploaded"},
+      {"document_type": "bank_statement", "filename": "noora_bank_q1.pdf", "status": "review"}
+    ]
+  }
+]

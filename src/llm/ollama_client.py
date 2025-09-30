@@ -1,125 +1,136 @@
 """
-Ollama Cloud LLM Client - Fixed Imports
+Ollama Cloud LLM client helpers used across the application.
 """
 
-import os
-import logging
 import asyncio
-from typing import Dict, Any, List, Optional
+import json
+import logging
+import os
+from typing import Any, Dict, Optional
 
 logger = logging.getLogger(__name__)
 
+
 class OllamaCloudLLM:
-    """Robust Ollama Cloud LLM client"""
-    
-    def __init__(self):
+    """Wrapper around the Ollama Python client with async helpers."""
+
+    def __init__(self) -> None:
+        self.mode = os.getenv("OLLAMA_MODE", "cloud").lower()
+        self.enabled = os.getenv("OLLAMA_ENABLED", "true").lower() == "true"
         self.api_key = os.getenv("OLLAMA_API_KEY", "")
-        self.base_url = os.getenv("OLLAMA_BASE_URL", "https://ollama.com")
+        default_base = "http://localhost:11434" if self.mode == "offline" else "https://ollama.com"
+        self.base_url = os.getenv("OLLAMA_BASE_URL", default_base)
         self.model = os.getenv("OLLAMA_MODEL", "gpt-oss:120b-cloud")
         self.client = None
         self.available = False
-        
         self._initialize_client()
-    
-    def _initialize_client(self):
-        """Initialize Ollama client with proper error handling"""
+
+    def _initialize_client(self) -> None:
+        """Initialise the underlying Ollama client if dependencies are present."""
         try:
             import ollama
-            
+        except ImportError as exc:
+            logger.warning("ollama package not installed: %s", exc)
+            return
+
+        if not self.enabled:
+            logger.info("Ollama client disabled via OLLAMA_ENABLED")
+            return
+
+        headers: Optional[Dict[str, str]] = None
+        if self.mode == "cloud":
             if not self.api_key:
-                logger.error("OLLAMA_API_KEY not set in environment variables")
+                logger.warning("OLLAMA_API_KEY not set; set it or switch to offline mode")
                 return
-            
-            self.client = ollama.Client(
-                host=self.base_url,
-                headers={'Authorization': self.api_key}
-            )
-            
-            # Test connection
+            headers = {"Authorization": self.api_key}
+        else:
+            self.api_key = ""
+
+        try:
+            self.client = ollama.Client(host=self.base_url, headers=headers)
             self._test_connection()
             self.available = True
-            logger.info(f"Ollama Cloud LLM initialized successfully with model: {self.model}")
-            
-        except ImportError as e:
-            logger.error(f"Ollama package not installed: {e}")
-            logger.error("Install with: pip install ollama")
-        except Exception as e:
-            logger.error(f"Failed to initialize Ollama client: {e}")
-    
-    def _test_connection(self):
-        """Test Ollama connection"""
-        try:
-            # Simple test call
-            test_response = self.client.chat(
-                model=self.model,
-                messages=[{'role': 'user', 'content': 'hello'}],
-                stream=False
-            )
-            logger.info("Ollama connection test successful")
-        except Exception as e:
-            logger.warning(f"Ollama connection test failed: {e}")
-            # Don't raise exception for test failure
-    
-    async def generate_response(self, prompt: str, system_context: str = "", max_retries: int = 3) -> str:
-        """Generate response with retry logic"""
-        
+            logger.info("Ollama client initialised in %s mode with model %s", self.mode, self.model)
+        except Exception as exc:
+            logger.error("Failed to initialise Ollama client: %s", exc)
+            self.client = None
+            self.available = False
+
+    def _chat(self, messages: list[dict[str, str]]) -> Any:
+        """Blocking helper that executes a chat completion call."""
+        if not self.client:
+            raise RuntimeError("Ollama client is not configured")
+        return self.client.chat(model=self.model, messages=messages, stream=False)
+
+    def _test_connection(self) -> None:
+        """Perform a best-effort connectivity check."""
+        self._chat([{"role": "user", "content": "hello"}])
+
+    async def generate_response(
+        self,
+        prompt: str,
+        system_context: str = "",
+        max_retries: int = 3,
+    ) -> str:
+        """Return the assistant message content for the given prompt."""
+
         if not self.available or not self.client:
-            raise Exception("Ollama client not available - check API key and connection")
-        
-        messages = []
+            raise RuntimeError("Ollama client not available - configure credentials")
+
+        messages: list[dict[str, str]] = []
         if system_context:
-            messages.append({'role': 'system', 'content': system_context})
-        messages.append({'role': 'user', 'content': prompt})
-        
+            messages.append({"role": "system", "content": system_context})
+        messages.append({"role": "user", "content": prompt})
+
         for attempt in range(max_retries):
             try:
-                response = self.client.chat(
-                    model=self.model,
-                    messages=messages,
-                    stream=False
-                )
-                return response['message']['content']
-                
-            except Exception as e:
-                logger.warning(f"Ollama API call attempt {attempt + 1} failed: {e}")
+                response = await asyncio.to_thread(self._chat, messages)
+                return response["message"]["content"]
+            except Exception as exc:
+                logger.warning("Ollama API call attempt %s failed: %s", attempt + 1, exc)
                 if attempt == max_retries - 1:
                     raise
-                await asyncio.sleep(1)  # Wait before retry
-        
-        raise Exception("All Ollama API attempts failed")
-    
-    async def generate_structured_response(self, prompt: str, system_context: str, expected_format: str) -> Dict[str, Any]:
-        """Generate structured JSON response"""
-        
-        structured_prompt = f"""
-        {prompt}
-        
-        Please respond in valid JSON format following this structure:
-        {expected_format}
-        
-        Ensure your response is valid JSON and contains all required fields.
-        """
-        
+                await asyncio.sleep(1)
+
+        raise RuntimeError("Ollama API retries exhausted")
+
+    async def generate_structured_response(
+        self,
+        prompt: str,
+        system_context: str,
+        expected_format: Any,
+    ) -> Dict[str, Any]:
+        """Request a JSON-formatted response and parse it into a dict."""
+
+        structure_description = expected_format if isinstance(expected_format, str) else json.dumps(expected_format)
+        structured_prompt = (
+            f"{prompt}\n\n"
+            "Respond in valid JSON following this structure:\n"
+            f"{structure_description}\n"
+            "Return only JSON with all required fields."
+        )
+
         response_text = await self.generate_response(structured_prompt, system_context)
-        
+
         try:
-            import json
             return json.loads(response_text)
-        except json.JSONDecodeError as e:
-            logger.error(f"Failed to parse LLM JSON response: {e}")
-            logger.error(f"Raw response: {response_text}")
-            # Return structured fallback
-            return self._create_fallback_response(prompt)
-    
-    def _create_fallback_response(self, prompt: str) -> Dict[str, Any]:
-        """Create fallback structured response"""
+        except json.JSONDecodeError as exc:
+            logger.error("Failed to parse LLM JSON response: %s", exc)
+            logger.debug("Raw LLM response: %s", response_text)
+            return self._create_fallback_response()
+
+    async def _acall(self, prompt: str, system_context: str = "") -> str:
+        """Compatibility helper used by older LangGraph integrations."""
+        return await self.generate_response(prompt, system_context)
+
+    def _create_fallback_response(self) -> Dict[str, Any]:
+        """Fallback payload returned when JSON parsing fails."""
         return {
-            "success": True,
-            "response": "I processed your request successfully.",
-            "intent": "general_help",
-            "llm_available": True,
-            "fallback_used": True
+            "success": False,
+            "response": "Unable to produce structured output.",
+            "fallback_used": True,
         }
 
-# Global LLM instance
+
 ollama_llm = OllamaCloudLLM()
+llm_client = ollama_llm
