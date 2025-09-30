@@ -1,6 +1,6 @@
 # UAE Social-Support AI System – Solution Summary
 
-This document distills the design rationale, component interactions, technology choices, and integration guidelines for the **UAE Social-Support AI System** (SSAIS).  The goal is to give architects and engineering leads a single reference that is *detailed* yet *concise* enough to read in one sitting.
+This document distills the design rationale, component interactions, technology choices, and integration guidelines for the **UAE Social-Support AI System**.  The goal is to give architects and engineering leads a single reference that is *detailed* yet *concise* enough to read in one sitting.
 
 ---
 
