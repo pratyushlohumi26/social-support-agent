@@ -1,7 +1,5 @@
 # UAE Social-Support AI System – Solution Summary
 
-> **Version 4, September 2025 – condensed to ~8 pages when printed (≈ 3 750 words)**
-
 This document distills the design rationale, component interactions, technology choices, and integration guidelines for the **UAE Social-Support AI System** (SSAIS).  The goal is to give architects and engineering leads a single reference that is *detailed* yet *concise* enough to read in one sitting.
 
 ---
