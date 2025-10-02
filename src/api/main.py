@@ -11,6 +11,7 @@ from typing import Any, Dict, Optional
 from uuid import uuid4
 
 from fastapi import Body, Depends, FastAPI, File, HTTPException, UploadFile
+from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -192,7 +193,9 @@ async def submit_application(
     processing_result.setdefault("success", True)
     processing_result.setdefault("application_id", application_id)
 
-    final_decision = processing_result.get("final_decision", {})
+    serialized_application_data = jsonable_encoder(application_data)
+    serialized_processing_result = jsonable_encoder(processing_result)
+    final_decision = serialized_processing_result.get("final_decision", {})
     status = final_decision.get("status") or application.processing_status or "processed"
 
     result = await db.execute(
@@ -211,8 +214,8 @@ async def submit_application(
         application_record.emirate = application.personal_info.emirate
         application_record.family_size = application.personal_info.family_size
         application_record.monthly_income = application.employment_info.monthly_salary
-        application_record.application_data = application_data
-        application_record.processing_results = processing_result
+        application_record.application_data = serialized_application_data
+        application_record.processing_results = serialized_processing_result
         application_record.decision_data = final_decision
     else:
         application_record = Application(
@@ -227,8 +230,8 @@ async def submit_application(
             emirate=application.personal_info.emirate,
             family_size=application.personal_info.family_size,
             monthly_income=application.employment_info.monthly_salary,
-            application_data=application_data,
-            processing_results=processing_result,
+            application_data=serialized_application_data,
+            processing_results=serialized_processing_result,
             decision_data=final_decision,
         )
         db.add(application_record)
@@ -237,9 +240,9 @@ async def submit_application(
     await db.refresh(application_record)
 
     return {
-        "success": processing_result.get("success", True),
+        "success": serialized_processing_result.get("success", True),
         "application_id": application_record.application_id,
-        "processing_result": processing_result,
+        "processing_result": serialized_processing_result,
         "message": "Application processed and stored successfully",
     }
 
