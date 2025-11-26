@@ -48,6 +48,31 @@ An agentic, multimodal reference implementation for evaluating social-support ap
                     └─────────────────────────┘
 ```
 
+### Detailed Workflow
+
+```mermaid
+flowchart TD
+    User["User / Case Worker"] --> UI["Streamlit intake + dashboard"]
+    UI --> API["FastAPI gateway (src/api/main.py)"]
+    API -->|validate| Validation["UAEApplicationData validation"]
+    Validation -->|choose| Orchestrator["OrchestratorAgent / LangGraph workflow"]
+    Orchestrator --> Documents["DocumentProcessorAgent"]
+    Orchestrator --> Finance["FinancialAnalyzerAgent"]
+    Orchestrator --> Career["CareerCounselorAgent"]
+    Orchestrator --> Chat{"ChatAssistantAgent?"}
+    Documents --> Ollama["Ollama LLM client (src/llm/ollama_client.py)"]
+    Finance --> Ollama
+    Career --> Ollama
+    Chat --> Ollama
+    Ollama -->|structured JSON| Orchestrator
+    Orchestrator --> DB["Async SQLAlchemy DB (src/database)"]
+    API -->|persist / read| DB
+    UI -->|files| Uploads["uploads/ storage"]
+    API -->|documents.upload| Uploads
+    UI -->|chat| API
+    API -->|chat| Chat
+``` 
+
 ## Repository Layout
 
 ```

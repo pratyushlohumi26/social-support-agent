@@ -1,19 +1,31 @@
 """
 UAE Social Support AI System - Enhanced Streamlit UI
 """
+import asyncio
+import logging
 import os
 import streamlit as st
 import requests
 import json
 from typing import Dict, Any, Optional
-import time
 from datetime import datetime
 import pandas as pd
+import re
 from dotenv import load_dotenv 
+
+try:
+    from ..llm.ollama_client import llm_client  # type: ignore
+except Exception:  # pragma: no cover - fallback for direct execution
+    try:
+        from llm.ollama_client import llm_client  # type: ignore
+    except Exception:  # pragma: no cover - offline fallback
+        llm_client = None
 load_dotenv()
 
 API_PORT = os.getenv("API_PORT", 8005)
 API_HOST = os.getenv("API_HOST", "0.0.0.0")
+
+logger = logging.getLogger(__name__)
 
 # Page configuration
 st.set_page_config(
@@ -61,6 +73,729 @@ def api_request(endpoint: str, method: str = "GET", data: Optional[Dict] = None)
         st.error(f"Connection Error: {str(e)}")
         return None
 
+
+EMIRATE_OPTIONS = [
+    {"label": "Abu Dhabi", "value": "abu_dhabi"},
+    {"label": "Dubai", "value": "dubai"},
+    {"label": "Sharjah", "value": "sharjah"},
+    {"label": "Ajman", "value": "ajman"},
+    {"label": "Fujairah", "value": "fujairah"},
+    {"label": "Ras Al Khaimah", "value": "ras_al_khaimah"},
+    {"label": "Umm Al Quwain", "value": "umm_al_quwain"},
+]
+
+RESIDENCY_STATUS_OPTIONS = [
+    {"label": "Citizen", "value": "citizen"},
+    {"label": "Resident", "value": "resident"},
+    {"label": "Visit Visa", "value": "visit_visa"},
+]
+
+MARITAL_STATUS_OPTIONS = [
+    {"label": "Single", "value": "single"},
+    {"label": "Married", "value": "married"},
+    {"label": "Divorced", "value": "divorced"},
+    {"label": "Widowed", "value": "widowed"},
+]
+
+EMPLOYMENT_STATUS_OPTIONS = [
+    {"label": "Employed", "value": "employed"},
+    {"label": "Self-Employed", "value": "self_employed"},
+    {"label": "Unemployed", "value": "unemployed"},
+    {"label": "Retired", "value": "retired"},
+    {"label": "Student", "value": "student"},
+]
+
+SUPPORT_TYPE_OPTIONS = [
+    {"label": "Financial Assistance", "value": "financial_assistance"},
+    {"label": "Economic Enablement", "value": "economic_enablement"},
+    {"label": "Both", "value": "both"},
+    {"label": "Emergency Support", "value": "emergency_support"},
+]
+
+URGENCY_OPTIONS = [
+    {"label": "Low", "value": "low"},
+    {"label": "Medium", "value": "medium"},
+    {"label": "High", "value": "high"},
+    {"label": "Critical", "value": "critical"},
+]
+
+SKIP_TOKENS = {"skip", "none", "na", "n/a", "not applicable"}
+
+SECTION_TITLES = {
+    "personal_info": "Personal Information",
+    "employment_info": "Employment Information",
+    "support_request": "Support Request",
+}
+
+APPLICATION_CHAT_FIELDS = [
+    {
+        "section": "personal_info",
+        "key": "full_name",
+        "label": "Full Name",
+        "prompt": "Let's begin with the applicant's full name.",
+        "type": "text",
+        "min_length": 3,
+        "ack": "Thanks, {value}.",
+        "summary_transform": "title",
+        "llm_value_type": "person_name",
+    },
+    {
+        "section": "personal_info",
+        "key": "emirates_id",
+        "label": "Emirates ID",
+        "prompt": "Please provide the Emirates ID (format 784-XXXX-XXXXXXX-X).",
+        "type": "emirates_id",
+        "ack": "Emirates ID recorded.",
+    },
+    {
+        "section": "personal_info",
+        "key": "mobile_number",
+        "label": "Mobile Number",
+        "prompt": "What's the applicant's mobile number? Include the country code if you can.",
+        "type": "phone",
+        "ack": "Mobile number noted.",
+    },
+    {
+        "section": "personal_info",
+        "key": "email",
+        "label": "Email",
+        "prompt": "Would you like to add an email address? Share it now or type 'skip'.",
+        "type": "email",
+        "optional": True,
+        "ack": "Great, I'll use {value} as the contact email.",
+        "ack_skip": "No problem, we'll proceed without an email.",
+    },
+    {
+        "section": "personal_info",
+        "key": "nationality",
+        "label": "Nationality",
+        "prompt": "What is the applicant's nationality?",
+        "type": "text",
+        "min_length": 3,
+        "normalize": "lower",
+        "summary_transform": "title",
+        "ack": "Nationality recorded.",
+        "llm_value_type": "nationality",
+    },
+    {
+        "section": "personal_info",
+        "key": "residency_status",
+        "label": "Residency Status",
+        "prompt": "What is the residency status? Choose from: Citizen, Resident, or Visit Visa.",
+        "type": "choice",
+        "choices": RESIDENCY_STATUS_OPTIONS,
+        "ack": "Residency status recorded as {value}.",
+    },
+    {
+        "section": "personal_info",
+        "key": "emirate",
+        "label": "Emirate",
+        "prompt": "Which emirate does the applicant live in? (Abu Dhabi, Dubai, Sharjah, Ajman, Fujairah, Ras Al Khaimah, or Umm Al Quwain)",
+        "type": "choice",
+        "choices": EMIRATE_OPTIONS,
+        "ack": "Residence emirate noted: {value}.",
+    },
+    {
+        "section": "personal_info",
+        "key": "marital_status",
+        "label": "Marital Status",
+        "prompt": "What is the applicant's marital status? (Single, Married, Divorced, Widowed)",
+        "type": "choice",
+        "choices": MARITAL_STATUS_OPTIONS,
+        "ack": "Marital status recorded as {value}.",
+    },
+    {
+        "section": "personal_info",
+        "key": "family_size",
+        "label": "Family Size",
+        "prompt": "How many people are in the household in total?",
+        "type": "int",
+        "min": 1,
+        "max": 20,
+        "ack": "Got it, family size is {value}.",
+    },
+    {
+        "section": "personal_info",
+        "key": "dependents",
+        "label": "Dependents",
+        "prompt": "How many dependents rely on the applicant financially?",
+        "type": "int",
+        "min": 0,
+        "max": 15,
+        "ack": "Dependents recorded: {value}.",
+    },
+    {
+        "section": "employment_info",
+        "key": "employment_status",
+        "label": "Employment Status",
+        "prompt": "What is the current employment status? (Employed, Self-Employed, Unemployed, Retired, Student)",
+        "type": "choice",
+        "choices": EMPLOYMENT_STATUS_OPTIONS,
+        "ack": "Employment status noted as {value}.",
+    },
+    {
+        "section": "employment_info",
+        "key": "employer_name",
+        "label": "Employer Name",
+        "prompt": "Who is the current employer? Type the name or 'skip'.",
+        "type": "text",
+        "optional": True,
+        "ack": "Employer recorded as {value}.",
+        "ack_skip": "All right, we'll leave the employer name blank.",
+        "llm_value_type": "organization",
+    },
+    {
+        "section": "employment_info",
+        "key": "job_title",
+        "label": "Job Title",
+        "prompt": "What is the current job title? You can also type 'skip'.",
+        "type": "text",
+        "optional": True,
+        "ack": "Job title captured as {value}.",
+        "ack_skip": "Understood, we'll skip the job title.",
+        "llm_value_type": "job_title",
+    },
+    {
+        "section": "employment_info",
+        "key": "monthly_salary",
+        "label": "Monthly Salary",
+        "prompt": "What is the monthly salary in AED?",
+        "type": "float",
+        "min": 0.0,
+        "format": "currency",
+        "currency": "AED",
+        "decimals": 0,
+        "ack": "Monthly salary noted: {value}.",
+    },
+    {
+        "section": "employment_info",
+        "key": "years_of_experience",
+        "label": "Years of Experience",
+        "prompt": "How many years of experience does the applicant have? You can also type 'skip'.",
+        "type": "int",
+        "min": 0,
+        "max": 50,
+        "optional": True,
+        "format": "years",
+        "ack": "Experience recorded: {value}.",
+        "ack_skip": "No worries, we'll omit years of experience.",
+    },
+    {
+        "section": "support_request",
+        "key": "support_type",
+        "label": "Support Type",
+        "prompt": "Which type of support is needed? (Financial Assistance, Economic Enablement, Both, Emergency Support)",
+        "type": "choice",
+        "choices": SUPPORT_TYPE_OPTIONS,
+        "ack": "Support type recorded as {value}.",
+    },
+    {
+        "section": "support_request",
+        "key": "amount_requested",
+        "label": "Amount Requested",
+        "prompt": "If there's a specific amount requested (in AED), share it or type 'skip'.",
+        "type": "float",
+        "min": 0.0,
+        "max": 100000.0,
+        "optional": True,
+        "format": "currency",
+        "currency": "AED",
+        "decimals": 0,
+        "ack": "Requested amount noted: {value}.",
+        "ack_skip": "Okay, we'll proceed without a specific amount.",
+    },
+    {
+        "section": "support_request",
+        "key": "urgency_level",
+        "label": "Urgency Level",
+        "prompt": "How urgent is the request? (Low, Medium, High, Critical)",
+        "type": "choice",
+        "choices": URGENCY_OPTIONS,
+        "ack": "Urgency level captured as {value}.",
+    },
+    {
+        "section": "support_request",
+        "key": "reason_for_support",
+        "label": "Reason for Support",
+        "prompt": "Please describe why support is needed (a few sentences are perfect).",
+        "type": "text_long",
+        "min_length": 10,
+        "ack": "Thank you for explaining the situation.",
+    },
+    {
+        "section": "support_request",
+        "key": "career_goals",
+        "label": "Career Goals",
+        "prompt": "If there are specific career goals or training interests, share them now or type 'skip'.",
+        "type": "text_long",
+        "optional": True,
+        "ack": "Career goals captured.",
+        "ack_skip": "That's fine, we can leave out career goals.",
+    },
+]
+
+
+LLM_TEXT_VALUE_GUIDANCE = {
+    "default": {
+        "instruction": (
+            "Extract the specific value that should populate the named form field. "
+            "Remove conversational phrases, politeness, or explanations."
+        ),
+    },
+    "person_name": {
+        "instruction": (
+            "Extract only the individual's full name from the response. "
+            "Remove phrases such as 'my name is' or 'I am'. Return the name in title case."
+        ),
+        "postprocess": "title",
+    },
+    "nationality": {
+        "instruction": (
+            "Identify the nationality or country of origin mentioned. "
+            "Return only the demonym or country name without extra words."
+        ),
+        "postprocess": "title",
+    },
+    "organization": {
+        "instruction": (
+            "Extract the employer or organisation name referred to in the response. "
+            "Exclude leading phrases."
+        ),
+        "postprocess": "title",
+    },
+    "job_title": {
+        "instruction": (
+            "Extract the professional job title described by the user. "
+            "Return a concise job title in title case."
+        ),
+        "postprocess": "title",
+    },
+}
+
+
+def llm_available() -> bool:
+    return bool(llm_client and getattr(llm_client, "available", False))
+
+
+def run_async_task(coro):
+    try:
+        return asyncio.run(coro)
+    except RuntimeError:
+        try:
+            loop = asyncio.get_event_loop()
+        except RuntimeError:
+            raise
+        if loop.is_running():
+            future = asyncio.run_coroutine_threadsafe(coro, loop)
+            return future.result()
+        return loop.run_until_complete(coro)
+
+
+def resolve_choice_with_llm(field: Dict[str, Any], user_input: str) -> Optional[Dict[str, str]]:
+    if not llm_available():
+        return None
+
+    choices = field.get("choices", [])
+    if not choices:
+        return None
+
+    options_description = "\n".join(
+        f"- {option['label']} (value: {option['value']})"
+        for option in choices
+    )
+
+    prompt = (
+        "You help map applicant responses to official form options. "
+        "Select the option that best matches the user's reply."
+        f"\n\nAvailable options:\n{options_description}\n\n"
+        f"User reply: " + json.dumps(user_input) + "\n\n"
+        "Respond in JSON using the schema {\"value\": string}. "
+        "Return the option's exact value from the list. "
+        "If nothing matches, respond with {\"value\": \"unknown\"}."
+    )
+
+    async def _call_llm():
+        expected = {"value": "string"}
+        return await llm_client.generate_structured_response(
+            prompt,
+            "You are an assistant that chooses the best matching option for an intake form.",
+            expected,
+        )
+
+    try:
+        result = run_async_task(_call_llm())
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("LLM choice resolution failed: %s", exc)
+        return None
+
+    if not isinstance(result, dict):
+        return None
+
+    value = str(result.get("value", "")).strip().lower()
+    if not value or value == "unknown":
+        return None
+
+    for option in choices:
+        if option["value"].lower() == value or option["label"].lower() == value:
+            return option
+
+    return None
+
+
+def extract_name_heuristic(user_input: str) -> Optional[str]:
+    patterns = [
+        r"(?:my full name is\s+)([a-zA-Z'’\- ]{2,})",
+        r"(?:my name is\s+)([a-zA-Z'’\- ]{2,})",
+        r"(?:i am\s+)([a-zA-Z'’\- ]{2,})",
+        r"(?:this is\s+)([a-zA-Z'’\- ]{2,})",
+        r"(?:name[:\-]\s*)([a-zA-Z'’\- ]{2,})",
+    ]
+    lowered = user_input.lower()
+    for pattern in patterns:
+        match = re.search(pattern, lowered)
+        if match:
+            extracted = match.group(1).strip()
+            # Align with original casing where possible
+            start = lowered.find(extracted)
+            if start != -1:
+                return user_input[start : start + len(extracted)].strip()
+            return extracted
+    return None
+
+
+def refine_name_with_llm(user_input: str) -> Optional[str]:
+    if not llm_available():
+        return None
+
+    prompt = (
+        "Extract only the applicant's full name from the response below. "
+        "Return the cleaned name in title case without surrounding text or punctuation. "
+        "Response: " + json.dumps(user_input)
+    )
+
+    async def _call_llm():
+        expected = {"full_name": "string"}
+        return await llm_client.generate_structured_response(
+            prompt,
+            "You extract personal names for UAE support applications and respond in JSON.",
+            expected,
+        )
+
+    try:
+        result = run_async_task(_call_llm())
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("LLM name extraction failed: %s", exc)
+        return None
+
+    if isinstance(result, dict):
+        name_value = result.get("full_name")
+        if isinstance(name_value, str) and name_value.strip():
+            return name_value.strip()
+    return None
+
+
+def llm_extract_text_value(field: Dict[str, Any], user_input: str) -> Optional[str]:
+    if not llm_available():
+        return None
+
+    value_type = field.get("llm_value_type") or "default"
+    guidance = LLM_TEXT_VALUE_GUIDANCE.get(value_type, LLM_TEXT_VALUE_GUIDANCE["default"])
+    instruction = guidance.get("instruction", "")
+
+    label = field.get("label") or field.get("key", "field")
+    field_type = field.get("type", "text")
+
+    prompt = (
+        "You extract concise values for a structured UAE social support intake form. "
+        "Return only the value that should be saved for the field.\n\n"
+        f"Field label: {label}\n"
+        f"Expected field type: {field_type}\n"
+        f"Guidance: {instruction}\n\n"
+        f"User response: {json.dumps(user_input)}\n\n"
+        "Respond in JSON with the schema {\"value\": string}. "
+        "If the response does not contain the required information, return {\"value\": \"unknown\"}."
+    )
+
+    async def _call_llm():
+        expected = {"value": "string"}
+        return await llm_client.generate_structured_response(
+            prompt,
+            "You transform free-form chat answers into clean field values for UAE intake forms.",
+            expected,
+        )
+
+    try:
+        result = run_async_task(_call_llm())
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("LLM text extraction failed: %s", exc)
+        return None
+
+    if not isinstance(result, dict):
+        return None
+
+    value = result.get("value")
+    if not isinstance(value, str):
+        return None
+
+    cleaned_value = value.strip().strip("\n\r .,;:")
+    if not cleaned_value or cleaned_value.lower() == "unknown":
+        return None
+
+    postprocess = guidance.get("postprocess")
+    if postprocess == "title":
+        cleaned_value = cleaned_value.title()
+    elif postprocess == "upper":
+        cleaned_value = cleaned_value.upper()
+
+    return cleaned_value
+
+
+def reset_intake_state() -> None:
+    intro = (
+        "Hello! I'm your intake assistant. I'll ask a few questions to build the application. "
+        "You can type 'skip' to bypass optional questions or 'restart' at any time to begin again."
+    )
+    first_prompt = get_field_prompt(APPLICATION_CHAT_FIELDS[0])
+    st.session_state.intake_state = {
+        "messages": [
+            {"role": "assistant", "content": intro},
+            {"role": "assistant", "content": first_prompt},
+        ],
+        "current_step": 0,
+        "collected": {
+            "personal_info": {},
+            "employment_info": {},
+            "support_request": {},
+        },
+        "complete": False,
+        "submitted": False,
+        "submission_result": None,
+    }
+
+
+def get_field_prompt(field: Dict[str, Any]) -> str:
+    prompt = field.get("prompt", "")
+    if field.get("type") == "choice":
+        options = ", ".join(option["label"] for option in field.get("choices", []))
+        prompt = f"{prompt}\nOptions: {options}"
+    return prompt
+
+
+def format_field_value(field: Dict[str, Any], value: Any, for_ack: bool = False) -> str:
+    if value is None:
+        return "" if for_ack else "Pending"
+
+    field_type = field.get("type")
+
+    if field_type == "choice":
+        for option in field.get("choices", []):
+            if option["value"] == value:
+                return option["label"]
+
+    if field_type in {"float", "int"} and field.get("format") == "currency":
+        decimals = field.get("decimals", 0)
+        formatter = f"{{:,.{decimals}f}}"
+        formatted = formatter.format(float(value))
+        currency = field.get("currency", "AED")
+        return f"{formatted} {currency}"
+
+    if field_type == "int" and field.get("format") == "years":
+        suffix = "year" if int(value) == 1 else "years"
+        return f"{int(value)} {suffix}"
+
+    summary_transform = field.get("summary_transform")
+    if summary_transform == "title":
+        return str(value).title()
+    if summary_transform == "upper":
+        return str(value).upper()
+
+    return str(value)
+
+
+def parse_field_response(field: Dict[str, Any], message: str, collected: Dict[str, Dict[str, Any]]) -> tuple[bool, Any, Optional[str], Optional[str]]:
+    text = message.strip()
+    if not text:
+        return False, None, "I didn't catch that. Could you share it again?", None
+
+    lowered = text.lower()
+    if field.get("optional") and lowered in SKIP_TOKENS:
+        return True, None, None, None
+
+    field_type = field.get("type", "text")
+
+    try:
+        if field_type in {"text", "text_long"}:
+            min_length = field.get("min_length", 1)
+            if len(text) < min_length:
+                return False, None, f"Please provide at least {min_length} characters.", None
+
+            cleaned = text.strip()
+            display_value = cleaned
+
+            llm_value = None
+            if field_type == "text":
+                llm_value = llm_extract_text_value(field, text)
+                if llm_value and llm_value.strip().lower() == text.strip().lower():
+                    llm_value = None
+            if llm_value:
+                cleaned = llm_value.strip()
+                display_value = cleaned
+
+            if field.get("key") == "full_name" and not llm_value:
+                candidate = extract_name_heuristic(text)
+                if not candidate:
+                    candidate = refine_name_with_llm(text)
+                if candidate:
+                    cleaned = candidate.strip()
+                    display_value = cleaned
+                else:
+                    lowered_name = cleaned.lower()
+                    for prefix in ["my full name is", "my name is", "i am", "this is", "name is"]:
+                        if lowered_name.startswith(prefix):
+                            cleaned = cleaned[len(prefix) :].strip()
+                            display_value = cleaned
+                            break
+
+            normalize = field.get("normalize")
+            if normalize == "lower":
+                cleaned = cleaned.lower()
+            elif normalize == "slug":
+                cleaned = cleaned.lower().replace(" ", "_")
+
+            if field.get("key") == "full_name":
+                cleaned = cleaned.strip()
+                display_value = cleaned.title()
+                cleaned = display_value
+
+            if not display_value:
+                display_value = cleaned
+            return True, cleaned, None, display_value
+
+        if field_type == "choice":
+            for option in field.get("choices", []):
+                label = option["label"].lower()
+                value = option["value"].lower()
+                simplified_label = label.replace(" ", "")
+                simplified_value = value.replace("_", "")
+                if lowered in {label, value, simplified_label, simplified_value}:
+                    cleaned_value = option["value"]
+                    display_value = option["label"]
+                    return True, cleaned_value, None, display_value
+            resolved_option = resolve_choice_with_llm(field, text)
+            if resolved_option:
+                cleaned_value = resolved_option["value"]
+                display_value = resolved_option["label"]
+                return True, cleaned_value, None, display_value
+            options_text = ", ".join(opt["label"] for opt in field.get("choices", []))
+            return False, None, f"Please choose one of the available options: {options_text}.", None
+
+        if field_type == "emirates_id":
+            digits = re.sub(r"\D", "", text)
+            if len(digits) != 15 or not digits.startswith("784"):
+                return False, None, "Please provide a valid Emirates ID in the format 784-XXXX-XXXXXXX-X.", None
+            formatted = f"{digits[0:3]}-{digits[3:7]}-{digits[7:14]}-{digits[14]}"
+            return True, formatted, None, formatted
+
+        if field_type == "phone":
+            digits = re.sub(r"\D", "", text)
+            if digits.startswith("971") and len(digits) == 12:
+                formatted = f"+{digits}"
+            elif len(digits) == 9:
+                formatted = f"+971{digits}"
+            elif len(digits) == 10 and digits.startswith("05"):
+                formatted = f"+971{digits[1:]}"
+            else:
+                return False, None, "Please enter a UAE mobile number such as +971501234567.", None
+            return True, formatted, None, formatted
+
+        if field_type == "email":
+            pattern = r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+            if re.match(pattern, text):
+                cleaned = text.strip().lower()
+                return True, cleaned, None, cleaned
+            return False, None, "That doesn't look like a valid email. Please try again or type 'skip'.", None
+
+        if field_type == "int":
+            numeric = text.replace(",", "")
+            value = int(numeric)
+            min_value = field.get("min")
+            max_value = field.get("max")
+            if min_value is not None and value < min_value:
+                return False, None, f"Please provide a number greater than or equal to {min_value}.", None
+            if max_value is not None and value > max_value:
+                return False, None, f"Please provide a number less than or equal to {max_value}.", None
+            display_value = format_field_value(field, value, for_ack=True)
+            return True, value, None, display_value
+
+        if field_type == "float":
+            cleaned_text = re.sub(r"[^0-9.,]", "", text)
+            cleaned_text = cleaned_text.replace(",", "")
+            if cleaned_text in {"", "."}:
+                raise ValueError
+            value = float(cleaned_text)
+            min_value = field.get("min")
+            max_value = field.get("max")
+            if min_value is not None and value < min_value:
+                return False, None, f"Please provide a number greater than or equal to {min_value}.", None
+            if max_value is not None and value > max_value:
+                return False, None, f"Please provide a number less than or equal to {int(max_value)}.", None
+            display_value = format_field_value(field, value, for_ack=True)
+            return True, value, None, display_value
+
+    except ValueError:
+        if field_type in {"int", "float"}:
+            return False, None, "Please share the number using digits only.", None
+        return False, None, "I couldn't understand that input. Could you rephrase it?", None
+
+    return False, None, "I'm not sure how to record that. Could you try again?", None
+
+
+def store_collected_value(collected: Dict[str, Dict[str, Any]], field: Dict[str, Any], value: Any) -> None:
+    section = field["section"]
+    key = field["key"]
+    if value is None:
+        collected[section].pop(key, None)
+    else:
+        collected[section][key] = value
+
+
+def build_application_payload(collected: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
+    payload = {}
+    for section, data in collected.items():
+        payload[section] = {key: value for key, value in data.items() if value not in (None, "")}
+    return payload
+
+
+def get_summary_entries(collected: Dict[str, Dict[str, Any]]) -> Dict[str, list[Dict[str, Any]]]:
+    summary: Dict[str, list[Dict[str, Any]]] = {title: [] for title in SECTION_TITLES.values()}
+    for field in APPLICATION_CHAT_FIELDS:
+        section_title = SECTION_TITLES[field["section"]]
+        value = collected[field["section"]].get(field["key"])
+        display = format_field_value(field, value)
+        summary[section_title].append(
+            {
+                "label": f"{field['label']}{' (optional)' if field.get('optional') else ''}",
+                "value": display,
+                "provided": value not in (None, ""),
+                "optional": field.get("optional", False),
+                "field": field,
+            }
+        )
+    return summary
+
+
+def _render_section_details(section: str, section_data: Dict[str, Any]) -> list[tuple[str, str]]:
+    details: list[tuple[str, str]] = []
+    for field in APPLICATION_CHAT_FIELDS:
+        if field["section"] != section:
+            continue
+        key = field["key"]
+        if key not in section_data:
+            continue
+        display_value = format_field_value(field, section_data[key])
+        details.append((field["label"], display_value))
+    return details
+
 def main():
     """Main application"""
 
@@ -72,13 +807,22 @@ def main():
     st.sidebar.title("Navigation")
     page = st.sidebar.selectbox(
         "Select Page",
-        ["🏠 Dashboard", "📄 New Application", "💬 Chat Assistant", "📊 Analytics", "🔧 System Status"]
+        [
+            "🏠 Dashboard",
+            "📄 New Application",
+            "📜 Application Status",
+            "💬 Chat Assistant",
+            "📊 Analytics",
+            "🔧 System Status",
+        ],
     )
 
     if page == "🏠 Dashboard":
         show_dashboard()
     elif page == "📄 New Application":
         show_application_form()
+    elif page == "📜 Application Status":
+        show_application_status()
     elif page == "💬 Chat Assistant":
         show_chat_interface()
     elif page == "📊 Analytics":
@@ -119,141 +863,192 @@ def show_dashboard():
     df = pd.DataFrame(recent_apps)
     st.dataframe(df, use_container_width=True)
 
+def fetch_applications(limit: int = 50, offset: int = 0) -> Optional[Dict[str, Any]]:
+    """Helper to load paginated applications from the API."""
+
+    query = f"/applications?limit={limit}&offset={offset}"
+    return api_request(query)
+
+
 def show_application_form():
-    """Application submission form"""
-    st.header("📄 Submit New Application")
+    """Chat-based application intake"""
+    st.header("🤖 Chat-Driven Application Intake")
+    st.markdown(
+        "Talk with the intake assistant to submit a new application. "
+        "Type **skip** for optional questions or **restart** to begin again."
+    )
 
-    with st.form("uae_application_form"):
-        st.subheader("👤 Personal Information")
+    if "intake_state" not in st.session_state:
+        reset_intake_state()
 
-        col1, col2 = st.columns(2)
+    intake_state = st.session_state.intake_state
+    total_steps = len(APPLICATION_CHAT_FIELDS)
+    completed_steps = intake_state["current_step"] if not intake_state.get("complete") else total_steps
 
-        with col1:
-            full_name = st.text_input("Full Name*", placeholder="Ahmed Al Mansouri")
-            emirates_id = st.text_input("Emirates ID*", placeholder="784-2024-1234567-1")
-            mobile_number = st.text_input("Mobile Number*", placeholder="+971501234567")
+    chat_column, summary_column = st.columns([2, 1])
 
-        with col2:
-            nationality = st.selectbox("Nationality", ["UAE", "GCC", "Arab", "Asian", "Western", "Other"])
-            residency_status = st.selectbox("Residency Status", ["Citizen", "Resident", "Visit Visa"])
-            emirate = st.selectbox("Emirate", ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Fujairah", "Ras Al Khaimah", "Umm Al Quwain"])
+    with chat_column:
+        st.subheader("Assistant Conversation")
+        if st.button("🔄 Restart conversation", key="restart_intake"):
+            reset_intake_state()
+            st.experimental_rerun()
 
-        st.subheader("👨‍👩‍👧‍👦 Family Information")
+        chat_container = st.container()
+        with chat_container:
+            for message in intake_state["messages"]:
+                with st.chat_message(message["role"]):
+                    st.markdown(message["content"])
 
-        col3, col4 = st.columns(2)
-        with col3:
-            marital_status = st.selectbox("Marital Status", ["Single", "Married", "Divorced", "Widowed"])
-            family_size = st.number_input("Family Size", min_value=1, max_value=20, value=1)
-        with col4:
-            dependents = st.number_input("Number of Dependents", min_value=0, max_value=15, value=0)
+        if intake_state.get("complete"):
+            st.markdown("_Conversation complete. Review the summary to submit or restart above._")
 
-        st.subheader("💼 Employment Information")
+    with summary_column:
+        st.subheader("Application Snapshot")
+        progress_fraction = completed_steps / total_steps if total_steps else 0
+        st.progress(progress_fraction)
+        st.caption(f"Answered {completed_steps} of {total_steps} questions")
 
-        col5, col6 = st.columns(2)
-        with col5:
-            employment_status = st.selectbox("Employment Status", ["Employed", "Self-Employed", "Unemployed", "Retired", "Student"])
-            employer_name = st.text_input("Employer Name", placeholder="Emirates National Bank")
-        with col6:
-            job_title = st.text_input("Job Title", placeholder="Customer Service Officer")
-            monthly_salary = st.number_input("Monthly Salary (AED)", min_value=0.0, value=0.0)
+        summary_entries = get_summary_entries(intake_state["collected"])
+        for section_title, entries in summary_entries.items():
+            st.markdown(f"**{section_title}**")
+            for entry in entries:
+                if entry["provided"]:
+                    display_text = entry["value"]
+                else:
+                    display_text = "Optional" if entry["optional"] else "Awaiting input"
+                st.write(f"- {entry['label']}: {display_text}")
 
-        st.subheader("🎯 Support Request")
+        if intake_state.get("complete"):
+            payload = build_application_payload(intake_state["collected"])
+            st.markdown("**Ready to Submit**")
 
-        support_type = st.selectbox("Support Type", ["Financial Assistance", "Economic Enablement", "Both", "Emergency Support"])
-        amount_requested = st.number_input("Amount Requested (AED)", min_value=0.0, max_value=100000.0, value=0.0)
-        urgency_level = st.selectbox("Urgency Level", ["Low", "Medium", "High", "Critical"])
-        reason_for_support = st.text_area("Reason for Support*", placeholder="Explain your situation and why you need support...")
-        career_goals = st.text_area("Career Goals (if applicable)", placeholder="Describe your career aspirations...")
+            for section, title in SECTION_TITLES.items():
+                section_data = payload.get(section, {})
+                if not section_data:
+                    continue
 
-        st.subheader("📎 Document Upload")
+                with st.container():
+                    st.markdown(f"### {title}")
+                    for display_label, display_value in _render_section_details(section, section_data):
+                        st.markdown(f"**{display_label}:** {display_value}")
+                st.markdown("---")
 
-        uploaded_files = st.file_uploader(
-            "Upload Required Documents",
-            type=['pdf', 'jpg', 'png', 'xlsx', 'csv'],
-            accept_multiple_files=True,
-            help="Upload Emirates ID, Bank Statements, Salary Certificate, Assets/Liabilities, etc."
+            submit_disabled = intake_state.get("submitted", False)
+            if st.button("📤 Submit application", key="submit_application_button", disabled=submit_disabled):
+                with st.spinner("Submitting application..."):
+                    response = api_request("/applications/submit", method="POST", data=payload)
+
+                if response and response.get("success"):
+                    intake_state["submitted"] = True
+                    intake_state["submission_result"] = response
+                    ref_id = response.get("application_id", "")
+                    confirmation = "Your application has been submitted successfully."
+                    if ref_id:
+                        confirmation = f"Your application has been submitted successfully. Reference ID: {ref_id}."
+                    intake_state["messages"].append({"role": "assistant", "content": confirmation})
+                    st.success("🎉 Application submitted successfully!")
+                    st.experimental_rerun()
+                else:
+                    st.error("Submission failed. Please review the details and try again.")
+
+    user_reply: Optional[str] = None
+    if intake_state.get("complete"):
+        st.chat_input(
+            "Conversation complete – use the restart button above to begin again.",
+            key="intake_disabled",
+            disabled=True,
+        )
+    else:
+        user_reply = st.chat_input("Your response")
+
+    if user_reply:
+        normalized = user_reply.strip().lower()
+        if normalized in {"restart", "start over", "reset"}:
+            reset_intake_state()
+            st.experimental_rerun()
+
+        intake_state["messages"].append({"role": "user", "content": user_reply})
+        current_field = APPLICATION_CHAT_FIELDS[intake_state["current_step"]]
+        success, cleaned_value, error_message, display_value = parse_field_response(
+            current_field, user_reply, intake_state["collected"]
         )
 
-        submitted = st.form_submit_button("🚀 Submit Application")
+        if success and current_field["section"] == "personal_info" and current_field["key"] == "dependents":
+            family_size = intake_state["collected"]["personal_info"].get("family_size")
+            if family_size is not None and cleaned_value is not None and cleaned_value >= family_size:
+                success = False
+                error_message = (
+                    "Dependents should be less than the total household size. Could you confirm the number again?"
+                )
 
-        if submitted:
-            if not all([full_name, emirates_id, mobile_number, reason_for_support]):
-                st.error("Please fill in all required fields marked with *")
+        if success:
+            store_collected_value(intake_state["collected"], current_field, cleaned_value)
+
+            ack_template = None
+            if cleaned_value is None:
+                ack_template = current_field.get("ack_skip")
+            if not ack_template:
+                ack_template = current_field.get("ack", "Noted.")
+
+            value_token = display_value
+            if not value_token and cleaned_value not in (None, ""):
+                value_token = str(cleaned_value)
+            if not value_token:
+                value_token = user_reply
+
+            ack_message = ack_template.format(value=value_token)
+
+            intake_state["current_step"] += 1
+            if intake_state["current_step"] < total_steps:
+                next_field = APPLICATION_CHAT_FIELDS[intake_state["current_step"]]
+                assistant_message = f"{ack_message}\n\n{get_field_prompt(next_field)}"
+                intake_state["messages"].append({"role": "assistant", "content": assistant_message})
             else:
-                # Prepare application data
-                application_data = {
-                    "personal_info": {
-                        "full_name": full_name,
-                        "emirates_id": emirates_id,
-                        "nationality": nationality.lower(),
-                        "residency_status": residency_status.lower(),
-                        "emirate": emirate.lower().replace(" ", "_"),
-                        "family_size": family_size,
-                        "dependents": dependents,
-                        "mobile_number": mobile_number,
-                        "marital_status": marital_status.lower()
-                    },
-                    "employment_info": {
-                        "employment_status": employment_status.lower(),
-                        "employer_name": employer_name,
-                        "job_title": job_title,
-                        "monthly_salary": monthly_salary
-                    },
-                    "support_request": {
-                        "support_type": support_type.lower().replace(" ", "_"),
-                        "urgency_level": urgency_level.lower(),
-                        "amount_requested": amount_requested,
-                        "reason_for_support": reason_for_support,
-                        "career_goals": career_goals
-                    }
-                }
+                intake_state["complete"] = True
+                completion_message = (
+                    f"{ack_message}\n\nThat's everything I need. Review the summary on the right and submit when you're ready."
+                )
+                intake_state["messages"].append({"role": "assistant", "content": completion_message})
+            st.experimental_rerun()
+        else:
+            remediate = error_message or "I couldn't understand that. Could you try again?"
+            intake_state["messages"].append({"role": "assistant", "content": remediate})
+            st.experimental_rerun()
 
-                # Submit application
-                with st.spinner("Processing your application..."):
-                    result = api_request("/applications/submit", method="POST", data=application_data)
+    submission_result = intake_state.get("submission_result")
+    if submission_result:
+        processing_result = submission_result.get("processing_result", {})
+        final_decision = processing_result.get("final_decision", {})
+        if final_decision:
+            st.subheader("📋 Processing Results")
+            status = final_decision.get("status", "unknown")
 
-                    if result and result.get("success"):
-                        st.success("🎉 Application submitted successfully!")
+            if status == "approved":
+                st.success("✅ Application Approved")
+                financial_support = final_decision.get("financial_support", {})
+                approved_amount = financial_support.get("approved_amount", 0)
+                if approved_amount:
+                    st.info(f"💰 Approved Amount: {approved_amount:,.0f} AED")
+                    st.info(f"⏱️ Duration: {financial_support.get('duration_months', 0)} months")
+            elif status == "conditional_approval":
+                st.warning("⚠️ Conditional approval – additional requirements apply.")
+            elif status == "review_required":
+                st.info("🔄 Application requires manual review.")
+            else:
+                st.error("❌ Application needs additional information.")
 
-                        # Show processing results
-                        processing_result = result.get("processing_result", {})
-                        final_decision = processing_result.get("final_decision", {})
+            enablement = final_decision.get("economic_enablement", {})
+            training_programs = enablement.get("training_programs")
+            if training_programs:
+                st.subheader("🎓 Recommended Training Programs")
+                for program in training_programs:
+                    st.write(f"- {program.get('name', 'Training Program')}")
 
-                        if final_decision:
-                            st.subheader("📋 Processing Results")
-
-                            status = final_decision.get("status", "unknown")
-                            if status == "approved":
-                                st.success(f"✅ Application Approved!")
-
-                                financial_support = final_decision.get("financial_support", {})
-                                if financial_support.get("approved_amount", 0) > 0:
-                                    st.info(f"💰 Approved Amount: {financial_support['approved_amount']:,.0f} AED")
-                                    st.info(f"⏱️ Duration: {financial_support['duration_months']} months")
-
-                            elif status == "conditional_approval":
-                                st.warning("⚠️ Conditional Approval - Additional requirements needed")
-                            elif status == "review_required":
-                                st.info("🔄 Application requires manual review")
-                            else:
-                                st.error("❌ Application needs additional information")
-
-                            # Economic enablement
-                            enablement = final_decision.get("economic_enablement", {})
-                            if enablement.get("training_programs"):
-                                st.subheader("🎓 Recommended Training Programs")
-                                for program in enablement["training_programs"]:
-                                    st.write(f"- {program.get('name', 'Training Program')}")
-
-                            # Next steps
-                            next_steps = final_decision.get("next_steps", [])
-                            if next_steps:
-                                st.subheader("📝 Next Steps")
-                                for step in next_steps:
-                                    st.write(f"• {step}")
-
-                    else:
-                        st.error("❌ Application submission failed. Please try again.")
+            next_steps = final_decision.get("next_steps", [])
+            if next_steps:
+                st.subheader("📝 Next Steps")
+                for step in next_steps:
+                    st.write(f"• {step}")
 
 def show_chat_interface_old():
     """Chat interface"""
@@ -862,6 +1657,66 @@ def show_chat_interface():
                 st.json(health_status)
         else:
             st.error("❌ Cannot connect to chat system")
+
+
+def show_application_status():
+    """New page that surfaces stored applications and their current status."""
+
+    st.header("📜 Application Status")
+    st.markdown(
+        "View every stored application, its current decision status, and metadata "
+        "directly from the database-backed API. Use the refresh button to pull the latest data."
+    )
+
+    limit = st.number_input("Items per page", value=50, min_value=1, max_value=200)
+    offset = st.number_input("Offset", value=0, min_value=0)
+    if st.button("🔄 Refresh list", key="refresh_application_status"):
+        st.session_state.pop("application_status_data", None)
+        st.experimental_rerun()
+
+    cached_key = f"app_status_{limit}_{offset}"
+    if cached_key not in st.session_state:
+        st.session_state[cached_key] = fetch_applications(limit=int(limit), offset=int(offset))
+
+    data = st.session_state.get(cached_key) or {}
+    applications = data.get("applications", [])
+
+    if not applications:
+        st.info("No applications found. Submit a new application via the intake page first.")
+        return
+
+    df = pd.DataFrame(applications)
+    df = df.sort_values(by="created_at", ascending=False)
+
+    st.markdown(f"**Showing {len(df)} applications (limit={limit}, offset={offset})**")
+
+    status_counts = df["status"].value_counts().to_dict()
+    col1, col2, col3 = st.columns(3)
+    col1.metric("Applications", len(df))
+    col2.metric("Approved", len(df[df["status"] == "approved"]))
+    col3.metric("Under Review", len(df[df["status"] == "review_required"]))
+
+    st.dataframe(
+        df[
+            [
+                "application_id",
+                "applicant_name",
+                "status",
+                "decision",
+                "priority",
+                "support_type",
+                "emirate",
+                "approved_amount",
+                "created_at",
+                "updated_at",
+            ]
+        ],
+        use_container_width=True,
+    )
+
+    st.subheader("Status Breakdown")
+    status_df = pd.DataFrame(list(status_counts.items()), columns=["Status", "Count"]).set_index("Status")
+    st.bar_chart(status_df)
 
 
 if __name__ == "__main__":

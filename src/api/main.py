@@ -286,6 +286,44 @@ async def get_application(
     }
 
 
+@app.get("/applications")
+async def list_applications(
+    limit: int = 50,
+    offset: int = 0,
+    db: AsyncSession = Depends(get_database_session),
+) -> Dict[str, Any]:
+    """Return a paginated list of stored applications."""
+
+    query = select(Application).order_by(Application.created_at.desc()).limit(limit).offset(offset)
+    result = await db.execute(query)
+    applications = result.scalars().all()
+
+    payload = [
+        {
+            "application_id": record.application_id,
+            "applicant_name": record.applicant_name,
+            "status": record.status,
+            "priority": record.priority,
+            "support_type": record.support_type,
+            "emirate": record.emirate,
+            "family_size": record.family_size,
+            "monthly_income": record.monthly_income,
+            "decision": (record.decision_data or {}).get("status"),
+            "approved_amount": (record.decision_data or {}).get("financial_support", {}).get("approved_amount"),
+            "created_at": record.created_at.isoformat() if record.created_at else None,
+            "updated_at": record.updated_at.isoformat() if record.updated_at else None,
+        }
+        for record in applications
+    ]
+
+    return {
+        "applications": payload,
+        "limit": limit,
+        "offset": offset,
+        "total": len(payload),
+    }
+
+
 @app.post("/documents/upload")
 async def upload_document(
     file: UploadFile = File(...),

@@ -63,8 +63,11 @@ class UAESocialSupportWorkflow:
         workflow.add_edge("career_evaluation", "eligibility_determination")
         workflow.add_edge("eligibility_determination", "final_decision")
         workflow.add_edge("final_decision", END)
+        png_data = workflow.get_graph().draw_mermaid_png()
+ 
+        with open("workflow_diagram.png", "wb") as f:
+             f.write(png_data)
         
-        # Compile workflow
         return workflow.compile(checkpointer=self.memory)
     
     async def _process_documents(self, state: UAEApplicationState) -> UAEApplicationState:
