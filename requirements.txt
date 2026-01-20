@@ -17,6 +17,7 @@ langchain-community>=0.0.20
 # Data Processing
 pandas
 numpy
+PyPDF2==3.0.1
 
 # Graph and State Management
 typing-extensions>=4.8.0

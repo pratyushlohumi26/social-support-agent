@@ -6,7 +6,7 @@ import asyncio
 import json
 import logging
 import os
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -71,16 +71,21 @@ class OllamaCloudLLM:
         prompt: str,
         system_context: str = "",
         max_retries: int = 3,
+        *,
+        images: Optional[List[str]] = None,
     ) -> str:
         """Return the assistant message content for the given prompt."""
 
         if not self.available or not self.client:
             raise RuntimeError("Ollama client not available - configure credentials")
 
-        messages: list[dict[str, str]] = []
+        messages: list[dict[str, Any]] = []
         if system_context:
             messages.append({"role": "system", "content": system_context})
-        messages.append({"role": "user", "content": prompt})
+        user_message: dict[str, Any] = {"role": "user", "content": prompt}
+        if images:
+            user_message["images"] = images
+        messages.append(user_message)
 
         for attempt in range(max_retries):
             try:
@@ -99,6 +104,8 @@ class OllamaCloudLLM:
         prompt: str,
         system_context: str,
         expected_format: Any,
+        *,
+        images: Optional[List[str]] = None,
     ) -> Dict[str, Any]:
         """Request a JSON-formatted response and parse it into a dict."""
 
@@ -110,7 +117,9 @@ class OllamaCloudLLM:
             "Return only JSON with all required fields."
         )
 
-        response_text = await self.generate_response(structured_prompt, system_context)
+        response_text = await self.generate_response(
+            structured_prompt, system_context, images=images
+        )
 
         try:
             return json.loads(response_text)
@@ -119,9 +128,11 @@ class OllamaCloudLLM:
             logger.debug("Raw LLM response: %s", response_text)
             return self._create_fallback_response()
 
-    async def _acall(self, prompt: str, system_context: str = "") -> str:
+    async def _acall(
+        self, prompt: str, system_context: str = "", *, images: Optional[List[str]] = None
+    ) -> str:
         """Compatibility helper used by older LangGraph integrations."""
-        return await self.generate_response(prompt, system_context)
+        return await self.generate_response(prompt, system_context, images=images)
 
     def _create_fallback_response(self) -> Dict[str, Any]:
         """Fallback payload returned when JSON parsing fails."""

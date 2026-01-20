@@ -6,6 +6,7 @@ import asyncio
 import logging
 from typing import Dict, List, Optional, Any
 from datetime import datetime
+from typing import List as _List
 try:
     from .base_agent import BaseAgent, AgentError
 except ImportError:
@@ -14,6 +15,7 @@ from .document_processor_agent import DocumentProcessorAgent
 from .financial_analyzer_agent import FinancialAnalyzerAgent
 from .career_counselor_agent import CareerCounselorAgent
 from .chat_assistant_agent import ChatAssistantAgent
+from config.settings import settings
 
 logger = logging.getLogger(__name__)
 
@@ -41,12 +43,17 @@ class OrchestratorAgent(BaseAgent):
 
             # Stage 1: Document Processing
             logger.info(f"Processing application {application_data.get('application_id')}")
-
             doc_results = await self.document_agent.process(application_data)
             processing_results["processing_stages"]["document_processing"] = doc_results
 
-            if not doc_results.get("success") or not doc_results.get("documents_valid"):
-                return await self._handle_document_failure(processing_results, doc_results)
+            # Check for missing or invalid documents
+            processed_docs = set(doc_results.get("documents_processed", []))
+            required_docs = set(settings.REQUIRED_DOCUMENT_TYPES)
+            missing_docs = list(required_docs - processed_docs)
+            doc_results["missing_documents"] = missing_docs
+
+            if not doc_results.get("success") or not doc_results.get("documents_valid") or missing_docs:
+                return await self._handle_document_failure(processing_results, doc_results, missing_docs)
 
             # Stage 2: Financial Analysis
             enhanced_data = {**application_data, **doc_results}
@@ -183,12 +190,19 @@ class OrchestratorAgent(BaseAgent):
         else:
             return await self._analyze_finances_rule_based(application_data)
     
-    async def _handle_document_failure(self, processing_results: Dict, doc_results: Dict) -> Dict[str, Any]:
-        """Handle document failures"""
+    async def _handle_document_failure(
+        self,
+        processing_results: Dict[str, Any],
+        doc_results: Dict[str, Any],
+        missing_docs: _List[str] = None,
+    ) -> Dict[str, Any]:
+        """Handle document failures or incomplete uploads"""
+        missing = missing_docs or []
         processing_results["final_decision"] = {
             "status": "documents_required",
             "decision": "incomplete_application",
-            "next_steps": ["Upload missing documents", "Ensure quality", "Resubmit"]
+            "missing_documents": missing,
+            "next_steps": ["Upload missing documents", "Ensure quality", "Resubmit"],
         }
         return processing_results
 

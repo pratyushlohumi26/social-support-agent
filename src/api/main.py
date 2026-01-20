@@ -10,7 +10,8 @@ from pathlib import Path
 from typing import Any, Dict, Optional
 from uuid import uuid4
 
-from fastapi import Body, Depends, FastAPI, File, HTTPException, UploadFile
+from fastapi import Body, Depends, FastAPI, File, Form, HTTPException, UploadFile
+import asyncio
 from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import func, select
@@ -324,11 +325,54 @@ async def list_applications(
     }
 
 
+@app.get("/applications/{application_id}/documents")
+async def get_application_documents(
+    application_id: str,
+    db: AsyncSession = Depends(get_database_session),
+) -> Dict[str, Any]:
+    """Return stored documents for a given application."""
+
+    result = await db.execute(
+        select(Document).where(Document.application_id == application_id)
+    )
+    documents = result.scalars().all()
+
+    payload = [
+        {
+            "id": doc.id,
+            "application_id": doc.application_id,
+            "document_type": doc.document_type,
+            "filename": doc.filename,
+            "stored_path": doc.file_path,
+            "file_size": doc.file_size,
+            "extraction_data": doc.extraction_data,
+            "confidence_score": doc.confidence_score,
+            "validation_status": doc.validation_status,
+            "uploaded_at": doc.uploaded_at.isoformat() if doc.uploaded_at else None,
+            "processed_at": doc.processed_at.isoformat() if doc.processed_at else None,
+        }
+        for doc in documents
+    ]
+
+    return {"documents": payload}
+
+
+DOCUMENT_STATUS_MAP = {
+    "emirates_id": "documents_verified",
+    "bank_statement": "financial_docs_received",
+    "salary_certificate": "salary_certificate_uploaded",
+    "trade_license": "trade_documents_uploaded",
+    "utility_bill": "utility_bill_uploaded",
+    "cv": "cv_received",
+    "general": "documents_uploaded",
+}
+
+
 @app.post("/documents/upload")
 async def upload_document(
     file: UploadFile = File(...),
-    document_type: str = "general",
-    application_id: Optional[str] = None,
+    document_type: str = Form("general"),
+    application_id: Optional[str] = Form(None),
     db: AsyncSession = Depends(get_database_session),
 ) -> Dict[str, Any]:
     """Persist uploaded documents and register them in the database."""
@@ -341,7 +385,12 @@ async def upload_document(
         raise HTTPException(status_code=400, detail="Uploaded file is empty")
 
     stored_name = f"{datetime.utcnow().strftime('%Y%m%d%H%M%S%f')}_{file.filename}"
-    file_path = UPLOAD_ROOT / stored_name
+    # create per-application subfolder under uploads when an application_id is provided
+    target_dir = UPLOAD_ROOT
+    if application_id:
+        target_dir = UPLOAD_ROOT / application_id
+    target_dir.mkdir(parents=True, exist_ok=True)
+    file_path = target_dir / stored_name
 
     with open(file_path, "wb") as destination:
         destination.write(contents)
@@ -357,8 +406,43 @@ async def upload_document(
         validation_status="uploaded",
     )
     db.add(document_record)
+
+    if application_id:
+        result = await db.execute(
+            select(Application).where(Application.application_id == application_id)
+        )
+        application_record = result.scalar_one_or_none()
+        if application_record:
+            new_status = DOCUMENT_STATUS_MAP.get(document_type.lower(), "documents_uploaded")
+            application_record.status = new_status
+            application_record.updated_at = datetime.utcnow()
+
     await db.commit()
     await db.refresh(document_record)
+
+    # Trigger orchestrator pipeline rerun for document analysis completeness
+    if application_id:
+        # fetch stored application_data JSON and related documents, then re-run orchestration
+        result = await db.execute(select(Application).where(Application.application_id == application_id))
+        app_record = result.scalar_one_or_none()
+        if app_record:
+            docs = (await db.execute(select(Document).where(Document.application_id == application_id))).scalars().all()
+            documents_list = [
+                {
+                    "document_type": d.document_type,
+                    "filename": d.filename,
+                    "status": d.validation_status,
+                    "file_path": d.file_path,
+                    "uploaded_at": d.uploaded_at.isoformat() if d.uploaded_at else None,
+                }
+                for d in docs
+            ]
+            # Use saved application_data as base payload (contains nested fields)
+            app_payload = dict(app_record.application_data or {})
+            app_payload["documents"] = documents_list
+            # Validate and enqueue orchestrator rerun
+            validated_payload = UAEApplicationData(**app_payload).dict()
+            asyncio.create_task(orchestrator.process(validated_payload))
 
     return {
         "success": True,
@@ -368,6 +452,46 @@ async def upload_document(
         "size": len(contents),
         "document_type": document_type,
     }
+
+
+@app.delete("/documents/{document_id}")
+async def delete_document(
+    document_id: int,
+    db: AsyncSession = Depends(get_database_session),
+) -> Dict[str, Any]:
+    """Remove a stored document and update any related application status."""
+
+    result = await db.execute(
+        select(Document).where(Document.id == document_id)
+    )
+    document_record = result.scalar_one_or_none()
+
+    if not document_record:
+        raise HTTPException(status_code=404, detail="Document not found")
+
+    application_id = document_record.application_id
+    file_path = document_record.file_path
+    await db.delete(document_record)
+
+    if file_path:
+        try:
+            stored_file = Path(file_path)
+            if stored_file.exists():
+                stored_file.unlink()
+        except Exception as exc:  # pragma: no cover - best effort cleanup
+            logger.warning("Failed to delete document file %s: %s", file_path, exc)
+
+    if application_id:
+        app_result = await db.execute(
+            select(Application).where(Application.application_id == application_id)
+        )
+        application_record = app_result.scalar_one_or_none()
+        if application_record:
+            application_record.status = "documents_updated"
+            application_record.updated_at = datetime.utcnow()
+
+    await db.commit()
+    return {"success": True, "document_id": document_id}
 
 
 @app.post("/chat")

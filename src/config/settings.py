@@ -66,6 +66,16 @@ if PYDANTIC_AVAILABLE:
         MAX_FILE_SIZE: int = 52428800  # 50MB
         SUPPORTED_IMAGE_FORMATS: List[str] = ["jpg", "jpeg", "png", "pdf"]
         SUPPORTED_DOC_FORMATS: List[str] = ["pdf", "xlsx", "csv", "docx"]
+
+        # Required document types for a complete application
+        REQUIRED_DOCUMENT_TYPES: List[str] = [
+            "emirates_id",
+            "bank_statement",
+            "salary_certificate",
+            "trade_license",
+            "utility_bill",
+            "cv",
+        ]
         
         # Security
         SECRET_KEY: str = "uae-social-support-secret-key"
@@ -108,6 +118,16 @@ else:
         DATABASE_URL = os.getenv("DATABASE_URL", "sqlite+aiosqlite:///./social_support.db")
         DATABASE_ECHO = False
 
+        # Required document types for a complete application
+        REQUIRED_DOCUMENT_TYPES = [
+            "emirates_id",
+            "bank_statement",
+            "salary_certificate",
+            "trade_license",
+            "utility_bill",
+            "cv",
+        ]
+
         @property
         def database_url(self) -> str:
             return self.DATABASE_URL
@@ -122,4 +142,3 @@ def get_settings() -> Settings:
 
 # Global settings instance
 settings = get_settings()
-

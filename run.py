@@ -10,6 +10,7 @@ import os
 import socket
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -181,7 +182,7 @@ def run_api():
 def run_ui():
     """Start the UI"""
     try:
-        subprocess.run([sys.executable, "-m", "streamlit", "run", "src/ui/multimodal_app.py", "--server.port", "8501"])
+        subprocess.run([sys.executable, "-m", "streamlit", "run", "src/ui/multimodal_app.py", "--server.port", "8502"])
     except Exception as e:
         logger.error(f"Failed to start UI: {e}")
 
@@ -272,13 +273,41 @@ def run_demo():
     print("")
     print(f"✅ Demo completed: {successes} / {len(processed_results)} applications processed successfully")
 
+
+def run_combined():
+    """Launch the API and UI together."""
+
+    command_label = "api+ui"
+    procs = []
+    env = os.environ.copy()
+    try:
+        api_proc = subprocess.Popen([sys.executable, __file__, "api"], env=env)
+        ui_proc = subprocess.Popen([sys.executable, __file__, "ui"], env=env)
+        procs = [api_proc, ui_proc]
+        print("Starting API and UI; use Ctrl+C to stop.")
+        while True:
+            if any(proc.poll() is not None for proc in procs):
+                break
+            time.sleep(1)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        for proc in procs:
+            if proc.poll() is None:
+                proc.terminate()
+        for proc in procs:
+            if proc:
+                proc.wait()
+        print("Shut down API and UI.")
+
 def print_help():
     print("""
 🇦🇪 UAE Social Support AI System
 
 Commands:
   api    - Start API server
-  ui     - Start web interface  
+  ui     - Start web interface
+  serve  - Start API and UI together
   demo   - Run UAE demo
   setup  - Run system setup
     """)
@@ -294,6 +323,8 @@ if __name__ == "__main__":
         run_api()
     elif command == "ui":
         run_ui()
+    elif command == "serve":
+        run_combined()
     elif command == "demo":
         run_demo()
     elif command == "setup":

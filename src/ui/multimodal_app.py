@@ -37,6 +37,17 @@ st.set_page_config(
 
 # API Configuration
 API_BASE_URL = f"http://{API_HOST}:{API_PORT}"
+DOCUMENT_UPLOAD_TYPES = [
+    {"label": "Emirates ID", "value": "emirates_id"},
+    {"label": "Bank Statement", "value": "bank_statement"},
+    {"label": "Salary Certificate", "value": "salary_certificate"},
+    {"label": "Trade License", "value": "trade_license"},
+    {"label": "Utility Bill", "value": "utility_bill"},
+    {"label": "CV / Resume", "value": "cv"},
+]
+DOCUMENT_UPLOAD_LABEL_MAP = {entry["value"]: entry["label"] for entry in DOCUMENT_UPLOAD_TYPES}
+
+
 def api_request(endpoint: str, method: str = "GET", data: Optional[Dict] = None):
     """Make API request"""
     try:
@@ -72,6 +83,61 @@ def api_request(endpoint: str, method: str = "GET", data: Optional[Dict] = None)
     except Exception as e:
         st.error(f"Connection Error: {str(e)}")
         return None
+
+
+def upload_document_file(
+    uploaded_file: Any,
+    document_type: str,
+    application_id: str,
+) -> Optional[Dict[str, Any]]:
+    """Upload a file to the document endpoint."""
+
+    if not uploaded_file:
+        return None
+
+    files = {
+        "file": (
+            uploaded_file.name,
+            uploaded_file.getvalue(),
+            uploaded_file.type or "application/octet-stream",
+        )
+    }
+    data = {
+        "document_type": document_type,
+        "application_id": application_id,
+    }
+
+    try:
+        response = requests.post(f"{API_BASE_URL}/documents/upload", files=files, data=data)
+        if response.status_code == 200:
+            return response.json()
+        try:
+            message = response.json().get("detail", response.text)
+        except ValueError:
+            message = response.text
+        st.error(f"Document upload failed ({response.status_code}): {message}")
+    except Exception as exc:
+        st.error(f"Document upload exception: {exc}")
+    return None
+
+
+def delete_document_request(document_id: int) -> tuple[bool, str]:
+    """Call the API to delete a stored document."""
+
+    try:
+        response = requests.delete(f"{API_BASE_URL}/documents/{document_id}")
+        if response.status_code == 200:
+            return True, ""
+
+        try:
+            payload = response.json()
+            message = payload.get("detail") or payload.get("message") or response.text
+        except ValueError:
+            message = response.text
+
+        return False, f"{response.status_code}: {message}"
+    except Exception as exc:
+        return False, str(exc)
 
 
 EMIRATE_OPTIONS = [
@@ -190,7 +256,7 @@ APPLICATION_CHAT_FIELDS = [
         "section": "personal_info",
         "key": "emirate",
         "label": "Emirate",
-        "prompt": "Which emirate does the applicant live in? (Abu Dhabi, Dubai, Sharjah, Ajman, Fujairah, Ras Al Khaimah, or Umm Al Quwain)",
+        "prompt": "Which emirate does the applicant live in?",
         "type": "choice",
         "choices": EMIRATE_OPTIONS,
         "ack": "Residence emirate noted: {value}.",
@@ -199,7 +265,7 @@ APPLICATION_CHAT_FIELDS = [
         "section": "personal_info",
         "key": "marital_status",
         "label": "Marital Status",
-        "prompt": "What is the applicant's marital status? (Single, Married, Divorced, Widowed)",
+        "prompt": "What is the applicant's marital status?",
         "type": "choice",
         "choices": MARITAL_STATUS_OPTIONS,
         "ack": "Marital status recorded as {value}.",
@@ -228,7 +294,7 @@ APPLICATION_CHAT_FIELDS = [
         "section": "employment_info",
         "key": "employment_status",
         "label": "Employment Status",
-        "prompt": "What is the current employment status? (Employed, Self-Employed, Unemployed, Retired, Student)",
+        "prompt": "What is the current employment status?",
         "type": "choice",
         "choices": EMPLOYMENT_STATUS_OPTIONS,
         "ack": "Employment status noted as {value}.",
@@ -284,7 +350,7 @@ APPLICATION_CHAT_FIELDS = [
         "section": "support_request",
         "key": "support_type",
         "label": "Support Type",
-        "prompt": "Which type of support is needed? (Financial Assistance, Economic Enablement, Both, Emergency Support)",
+        "prompt": "Which type of support is needed?",
         "type": "choice",
         "choices": SUPPORT_TYPE_OPTIONS,
         "ack": "Support type recorded as {value}.",
@@ -308,7 +374,7 @@ APPLICATION_CHAT_FIELDS = [
         "section": "support_request",
         "key": "urgency_level",
         "label": "Urgency Level",
-        "prompt": "How urgent is the request? (Low, Medium, High, Critical)",
+        "prompt": "How urgent is the request?",
         "type": "choice",
         "choices": URGENCY_OPTIONS,
         "ack": "Urgency level captured as {value}.",
@@ -550,6 +616,10 @@ def llm_extract_text_value(field: Dict[str, Any], user_input: str) -> Optional[s
     return cleaned_value
 
 
+def _generate_intake_application_id() -> str:
+    return f"UAE-{datetime.now().strftime('%Y%m%d%H%M%S%f')}"
+
+
 def reset_intake_state() -> None:
     intro = (
         "Hello! I'm your intake assistant. I'll ask a few questions to build the application. "
@@ -567,10 +637,12 @@ def reset_intake_state() -> None:
             "employment_info": {},
             "support_request": {},
         },
+        "application_id": _generate_intake_application_id(),
         "complete": False,
         "submitted": False,
         "submission_result": None,
     }
+    st.session_state.uploaded_documents = []
 
 
 def get_field_prompt(field: Dict[str, Any]) -> str:
@@ -811,6 +883,7 @@ def main():
             "🏠 Dashboard",
             "📄 New Application",
             "📜 Application Status",
+            "📁 Upload Documents",
             "💬 Chat Assistant",
             "📊 Analytics",
             "🔧 System Status",
@@ -823,6 +896,8 @@ def main():
         show_application_form()
     elif page == "📜 Application Status":
         show_application_status()
+    elif page == "📁 Upload Documents":
+        show_document_upload_portal()
     elif page == "💬 Chat Assistant":
         show_chat_interface()
     elif page == "📊 Analytics":
@@ -870,6 +945,12 @@ def fetch_applications(limit: int = 50, offset: int = 0) -> Optional[Dict[str, A
     return api_request(query)
 
 
+def fetch_documents(application_id: str) -> Optional[Dict[str, Any]]:
+    """Load document metadata for an application."""
+
+    return api_request(f"/applications/{application_id}/documents")
+
+
 def show_application_form():
     """Chat-based application intake"""
     st.header("🤖 Chat-Driven Application Intake")
@@ -882,6 +963,8 @@ def show_application_form():
         reset_intake_state()
 
     intake_state = st.session_state.intake_state
+    if "uploaded_documents" not in st.session_state:
+        st.session_state.uploaded_documents = []
     total_steps = len(APPLICATION_CHAT_FIELDS)
     completed_steps = intake_state["current_step"] if not intake_state.get("complete") else total_steps
 
@@ -933,9 +1016,86 @@ def show_application_form():
                         st.markdown(f"**{display_label}:** {display_value}")
                 st.markdown("---")
 
+            application_id = intake_state.get("application_id", "unknown")
+            st.caption(f"Application ID: {application_id}")
+
+            uploaded_docs = st.session_state.get("uploaded_documents", [])
+            with st.expander("Upload supporting documents", expanded=True):
+                st.write(
+                    "Upload clear scans or PDFs (Emirates ID, bank statements, salary certificates, etc.). "
+                    "Files are stored securely before the application is submitted."
+                )
+                with st.form("document_upload_form", clear_on_submit=True):
+                    doc_choice = st.selectbox(
+                        "Document type",
+                        DOCUMENT_UPLOAD_TYPES,
+                        format_func=lambda item: item["label"],
+                        key=f"doc_type_select_{application_id}",
+                    )
+                    uploaded_file = st.file_uploader(
+                        "Select document (PDF or image)", type=["pdf", "png", "jpg", "jpeg", "tif", "tiff", "bmp"], key=f"doc_upload_{application_id}"
+                    )
+                    submit_upload = st.form_submit_button("Upload document")
+
+                    if submit_upload:
+                        if not uploaded_file:
+                            st.warning("Select a file before uploading.")
+                        else:
+                            result = upload_document_file(
+                                uploaded_file,
+                                doc_choice["value"],
+                                application_id,
+                            )
+                            if result:
+                                existing = st.session_state.get("uploaded_documents", [])
+                                existing = existing.copy()
+                                existing.append(
+                                    {
+                                        "document_type": doc_choice["value"],
+                                        "filename": result.get("filename", uploaded_file.name),
+                                        "file_path": result.get("stored_path"),
+                                        "status": "uploaded",
+                                        "document_id": result.get("document_id"),
+                                        "size": result.get("size"),
+                                    }
+                                )
+                                st.session_state.uploaded_documents = existing
+                                uploaded_docs = existing
+                                st.success(f"{result.get('filename', uploaded_file.name)} uploaded.")
+
+            if uploaded_docs:
+                st.subheader("Uploaded Documents")
+                st.caption("Delete any document that was uploaded in the wrong slot before submitting.")
+                for doc in uploaded_docs:
+                    doc_label = DOCUMENT_UPLOAD_LABEL_MAP.get(doc.get("document_type"), doc.get("document_type"))
+                    doc_filename = doc.get("filename") or "Unnamed file"
+                    doc_status = doc.get("status", "uploaded")
+                    doc_id = doc.get("document_id")
+                    cols = st.columns([3, 1, 1])
+                    cols[0].markdown(f"**{doc_label}** – {doc_filename}")
+                    cols[1].text(f"Status: {doc_status}")
+
+                    if doc_id:
+                        if cols[2].button("Delete", key=f"delete_new_doc_{doc_id}"):
+                            success, message = delete_document_request(doc_id)
+                            if success:
+                                remaining = [
+                                    item for item in uploaded_docs if item.get("document_id") != doc_id
+                                ]
+                                st.session_state.uploaded_documents = remaining
+                                st.success(f"Removed {doc_filename}.")
+                                st.experimental_rerun()
+                            else:
+                                st.error(f"Failed to delete document ({message})")
+                    else:
+                        cols[2].button("Delete", disabled=True, key=f"delete_new_doc_{doc_filename}_disabled")
+
             submit_disabled = intake_state.get("submitted", False)
             if st.button("📤 Submit application", key="submit_application_button", disabled=submit_disabled):
                 with st.spinner("Submitting application..."):
+                    payload["application_id"] = application_id
+                    if uploaded_docs:
+                        payload["documents"] = uploaded_docs
                     response = api_request("/applications/submit", method="POST", data=payload)
 
                 if response and response.get("success"):
@@ -1671,7 +1831,9 @@ def show_application_status():
     limit = st.number_input("Items per page", value=50, min_value=1, max_value=200)
     offset = st.number_input("Offset", value=0, min_value=0)
     if st.button("🔄 Refresh list", key="refresh_application_status"):
-        st.session_state.pop("application_status_data", None)
+        for key in list(st.session_state.keys()):
+            if key.startswith("app_status_"):
+                del st.session_state[key]
         st.experimental_rerun()
 
     cached_key = f"app_status_{limit}_{offset}"
@@ -1717,6 +1879,124 @@ def show_application_status():
     st.subheader("Status Breakdown")
     status_df = pd.DataFrame(list(status_counts.items()), columns=["Status", "Count"]).set_index("Status")
     st.bar_chart(status_df)
+
+
+def show_document_upload_portal():
+    """Allow existing applications to receive additional documents."""
+
+    st.header("📁 Upload Documents for Existing Applications")
+    st.markdown(
+        "Select an application below and upload any supporting documents that are still needed "
+        "to move the case forward."
+    )
+
+    apps_payload = fetch_applications(limit=200, offset=0)
+    applications = apps_payload.get("applications", []) if apps_payload else []
+
+    if not applications:
+        st.info("No applications found yet. Submit one via the New Application page first.")
+        return
+
+    options = [
+        f"{item['application_id']} – {item.get('applicant_name', 'Unknown')} ({item.get('status', 'unknown')})"
+        for item in applications
+    ]
+
+    selected = st.selectbox(
+        "Choose an application",
+        options,
+        key="document_portal_selection",
+    )
+
+    selected_index = options.index(selected)
+    selected_app = applications[selected_index]
+    st.markdown(f"**Application ID:** {selected_app['application_id']}")
+    st.markdown(f"**Applicant:** {selected_app.get('applicant_name', 'Unknown')}")
+    st.markdown(f"**Status:** {selected_app.get('status', 'Unknown').title()}")
+
+    document_records_payload = fetch_documents(selected_app["application_id"])
+    document_records = document_records_payload.get("documents", []) if document_records_payload else []
+
+    if document_records:
+        df = pd.DataFrame(document_records)
+        st.subheader("Existing document uploads")
+        st.table(
+            df[
+                [
+                    "document_type",
+                    "filename",
+                    "validation_status",
+                    "uploaded_at",
+                    "file_size",
+                ]
+            ].rename(
+                columns={
+                    "document_type": "Type",
+                    "filename": "Filename",
+                    "validation_status": "Status",
+                    "uploaded_at": "Uploaded At",
+                    "file_size": "Size (bytes)",
+                }
+            )
+        )
+
+        delete_options = [
+            f"{DOCUMENT_UPLOAD_LABEL_MAP.get(record.get('document_type'), record.get('document_type'))} – {record.get('filename')} (id:{record.get('id')})"
+            for record in document_records
+        ]
+        st.caption("Remove documents that were uploaded in error before submitting the updated set.")
+        selected_delete = st.selectbox(
+            "Select a document to delete",
+            delete_options,
+            key=f"delete_doc_select_{selected_app['application_id']}",
+        )
+        delete_index = delete_options.index(selected_delete) if selected_delete in delete_options else 0
+        if st.button("Delete selected document", key=f"delete_existing_doc_{selected_app['application_id']}"):
+            doc_to_delete = document_records[delete_index]
+            doc_id = doc_to_delete.get("id")
+            if doc_id:
+                success, message = delete_document_request(doc_id)
+                if success:
+                    st.success(f"Document {doc_to_delete.get('filename')} deleted.")
+                    st.experimental_rerun()
+                else:
+                    st.error(f"Unable to delete document ({message}).")
+            else:
+                st.warning("Document ID unavailable; cannot delete.")
+    else:
+        st.info(
+            "No documents uploaded for this application yet. "
+            "Please upload the required documents using the 'Upload a document' section below "
+            "to complete the application."
+        )
+
+    with st.expander("Upload a document", expanded=True):
+        with st.form("existing_application_upload_form", clear_on_submit=True):
+            doc_choice = st.selectbox(
+                "Document type",
+                DOCUMENT_UPLOAD_TYPES,
+                format_func=lambda item: item["label"],
+                key=f"existing_doc_type_{selected_app['application_id']}",
+            )
+            uploaded_file = st.file_uploader(
+                "Select document (PDF or image)",
+                type=["pdf", "png", "jpg", "jpeg", "tif", "tiff", "bmp"],
+                key=f"existing_doc_upload_{selected_app['application_id']}",
+            )
+            submit_upload = st.form_submit_button("Upload document")
+
+            if submit_upload:
+                if not uploaded_file:
+                    st.warning("Please select a file before uploading.")
+                else:
+                    result = upload_document_file(
+                        uploaded_file,
+                        doc_choice["value"],
+                        selected_app["application_id"],
+                    )
+                    if result:
+                        st.success(f"{result.get('filename', uploaded_file.name)} uploaded successfully.")
+                        st.experimental_rerun()
 
 
 if __name__ == "__main__":

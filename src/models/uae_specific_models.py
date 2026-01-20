@@ -67,3 +67,5 @@ class UAEApplicationData(BaseModel):
     
     class Config:
         use_enum_values = True
+        # Allow constructing Pydantic models from ORM attributes
+        from_attributes = True

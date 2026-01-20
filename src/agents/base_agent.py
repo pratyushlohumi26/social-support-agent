@@ -36,8 +36,14 @@ class BaseAgent(ABC):
         """Main processing method - must be implemented by subclasses"""
         pass
     
-    async def llm_analyze(self, prompt: str, context: str = "", 
-                         output_format: Optional[Dict[str, Any]] = None) -> Any:
+    async def llm_analyze(
+        self,
+        prompt: str,
+        context: str = "",
+        output_format: Optional[Dict[str, Any]] = None,
+        *,
+        images: Optional[List[str]] = None,
+    ) -> Any:
         """Use LLM for analysis with structured output"""
         
         client_available = self.llm_client and getattr(self.llm_client, "available", False)
@@ -48,10 +54,12 @@ class BaseAgent(ABC):
         try:
             if output_format:
                 return await self.llm_client.generate_structured_response(
-                    prompt, context, output_format
+                    prompt, context, output_format, images=images
                 )
             else:
-                return await self.llm_client.generate_response(prompt, context)
+                return await self.llm_client.generate_response(
+                    prompt, context, images=images
+                )
         except Exception as e:
             logger.error(f"{self.agent_name}: LLM analysis failed: {e}")
             return self._fallback_analysis(prompt)

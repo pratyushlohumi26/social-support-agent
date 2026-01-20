@@ -3,14 +3,24 @@ Document Processor Agent
 """
 
 import logging
-from typing import Any, Dict
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
+
+try:
+    from PyPDF2 import PdfReader
+except ImportError:  # pragma: no cover - graceful degradation in case dependency is missing
+    PdfReader = None  # type: ignore[assignment]
 
 from .base_agent import AgentError, BaseAgent
 
 logger = logging.getLogger(__name__)
 
+
 class DocumentProcessorAgent(BaseAgent):
     """UAE document processing agent"""
+
+    IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".tif", ".tiff", ".bmp"}
+    MIN_TEXT_CHARACTERS = 40
 
     def __init__(self):
         super().__init__("document_processor")
@@ -19,11 +29,18 @@ class DocumentProcessorAgent(BaseAgent):
         """Process UAE documents"""
         try:
             baseline = self._rule_based_result(input_data)
+            documents = input_data.get("documents", [])
+            document_insights, scanned_images = self._collect_document_insights(documents)
+            baseline["document_insights"] = document_insights
 
             if self.llm_client and getattr(self.llm_client, "available", False):
-                llm_result = await self._analyze_with_llm(input_data)
+                llm_result = await self._analyze_with_llm(
+                    input_data,
+                    document_insights=document_insights,
+                    scanned_images=scanned_images,
+                )
                 if llm_result:
-                    baseline = self._merge_llm_results(baseline, llm_result)
+                    baseline = self._merge_llm_results(baseline, llm_result, document_insights)
 
             await self.log_processing(input_data, baseline, success=True)
             return baseline
@@ -55,7 +72,12 @@ class DocumentProcessorAgent(BaseAgent):
             "analysis_source": "rule_based",
         }
 
-    async def _analyze_with_llm(self, input_data: Dict[str, Any]) -> Dict[str, Any] | None:
+    async def _analyze_with_llm(
+        self,
+        input_data: Dict[str, Any],
+        document_insights: List[Dict[str, Any]],
+        scanned_images: List[str],
+    ) -> Dict[str, Any] | None:
         personal_info = input_data.get("personal_info", {})
         employment_info = input_data.get("employment_info", {})
 
@@ -86,6 +108,10 @@ Required JSON fields:
 }}
 """
 
+        document_summary = self._build_document_summary(document_insights)
+        if document_summary:
+            prompt = f"{prompt}\nDocument Details:\n{document_summary}"
+
         expected_shape = {
             "success": True,
             "documents_processed": ["string"],
@@ -97,7 +123,12 @@ Required JSON fields:
         }
 
         try:
-            llm_payload = await self.llm_analyze(prompt, context, output_format=expected_shape)
+            llm_payload = await self.llm_analyze(
+                prompt,
+                context,
+                output_format=expected_shape,
+                images=scanned_images or None,
+            )
             if isinstance(llm_payload, dict) and llm_payload.get("success") is not False:
                 return llm_payload
         except Exception as exc:  # noqa: BLE001
@@ -105,7 +136,12 @@ Required JSON fields:
 
         return None
 
-    def _merge_llm_results(self, baseline: Dict[str, Any], llm_result: Dict[str, Any]) -> Dict[str, Any]:
+    def _merge_llm_results(
+        self,
+        baseline: Dict[str, Any],
+        llm_result: Dict[str, Any],
+        document_insights: List[Dict[str, Any]],
+    ) -> Dict[str, Any]:
         merged = baseline.copy()
 
         merged["documents_processed"] = llm_result.get(
@@ -122,4 +158,83 @@ Required JSON fields:
             merged["overall_confidence"] = llm_result["overall_confidence"]
 
         merged["analysis_source"] = "llm"
+        if document_insights:
+            merged["document_insights"] = document_insights
         return merged
+
+    def _collect_document_insights(
+        self, documents: List[Dict[str, Any]]
+    ) -> Tuple[List[Dict[str, Any]], List[str]]:
+        insights: List[Dict[str, Any]] = []
+        scanned_images: List[str] = []
+
+        for doc in documents:
+            doc_type = doc.get("document_type", "document")
+            filename = doc.get("filename")
+            status = doc.get("status")
+            file_path = doc.get("file_path")
+            snippet: Optional[str] = None
+            scanned = False
+            resolved_path: Optional[Path] = Path(file_path) if file_path else None
+
+            if resolved_path and resolved_path.is_file():
+                suffix = resolved_path.suffix.lower()
+                if suffix == ".pdf":
+                    extracted_text = self._extract_text_from_pdf(resolved_path)
+                    if extracted_text and len(extracted_text.strip()) >= self.MIN_TEXT_CHARACTERS:
+                        snippet = extracted_text.strip()[:400]
+                    else:
+                        scanned = True
+                elif self._is_image_file(resolved_path):
+                    scanned = True
+
+            if scanned and resolved_path:
+                scanned_images.append(str(resolved_path))
+
+            insights.append(
+                {
+                    "document_type": doc_type,
+                    "filename": filename,
+                    "status": status,
+                    "scanned": scanned,
+                    "snippet": snippet,
+                }
+            )
+
+        return insights, scanned_images
+
+    def _build_document_summary(self, insights: List[Dict[str, Any]]) -> str:
+        lines = []
+        for insight in insights:
+            parts = [f"- {insight['document_type']}"]
+            if insight.get("filename"):
+                parts.append(f"({insight['filename']})")
+            if insight.get("scanned"):
+                parts.append("[scanned document]")
+            snippet = insight.get("snippet")
+            if snippet:
+                sanitized = snippet.replace("\n", " ").strip()
+                parts.append(f": {sanitized[:200].strip()}")
+            lines.append(" ".join(parts))
+        return "\n".join(lines)
+
+    def _extract_text_from_pdf(self, pdf_path: Path) -> str:
+        if PdfReader is None:
+            return ""
+        if not pdf_path.is_file():
+            return ""
+
+        try:
+            reader = PdfReader(pdf_path)
+            text_parts: List[str] = []
+            for page in reader.pages:
+                page_text = page.extract_text()
+                if page_text:
+                    text_parts.append(page_text.strip())
+            return "\n".join(text_parts).strip()
+        except Exception as exc:
+            logger.debug("PDF text extraction failed (%s): %s", pdf_path, exc)
+            return ""
+
+    def _is_image_file(self, path: Path) -> bool:
+        return path.suffix.lower() in self.IMAGE_EXTENSIONS
