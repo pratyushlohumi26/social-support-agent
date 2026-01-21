@@ -51,9 +51,20 @@ class OrchestratorAgent(BaseAgent):
             required_docs = set(settings.REQUIRED_DOCUMENT_TYPES)
             missing_docs = list(required_docs - processed_docs)
             doc_results["missing_documents"] = missing_docs
+            document_issues = doc_results.get("issues_found") or []
 
-            if not doc_results.get("success") or not doc_results.get("documents_valid") or missing_docs:
-                return await self._handle_document_failure(processing_results, doc_results, missing_docs)
+            if (
+                not doc_results.get("success")
+                or not doc_results.get("documents_valid")
+                or missing_docs
+                or document_issues
+            ):
+                return await self._handle_document_failure(
+                    processing_results,
+                    doc_results,
+                    missing_docs,
+                    document_issues,
+                )
 
             # Stage 2: Financial Analysis
             enhanced_data = {**application_data, **doc_results}
@@ -195,15 +206,29 @@ class OrchestratorAgent(BaseAgent):
         processing_results: Dict[str, Any],
         doc_results: Dict[str, Any],
         missing_docs: _List[str] = None,
+        issues: _List[str] = None,
     ) -> Dict[str, Any]:
         """Handle document failures or incomplete uploads"""
         missing = missing_docs or []
-        processing_results["final_decision"] = {
-            "status": "documents_required",
-            "decision": "incomplete_application",
+        issues = issues or []
+
+        status = "documents_validation_failed" if issues else "documents_required"
+        decision = "validation_failed" if issues else "incomplete_application"
+        next_steps = (
+            ["Clarify issues", "Provide supporting evidence", "Resubmit"]
+            if issues
+            else ["Upload missing documents", "Ensure quality", "Resubmit"]
+        )
+        final_decision = {
+            "status": status,
+            "decision": decision,
             "missing_documents": missing,
-            "next_steps": ["Upload missing documents", "Ensure quality", "Resubmit"],
+            "next_steps": next_steps,
         }
+        if issues:
+            final_decision["issues_found"] = issues
+
+        processing_results["final_decision"] = final_decision
         return processing_results
 
     async def _make_final_decision(self, financial_results: Dict, career_results: Dict) -> Dict[str, Any]:

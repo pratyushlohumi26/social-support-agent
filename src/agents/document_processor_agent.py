@@ -52,23 +52,39 @@ class DocumentProcessorAgent(BaseAgent):
 
     def _rule_based_result(self, input_data: Dict[str, Any]) -> Dict[str, Any]:
         applicant_name = input_data.get("personal_info", {}).get("full_name", "Unknown")
+        documents = input_data.get("documents", []) or []
+        processed_docs = []
+        extracted_data = {
+            "emirates_id": {
+                "id_number": input_data.get("personal_info", {}).get("emirates_id", ""),
+                "name": applicant_name,
+                "confidence": 0.9,
+            },
+            "bank_statement": {
+                "monthly_income": input_data.get("employment_info", {}).get("monthly_salary", 0),
+                "monthly_expenses": None,
+                "stability_score": 80,
+            },
+        }
+
+        for doc in documents:
+            doc_type = doc.get("document_type")
+            if doc_type:
+                processed_docs.append(doc_type.lower())
+                if doc_type.lower() not in extracted_data:
+                    extracted_data[doc_type.lower()] = {
+                        "filename": doc.get("filename"),
+                        "status": doc.get("status"),
+                    }
+
+        processed_set = sorted(set(processed_docs)) or ["emirates_id", "bank_statement"]
+        documents_valid = bool(processed_docs)
 
         return {
             "success": True,
-            "documents_processed": ["emirates_id", "bank_statement"],
-            "documents_valid": True,
-            "extracted_data": {
-                "emirates_id": {
-                    "id_number": input_data.get("personal_info", {}).get("emirates_id", ""),
-                    "name": applicant_name,
-                    "confidence": 0.9,
-                },
-                "bank_statement": {
-                    "monthly_income": input_data.get("employment_info", {}).get("monthly_salary", 0),
-                    "monthly_expenses": None,
-                    "stability_score": 80,
-                },
-            },
+            "documents_processed": processed_set,
+            "documents_valid": documents_valid,
+            "extracted_data": extracted_data,
             "analysis_source": "rule_based",
         }
 

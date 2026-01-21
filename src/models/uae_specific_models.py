@@ -3,7 +3,7 @@ UAE-specific data models
 """
 
 from pydantic import BaseModel, Field, validator
-from typing import List, Optional, Dict, Any, Union
+from typing import List, Optional, Dict, Any
 from datetime import datetime, date
 from enum import Enum
 
@@ -64,7 +64,8 @@ class UAEApplicationData(BaseModel):
     employment_info: UAEEmploymentInfo
     support_request: UAESupportRequest
     processing_status: str = Field(default="submitted")
-    
+    documents: Optional[List[Dict[str, Any]]] = None
+
     class Config:
         use_enum_values = True
         # Allow constructing Pydantic models from ORM attributes

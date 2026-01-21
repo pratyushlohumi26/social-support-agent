@@ -951,6 +951,22 @@ def fetch_documents(application_id: str) -> Optional[Dict[str, Any]]:
     return api_request(f"/applications/{application_id}/documents")
 
 
+def fetch_application_detail(application_id: str) -> Optional[Dict[str, Any]]:
+    """Load detailed application data for decision inspection."""
+
+    return api_request(f"/applications/{application_id}")
+
+
+def reprocess_application_status(application_id: str) -> Optional[Dict[str, Any]]:
+    """Trigger a reprocessing run for the selected application."""
+
+    return api_request(
+        f"/applications/{application_id}/reprocess",
+        method="POST",
+        data={},
+    )
+
+
 def show_application_form():
     """Chat-based application intake"""
     st.header("🤖 Chat-Driven Application Intake")
@@ -1879,6 +1895,71 @@ def show_application_status():
     st.subheader("Status Breakdown")
     status_df = pd.DataFrame(list(status_counts.items()), columns=["Status", "Count"]).set_index("Status")
     st.bar_chart(status_df)
+
+    st.subheader("🔎 Detailed Application Insight")
+    app_ids = df["application_id"].tolist()
+    if not app_ids:
+        st.info("No applications recorded yet.")
+        return
+
+    selected_app_id = st.selectbox("Select application to inspect", app_ids, key="detailed_app_select")
+    detail_cache_key = f"app_detail_{selected_app_id}"
+    if detail_cache_key not in st.session_state:
+        st.session_state[detail_cache_key] = fetch_application_detail(selected_app_id)
+
+    detail_payload = st.session_state.get(detail_cache_key)
+    if not detail_payload:
+        st.warning("Unable to load detailed application data.")
+        return
+
+    final_decision = detail_payload.get("decision_data", {}) or {}
+    st.markdown(f"**Current status:** {final_decision.get('status', detail_payload.get('status', 'unknown')).replace('_', ' ').title()}")
+    st.markdown(f"**Priority:** {detail_payload.get('priority', 'unknown')}")
+    st.markdown(f"**Support type:** {detail_payload.get('support_type', 'n/a')}")
+
+    if st.button("🔄 Reprocess selected application", key=f"reprocess_{selected_app_id}"):
+        with st.spinner("Re-running agents with the latest documents..."):
+            response = reprocess_application_status(selected_app_id)
+        if response and response.get("success"):
+            st.success("Reprocessing completed. Use the Refresh list button above to reload the table and details.")
+            st.session_state.pop(detail_cache_key, None)
+            for key in list(st.session_state.keys()):
+                if key.startswith("app_status_"):
+                    del st.session_state[key]
+        else:
+            st.error("Reprocessing failed; check the backend logs for details.")
+
+    with st.expander("Final decision payload", expanded=True):
+        st.json(final_decision)
+
+    processing_results = detail_payload.get("processing_results", {}) or {}
+    stages = processing_results.get("processing_stages", {}) or {}
+    if stages:
+        with st.expander("Agent processing stages", expanded=True):
+            for stage_name, stage_output in stages.items():
+                st.markdown(f"**{stage_name.replace('_', ' ').title()}**")
+                st.json(stage_output)
+    else:
+        st.info("Processing stages are not available for this application yet.")
+
+    application_data = detail_payload.get("application_data", {}) or {}
+    documents_list = application_data.get("documents", [])
+    if documents_list:
+        with st.expander("Captured document metadata", expanded=False):
+            st.dataframe(
+                pd.DataFrame(documents_list)
+                .rename(
+                    columns={
+                        "document_type": "Type",
+                        "filename": "Filename",
+                        "status": "Status",
+                        "uploaded_at": "Uploaded At",
+                    }
+                ),
+                use_container_width=True,
+            )
+    else:
+        st.info("No document metadata embedded in the captured payload.")
 
 
 def show_document_upload_portal():

@@ -7,7 +7,7 @@ import logging
 import os
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 from uuid import uuid4
 
 from fastapi import Body, Depends, FastAPI, File, Form, HTTPException, UploadFile
@@ -66,6 +66,71 @@ UPLOAD_ROOT = Path(getattr(settings, "UPLOAD_DIR", "uploads"))
 # Utility helpers -----------------------------------------------------------
 def _generate_application_id() -> str:
     return f"UAE-{datetime.utcnow().strftime('%Y%m%d%H%M%S%f')}"
+
+
+async def _reprocess_application_documents(
+    db: AsyncSession,
+    application_record: Application,
+    documents_list: List[Dict[str, Any]],
+) -> None:
+    """Re-run the orchestrator after document upload and persist the new decision."""
+
+    app_payload = dict(application_record.application_data or {})
+    app_payload["documents"] = documents_list
+
+    try:
+        validated_payload = UAEApplicationData(**app_payload).dict()
+    except ValidationError as exc:
+        logger.warning(
+            "Document reprocessing skipped for %s: validation failed (%s)",
+            application_record.application_id,
+            exc,
+        )
+        return False
+
+    try:
+        processing_result = await orchestrator.process(validated_payload)
+    except Exception as exc:  # noqa: BLE001
+        logger.error(
+            "Orchestrator rerun after document upload failed for %s: %s",
+            application_record.application_id,
+            exc,
+        )
+        return False
+
+    serialized_application_data = jsonable_encoder(validated_payload)
+    serialized_processing_result = jsonable_encoder(processing_result)
+    final_decision = serialized_processing_result.get("final_decision", {})
+    status = (
+        final_decision.get("status")
+        or validated_payload.get("processing_status")
+        or application_record.status
+        or "processed"
+    )
+
+    personal_info = validated_payload.get("personal_info", {})
+    employment_info = validated_payload.get("employment_info", {})
+    support_request = validated_payload.get("support_request", {})
+
+    application_record.applicant_name = personal_info.get("full_name")
+    application_record.phone = personal_info.get("mobile_number")
+    application_record.email = personal_info.get("email")
+    application_record.support_type = support_request.get("support_type")
+    application_record.status = status
+    application_record.priority = support_request.get("urgency_level")
+    application_record.emirates_id = personal_info.get("emirates_id")
+    application_record.emirate = personal_info.get("emirate")
+    application_record.family_size = personal_info.get("family_size")
+    application_record.monthly_income = employment_info.get("monthly_salary")
+    application_record.application_data = serialized_application_data
+    application_record.processing_results = serialized_processing_result
+    application_record.decision_data = final_decision
+    application_record.updated_at = datetime.utcnow()
+
+    await db.commit()
+    await db.refresh(application_record)
+
+    return True
 
 
 async def _store_chat_exchange(
@@ -357,6 +422,52 @@ async def get_application_documents(
     return {"documents": payload}
 
 
+@app.post("/applications/{application_id}/reprocess")
+async def reprocess_application(
+    application_id: str,
+    db: AsyncSession = Depends(get_database_session),
+) -> Dict[str, Any]:
+    """Trigger a rerun of the agent workflow using the latest document set."""
+
+    result = await db.execute(
+        select(Application).where(Application.application_id == application_id)
+    )
+    application_record = result.scalar_one_or_none()
+
+    if not application_record:
+        raise HTTPException(status_code=404, detail="Application not found")
+
+    documents_result = await db.execute(
+        select(Document).where(Document.application_id == application_id)
+    )
+    docs = documents_result.scalars().all()
+    documents_list = [
+        {
+            "document_type": doc.document_type,
+            "filename": doc.filename,
+            "status": doc.validation_status,
+            "file_path": doc.file_path,
+            "uploaded_at": doc.uploaded_at.isoformat() if doc.uploaded_at else None,
+        }
+        for doc in docs
+    ]
+
+    success = await _reprocess_application_documents(db, application_record, documents_list)
+
+    if not success:
+        raise HTTPException(
+            status_code=500,
+            detail="Document reprocessing failed; check application logs for more details.",
+        )
+
+    return {
+        "success": True,
+        "message": "Application reprocessed successfully.",
+        "decision_data": application_record.decision_data,
+        "processing_results": application_record.processing_results,
+    }
+
+
 DOCUMENT_STATUS_MAP = {
     "emirates_id": "documents_verified",
     "bank_statement": "financial_docs_received",
@@ -437,12 +548,7 @@ async def upload_document(
                 }
                 for d in docs
             ]
-            # Use saved application_data as base payload (contains nested fields)
-            app_payload = dict(app_record.application_data or {})
-            app_payload["documents"] = documents_list
-            # Validate and enqueue orchestrator rerun
-            validated_payload = UAEApplicationData(**app_payload).dict()
-            asyncio.create_task(orchestrator.process(validated_payload))
+            await _reprocess_application_documents(db, app_record, documents_list)
 
     return {
         "success": True,

@@ -67,14 +67,11 @@ if PYDANTIC_AVAILABLE:
         SUPPORTED_IMAGE_FORMATS: List[str] = ["jpg", "jpeg", "png", "pdf"]
         SUPPORTED_DOC_FORMATS: List[str] = ["pdf", "xlsx", "csv", "docx"]
 
-        # Required document types for a complete application
+        # Required document types for a complete application (mandatory set)
         REQUIRED_DOCUMENT_TYPES: List[str] = [
             "emirates_id",
             "bank_statement",
-            "salary_certificate",
-            "trade_license",
             "utility_bill",
-            "cv",
         ]
         
         # Security
@@ -118,14 +115,11 @@ else:
         DATABASE_URL = os.getenv("DATABASE_URL", "sqlite+aiosqlite:///./social_support.db")
         DATABASE_ECHO = False
 
-        # Required document types for a complete application
+        # Required document types for a complete application (mandatory set)
         REQUIRED_DOCUMENT_TYPES = [
             "emirates_id",
             "bank_statement",
-            "salary_certificate",
-            "trade_license",
             "utility_bill",
-            "cv",
         ]
 
         @property

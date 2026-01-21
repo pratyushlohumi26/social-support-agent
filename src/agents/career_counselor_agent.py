@@ -95,7 +95,9 @@ class CareerCounselorAgent(BaseAgent):
 
     def _identify_sector(self, current_job: str, career_goals: str) -> str:
         """Identify career sector"""
-        text = (current_job + " " + career_goals).lower()
+        job_fragment = current_job or ""
+        goal_fragment = career_goals or ""
+        text = f"{job_fragment} {goal_fragment}".strip().lower()
 
         if any(keyword in text for keyword in ["technology", "digital", "data"]):
             return "technology"
@@ -126,9 +128,10 @@ class CareerCounselorAgent(BaseAgent):
 
     def _identify_skill_gaps(self, current_job: str, career_goals: str) -> List[str]:
         """Identify skill gaps"""
-        if "digital" in career_goals.lower():
+        goals_text = (career_goals or "").lower()
+        if "digital" in goals_text:
             return ["Digital marketing", "Data analysis"]
-        elif "management" in career_goals.lower():
+        elif "management" in goals_text:
             return ["Leadership skills", "Project management"]
         else:
             return ["Professional development", "Communication skills"]
